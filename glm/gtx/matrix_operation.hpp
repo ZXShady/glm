@@ -16,86 +16,78 @@
 #include "../glm.hpp"
 
 #ifndef GLM_ENABLE_EXPERIMENTAL
-#	error "GLM: GLM_GTX_matrix_operation is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
+#error \
+    "GLM: GLM_GTX_matrix_operation is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
 #elif GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_matrix_operation extension included")
+#pragma message("GLM: GLM_GTX_matrix_operation extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_matrix_operation
-	/// @{
+/// @addtogroup gtx_matrix_operation
+/// @{
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<2, 2, T, Q> diagonal2x2(
-		vec<2, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<2, 2, T, Q> diagonal2x2(const vec<2, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<2, 3, T, Q> diagonal2x3(
-		vec<2, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<2, 3, T, Q> diagonal2x3(const vec<2, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<2, 4, T, Q> diagonal2x4(
-		vec<2, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<2, 4, T, Q> diagonal2x4(const vec<2, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 2, T, Q> diagonal3x2(
-		vec<2, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<3, 2, T, Q> diagonal3x2(const vec<2, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 3, T, Q> diagonal3x3(
-		vec<3, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<3, 3, T, Q> diagonal3x3(const vec<3, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 4, T, Q> diagonal3x4(
-		vec<3, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<3, 4, T, Q> diagonal3x4(const vec<3, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 2, T, Q> diagonal4x2(
-		vec<2, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<4, 2, T, Q> diagonal4x2(const vec<2, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 3, T, Q> diagonal4x3(
-		vec<3, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<4, 3, T, Q> diagonal4x3(const vec<3, T, Q>& v);
 
-	//! Build a diagonal matrix.
-	//! From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 4, T, Q> diagonal4x4(
-		vec<4, T, Q> const& v);
+//! Build a diagonal matrix.
+//! From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<4, 4, T, Q> diagonal4x4(const vec<4, T, Q>& v);
 
-	/// Build an adjugate  matrix.
-	/// From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<2, 2, T, Q> adjugate(mat<2, 2, T, Q> const& m);
+/// Build an adjugate  matrix.
+/// From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<2, 2, T, Q> adjugate(const mat<2, 2, T, Q>& m);
 
-	/// Build an adjugate  matrix.
-	/// From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<3, 3, T, Q> adjugate(mat<3, 3, T, Q> const& m);
+/// Build an adjugate  matrix.
+/// From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<3, 3, T, Q> adjugate(const mat<3, 3, T, Q>& m);
 
-	/// Build an adjugate  matrix.
-	/// From GLM_GTX_matrix_operation extension.
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL mat<4, 4, T, Q> adjugate(mat<4, 4, T, Q> const& m);
+/// Build an adjugate  matrix.
+/// From GLM_GTX_matrix_operation extension.
+template <typename T, qualifier Q>
+GLM_FUNC_DECL mat<4, 4, T, Q> adjugate(const mat<4, 4, T, Q>& m);
 
-	/// @}
-}//namespace glm
+/// @}
+} //namespace glm
 
 #include "matrix_operation.inl"

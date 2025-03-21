@@ -17,45 +17,41 @@
 #pragma once
 
 // Dependencies
-#include "../detail/setup.hpp"
-#include "../detail/qualifier.hpp"
-#include "../detail/_noise.hpp"
-#include "../geometric.hpp"
 #include "../common.hpp"
-#include "../vector_relational.hpp"
+#include "../detail/_noise.hpp"
+#include "../detail/qualifier.hpp"
+#include "../detail/setup.hpp"
+#include "../geometric.hpp"
 #include "../vec2.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
+#include "../vector_relational.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_noise extension included")
+#pragma message("GLM: GLM_GTC_noise extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtc_noise
-	/// @{
+/// @addtogroup gtc_noise
+/// @{
 
-	/// Classic perlin noise.
-	/// @see gtc_noise
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL T perlin(
-		vec<L, T, Q> const& p);
+/// Classic perlin noise.
+/// @see gtc_noise
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL T perlin(const vec<L, T, Q>& p);
 
-	/// Periodic perlin noise.
-	/// @see gtc_noise
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL T perlin(
-		vec<L, T, Q> const& p,
-		vec<L, T, Q> const& rep);
+/// Periodic perlin noise.
+/// @see gtc_noise
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL T perlin(const vec<L, T, Q>& p, const vec<L, T, Q>& rep);
 
-	/// Simplex noise.
-	/// @see gtc_noise
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL T simplex(
-		vec<L, T, Q> const& p);
+/// Simplex noise.
+/// @see gtc_noise
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL T simplex(const vec<L, T, Q>& p);
 
-	/// @}
-}//namespace glm
+/// @}
+} //namespace glm
 
 #include "noise.inl"

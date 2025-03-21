@@ -18,47 +18,48 @@
 #include <limits>
 
 #ifndef GLM_ENABLE_EXPERIMENTAL
-#	error "GLM: GLM_GTX_vector_query is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
+#error \
+    "GLM: GLM_GTX_vector_query is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
 #elif GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_vector_query extension included")
+#pragma message("GLM: GLM_GTX_vector_query extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_vector_query
-	/// @{
+/// @addtogroup gtx_vector_query
+/// @{
 
-	//! Check whether two vectors are collinears.
-	/// @see gtx_vector_query extensions.
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL bool areCollinear(vec<L, T, Q> const& v0, vec<L, T, Q> const& v1, T const& epsilon);
+//! Check whether two vectors are collinears.
+/// @see gtx_vector_query extensions.
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL bool areCollinear(const vec<L, T, Q>& v0, const vec<L, T, Q>& v1, const T& epsilon);
 
-	//! Check whether two vectors are orthogonals.
-	/// @see gtx_vector_query extensions.
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL bool areOrthogonal(vec<L, T, Q> const& v0, vec<L, T, Q> const& v1, T const& epsilon);
+//! Check whether two vectors are orthogonals.
+/// @see gtx_vector_query extensions.
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL bool areOrthogonal(const vec<L, T, Q>& v0, const vec<L, T, Q>& v1, const T& epsilon);
 
-	//! Check whether a vector is normalized.
-	/// @see gtx_vector_query extensions.
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL bool isNormalized(vec<L, T, Q> const& v, T const& epsilon);
+//! Check whether a vector is normalized.
+/// @see gtx_vector_query extensions.
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL bool isNormalized(const vec<L, T, Q>& v, const T& epsilon);
 
-	//! Check whether a vector is null.
-	/// @see gtx_vector_query extensions.
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL bool isNull(vec<L, T, Q> const& v, T const& epsilon);
+//! Check whether a vector is null.
+/// @see gtx_vector_query extensions.
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL bool isNull(const vec<L, T, Q>& v, const T& epsilon);
 
-	//! Check whether a each component of a vector is null.
-	/// @see gtx_vector_query extensions.
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> isCompNull(vec<L, T, Q> const& v, T const& epsilon);
+//! Check whether a each component of a vector is null.
+/// @see gtx_vector_query extensions.
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL vec<L, bool, Q> isCompNull(const vec<L, T, Q>& v, const T& epsilon);
 
-	//! Check whether two vectors are orthonormal.
-	/// @see gtx_vector_query extensions.
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL bool areOrthonormal(vec<L, T, Q> const& v0, vec<L, T, Q> const& v1, T const& epsilon);
+//! Check whether two vectors are orthonormal.
+/// @see gtx_vector_query extensions.
+template <length_t L, typename T, qualifier Q>
+GLM_FUNC_DECL bool areOrthonormal(const vec<L, T, Q>& v0, const vec<L, T, Q>& v1, const T& epsilon);
 
-	/// @}
-}// namespace glm
+/// @}
+} // namespace glm
 
 #include "vector_query.inl"
