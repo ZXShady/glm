@@ -435,17 +435,6 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Static assert
-
-#if GLM_HAS_STATIC_ASSERT
-#	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
-#elif GLM_COMPILER & GLM_COMPILER_VC
-#	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
-#else
-#	define GLM_STATIC_ASSERT(x, message) assert(x)
-#endif//GLM_LANG
-
-///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
 // User defines: GLM_CUDA_FORCE_DEVICE_FUNC, GLM_CUDA_FORCE_HOST_FUNC

@@ -222,7 +222,7 @@ GLM_FUNC_QUALIFIER glm::uint64 bitfieldInterleave(glm::uint16 x, glm::uint16 y, 
 template <typename genIUType>
 GLM_FUNC_QUALIFIER genIUType mask(genIUType Bits)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'mask' accepts only integer values");
+    static_assert(std::numeric_limits<genIUType>::is_integer, "'mask' accepts only integer values");
 
     return Bits >= static_cast<genIUType>(sizeof(genIUType) * 8)
                ? ~static_cast<genIUType>(0)
@@ -236,7 +236,7 @@ GLM_FUNC_QUALIFIER genIUType mask(genIUType Bits)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> mask(const vec<L, T, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
+    static_assert(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
 
     return detail::functor1<vec, L, T, T, Q>::call(mask, v);
 }
@@ -244,7 +244,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> mask(const vec<L, T, Q>& v)
 template <typename genIType>
 GLM_FUNC_QUALIFIER genIType bitfieldRotateRight(genIType In, int Shift)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitfieldRotateRight' accepts only integer values");
+    static_assert(std::numeric_limits<genIType>::is_integer, "'bitfieldRotateRight' accepts only integer values");
 
     const int BitSize = static_cast<genIType>(sizeof(genIType) * 8);
     return (In << static_cast<genIType>(Shift)) | (In >> static_cast<genIType>(BitSize - Shift));
@@ -253,7 +253,7 @@ GLM_FUNC_QUALIFIER genIType bitfieldRotateRight(genIType In, int Shift)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldRotateRight(const vec<L, T, Q>& In, int Shift)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateRight' accepts only integer values");
+    static_assert(std::numeric_limits<T>::is_integer, "'bitfieldRotateRight' accepts only integer values");
 
     const int BitSize = static_cast<int>(sizeof(T) * 8);
     return (In << static_cast<T>(Shift)) | (In >> static_cast<T>(BitSize - Shift));
@@ -262,7 +262,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldRotateRight(const vec<L, T, Q>& In, int 
 template <typename genIType>
 GLM_FUNC_QUALIFIER genIType bitfieldRotateLeft(genIType In, int Shift)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitfieldRotateLeft' accepts only integer values");
+    static_assert(std::numeric_limits<genIType>::is_integer, "'bitfieldRotateLeft' accepts only integer values");
 
     const int BitSize = static_cast<genIType>(sizeof(genIType) * 8);
     return (In >> static_cast<genIType>(Shift)) | (In << static_cast<genIType>(BitSize - Shift));
@@ -271,7 +271,7 @@ GLM_FUNC_QUALIFIER genIType bitfieldRotateLeft(genIType In, int Shift)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> bitfieldRotateLeft(const vec<L, T, Q>& In, int Shift)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateLeft' accepts only integer values");
+    static_assert(std::numeric_limits<T>::is_integer, "'bitfieldRotateLeft' accepts only integer values");
 
     const int BitSize = static_cast<int>(sizeof(T) * 8);
     return (In >> static_cast<T>(Shift)) | (In << static_cast<T>(BitSize - Shift));

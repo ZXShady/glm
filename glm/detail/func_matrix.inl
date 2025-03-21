@@ -22,7 +22,7 @@ struct compute_matrixCompMult_type
 {
     GLM_FUNC_QUALIFIER static mat<C, R, T, Q> call(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
+        static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
                           "'matrixCompMult' only accept floating-point inputs, include <glm/ext/matrix_integer.hpp> to "
                           "discard this restriction.");
         return detail::compute_matrixCompMult<C, R, T, Q, detail::is_aligned<Q>::value>::call(x, y);
@@ -48,7 +48,7 @@ struct compute_outerProduct_type
     GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<DA, DB, T, Q>::type call(const vec<DA, T, Q>& c,
                                                                                            const vec<DB, T, Q>& r)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
+        static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
                           "'outerProduct' only accept floating-point inputs, include <glm/ext/matrix_integer.hpp> to "
                           "discard this restriction.");
 
@@ -242,7 +242,7 @@ struct compute_transpose_type
 {
     GLM_FUNC_QUALIFIER static mat<R, C, T, Q> call(const mat<C, R, T, Q>& m)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
+        static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
                           "'transpose' only accept floating-point inputs, include <glm/ext/matrix_integer.hpp> to "
                           "discard this restriction.");
         return detail::compute_transpose<C, R, T, Q, detail::is_aligned<Q>::value>::call(m);
@@ -300,7 +300,7 @@ struct compute_determinant_type
 
     GLM_FUNC_QUALIFIER static T call(const mat<C, R, T, Q>& m)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
+        static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
                           "'determinant' only accept floating-point inputs, include <glm/ext/matrix_integer.hpp> to "
                           "discard this restriction.");
         return detail::compute_determinant<C, R, T, Q, detail::is_aligned<Q>::value>::call(m);
@@ -487,7 +487,7 @@ GLM_FUNC_QUALIFIER T determinant(const mat<C, R, T, Q>& m)
 template <length_t C, length_t R, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER mat<C, R, T, Q> inverse(const mat<C, R, T, Q>& m)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
+    static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
                       "'inverse' only accept floating-point inputs");
     return detail::compute_inverse<C, R, T, Q, detail::is_aligned<Q>::value>::call(m);
 }

@@ -81,7 +81,7 @@ struct compute_compScale<L, T, floatType, Q, false, true>
 template <typename floatType, length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, floatType, Q> compNormalize(const vec<L, T, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559,
+    static_assert(std::numeric_limits<floatType>::is_iec559,
                       "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
 
     return detail::compute_compNormalize<L, T, floatType, Q, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(
@@ -91,7 +91,7 @@ GLM_FUNC_QUALIFIER vec<L, floatType, Q> compNormalize(const vec<L, T, Q>& v)
 template <typename T, length_t L, typename floatType, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> compScale(const vec<L, floatType, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559,
+    static_assert(std::numeric_limits<floatType>::is_iec559,
                       "'compScale' accepts only floating-point types for 'floatType' template parameter");
 
     return detail::compute_compScale<L, T, floatType, Q, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(

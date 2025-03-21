@@ -3,7 +3,7 @@ namespace glm
 template <typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR T dot(const qua<T, Q>& x, const qua<T, Q>& y)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
+    static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
                       "'dot' accepts only floating-point inputs");
     return detail::compute_dot<qua<T, Q>, T, detail::is_aligned<Q>::value>::call(x, y);
 }

@@ -11,7 +11,7 @@ struct compute_cross_vec2
 {
     GLM_FUNC_QUALIFIER GLM_CONSTEXPR static T call(const vec<2, T, Q>& v, const vec<2, T, Q>& u)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
+        static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
                           "'cross' accepts only floating-point inputs");
 
         return v.x * u.y - u.x * v.y;

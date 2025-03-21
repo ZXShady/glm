@@ -5,7 +5,7 @@ namespace glm
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> min(const vec<L, T, Q>& x, const vec<L, T, Q>& y, const vec<L, T, Q>& z)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
+    static_assert(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
                       "'min' only accept floating-point or integer inputs");
     return glm::min(glm::min(x, y), z);
 }
@@ -16,7 +16,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> min(const vec<L, T, Q>& x,
                                                   const vec<L, T, Q>& z,
                                                   const vec<L, T, Q>& w)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
+    static_assert(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
                       "'min' only accept floating-point or integer inputs");
     return glm::min(glm::min(x, y), glm::min(z, w));
 }
@@ -24,7 +24,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> min(const vec<L, T, Q>& x,
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> max(const vec<L, T, Q>& x, const vec<L, T, Q>& y, const vec<L, T, Q>& z)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
+    static_assert(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
                       "'max' only accept floating-point or integer inputs");
     return glm::max(glm::max(x, y), z);
 }
@@ -35,7 +35,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> max(const vec<L, T, Q>& x,
                                                   const vec<L, T, Q>& z,
                                                   const vec<L, T, Q>& w)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
+    static_assert(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
                       "'max' only accept floating-point or integer inputs");
     return glm::max(glm::max(x, y), glm::max(z, w));
 }
@@ -43,56 +43,56 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> max(const vec<L, T, Q>& x,
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmin(const vec<L, T, Q>& a, T b)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
     return detail::functor2<vec, L, T, Q>::call(fmin, a, vec<L, T, Q>(b));
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmin(const vec<L, T, Q>& a, const vec<L, T, Q>& b)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
     return detail::functor2<vec, L, T, Q>::call(fmin, a, b);
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmin(const vec<L, T, Q>& a, const vec<L, T, Q>& b, const vec<L, T, Q>& c)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
     return fmin(fmin(a, b), c);
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmin(const vec<L, T, Q>& a, const vec<L, T, Q>& b, const vec<L, T, Q>& c, const vec<L, T, Q>& d)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmin' only accept floating-point inputs");
     return fmin(fmin(a, b), fmin(c, d));
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmax(const vec<L, T, Q>& a, T b)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
     return detail::functor2<vec, L, T, Q>::call(fmax, a, vec<L, T, Q>(b));
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmax(const vec<L, T, Q>& a, const vec<L, T, Q>& b)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
     return detail::functor2<vec, L, T, Q>::call(fmax, a, b);
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmax(const vec<L, T, Q>& a, const vec<L, T, Q>& b, const vec<L, T, Q>& c)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
     return fmax(fmax(a, b), c);
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> fmax(const vec<L, T, Q>& a, const vec<L, T, Q>& b, const vec<L, T, Q>& c, const vec<L, T, Q>& d)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'fmax' only accept floating-point inputs");
     return fmax(fmax(a, b), fmax(c, d));
 }
 
@@ -140,7 +140,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> mirrorRepeat(const vec<L, T, Q>& Texcoord)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, int, Q> iround(const vec<L, T, Q>& x)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'iround' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'iround' only accept floating-point inputs");
     assert(all(lessThanEqual(vec<L, T, Q>(0), x)));
 
     return vec<L, int, Q>(x + static_cast<T>(0.5));
@@ -149,7 +149,7 @@ GLM_FUNC_QUALIFIER vec<L, int, Q> iround(const vec<L, T, Q>& x)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, uint, Q> uround(const vec<L, T, Q>& x)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'uround' only accept floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'uround' only accept floating-point inputs");
     assert(all(lessThanEqual(vec<L, T, Q>(0), x)));
 
     return vec<L, uint, Q>(x + static_cast<T>(0.5));

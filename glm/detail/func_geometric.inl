@@ -77,14 +77,14 @@ struct compute_cross
 {
     GLM_FUNC_QUALIFIER GLM_CONSTEXPR static vec<3, T, Q> call(const vec<3, T, Q>& x, const vec<3, T, Q>& y)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
+        static_assert(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
 
         return vec<3, T, Q>(x.y * y.z - y.y * x.z, x.z * y.x - y.z * x.x, x.x * y.y - y.x * x.y);
     }
 
     GLM_FUNC_QUALIFIER GLM_CONSTEXPR static vec<4, T, Q> call(const vec<4, T, Q>& x, const vec<4, T, Q>& y)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
+        static_assert(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
 
         return vec<4, T, Q>(x.y * y.z - y.y * x.z, x.z * y.x - y.z * x.x, x.x * y.y - y.x * x.y, 0.0f);
     }
@@ -95,7 +95,7 @@ struct compute_normalize
 {
     GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& v)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
+        static_assert(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
 
         return v * inversesqrt(dot(v, v));
     }
@@ -106,7 +106,7 @@ struct compute_faceforward
 {
     GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& N, const vec<L, T, Q>& I, const vec<L, T, Q>& Nref)
     {
-        GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
+        static_assert(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
 
         return dot(Nref, I) < static_cast<T>(0) ? N : -N;
     }
@@ -139,7 +139,7 @@ struct compute_refract
 template <typename genType>
 GLM_FUNC_QUALIFIER genType length(genType x)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'length' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<genType>::is_iec559, "'length' accepts only floating-point inputs");
 
     return abs(x);
 }
@@ -147,7 +147,7 @@ GLM_FUNC_QUALIFIER genType length(genType x)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER T length(const vec<L, T, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'length' accepts only floating-point inputs");
 
     return detail::compute_length<L, T, Q, detail::is_aligned<Q>::value>::call(v);
 }
@@ -156,7 +156,7 @@ GLM_FUNC_QUALIFIER T length(const vec<L, T, Q>& v)
 template <typename genType>
 GLM_FUNC_QUALIFIER genType distance(const genType& p0, const genType& p1)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'distance' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<genType>::is_iec559, "'distance' accepts only floating-point inputs");
 
     return length(p1 - p0);
 }
@@ -171,14 +171,14 @@ GLM_FUNC_QUALIFIER T distance(const vec<L, T, Q>& p0, const vec<L, T, Q>& p1)
 template <typename T>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR T dot(T x, T y)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
     return x * y;
 }
 
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR T dot(const vec<L, T, Q>& x, const vec<L, T, Q>& y)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
     return detail::compute_dot<vec<L, T, Q>, T, detail::is_aligned<Q>::value>::call(x, y);
 }
 
@@ -193,7 +193,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(const vec<3, T, Q>& x, const
 	template<typename genType>
 	GLM_FUNC_QUALIFIER genType normalize(genType const& x)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'normalize' accepts only floating-point inputs");
+		static_assert(std::numeric_limits<genType>::is_iec559, "'normalize' accepts only floating-point inputs");
 
 		return x < genType(0) ? genType(-1) : genType(1);
 	}
@@ -201,7 +201,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(const vec<3, T, Q>& x, const
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> normalize(const vec<L, T, Q>& x)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
 
     return detail::compute_normalize<L, T, Q, detail::is_aligned<Q>::value>::call(x);
 }
@@ -236,7 +236,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> reflect(const vec<L, T, Q>& I, const vec<L, T, Q
 template <typename genType>
 GLM_FUNC_QUALIFIER genType refract(const genType& I, const genType& N, genType eta)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'refract' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<genType>::is_iec559, "'refract' accepts only floating-point inputs");
     const genType dotValue(dot(N, I));
     const genType k(static_cast<genType>(1) - eta * eta * (static_cast<genType>(1) - dotValue * dotValue));
     return (eta * I - (eta * dotValue + sqrt(k)) * N) * static_cast<genType>(k >= static_cast<genType>(0));
@@ -245,7 +245,7 @@ GLM_FUNC_QUALIFIER genType refract(const genType& I, const genType& N, genType e
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> refract(const vec<L, T, Q>& I, const vec<L, T, Q>& N, T eta)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'refract' accepts only floating-point inputs");
+    static_assert(std::numeric_limits<T>::is_iec559, "'refract' accepts only floating-point inputs");
     return detail::compute_refract<L, T, Q, detail::is_aligned<Q>::value>::call(I, N, eta);
 }
 } //namespace glm

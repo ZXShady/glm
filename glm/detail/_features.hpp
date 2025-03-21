@@ -31,10 +31,6 @@
 // Initializer lists - GCC 4.4
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2672.htm
 
-// #define GLM_CXX11_STATIC_ASSERT
-// Static assertions - GCC 4.3
-// http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2004/n1720.html
-
 // #define GLM_CXX11_AUTO_TYPE
 // auto-typed variables - GCC 4.4
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1984.pdf
@@ -248,8 +244,6 @@
 
 #if (GLM_COMPILER & GLM_COMPILER_GCC)
 
-#define GLM_CXX11_STATIC_ASSERT
-
 #elif (GLM_COMPILER & GLM_COMPILER_CLANG)
 #if (__has_feature(cxx_exceptions))
 #define GLM_CXX98_EXCEPTIONS
@@ -357,10 +351,6 @@
 
 #if (__has_feature(cxx_rvalue_references))
 #define GLM_CXX11_RVALUE_REFERENCES
-#endif
-
-#if (__has_feature(cxx_static_assert))
-#define GLM_CXX11_STATIC_ASSERT
 #endif
 
 #if (__has_feature(cxx_auto_type))

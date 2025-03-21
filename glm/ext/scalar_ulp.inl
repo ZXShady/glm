@@ -241,7 +241,7 @@ GLM_FUNC_QUALIFIER double nextFloat(double x)
 template <typename T>
 GLM_FUNC_QUALIFIER T nextFloat(T x, int ULPs)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
+    static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
                       "'next_float' only accept floating-point input");
     assert(ULPs >= 0);
 
@@ -280,7 +280,7 @@ GLM_FUNC_QUALIFIER double prevFloat(double x)
 template <typename T>
 GLM_FUNC_QUALIFIER T prevFloat(T x, int ULPs)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
+    static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
                       "'prev_float' only accept floating-point input");
     assert(ULPs >= 0);
 

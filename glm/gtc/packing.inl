@@ -670,8 +670,8 @@ GLM_FUNC_QUALIFIER vec<L, float, Q> unpackHalf(const vec<L, uint16, Q>& v)
 template <typename uintType, length_t L, typename floatType, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, uintType, Q> packUnorm(const vec<L, floatType, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<uintType>::is_integer, "uintType must be an integer type");
-    GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
+    static_assert(std::numeric_limits<uintType>::is_integer, "uintType must be an integer type");
+    static_assert(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
 
     return vec<L, uintType, Q>(round(clamp(v, static_cast<floatType>(0), static_cast<floatType>(1)) *
                                      static_cast<floatType>(std::numeric_limits<uintType>::max())));
@@ -680,8 +680,8 @@ GLM_FUNC_QUALIFIER vec<L, uintType, Q> packUnorm(const vec<L, floatType, Q>& v)
 template <typename floatType, length_t L, typename uintType, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, floatType, Q> unpackUnorm(const vec<L, uintType, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<uintType>::is_integer, "uintType must be an integer type");
-    GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
+    static_assert(std::numeric_limits<uintType>::is_integer, "uintType must be an integer type");
+    static_assert(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
 
     return vec<L, floatType, Q>(v) *
            (static_cast<floatType>(1) / static_cast<floatType>(std::numeric_limits<uintType>::max()));
@@ -690,8 +690,8 @@ GLM_FUNC_QUALIFIER vec<L, floatType, Q> unpackUnorm(const vec<L, uintType, Q>& v
 template <typename intType, length_t L, typename floatType, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, intType, Q> packSnorm(const vec<L, floatType, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<intType>::is_integer, "uintType must be an integer type");
-    GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
+    static_assert(std::numeric_limits<intType>::is_integer, "uintType must be an integer type");
+    static_assert(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
 
     return vec<L, intType, Q>(round(clamp(v, static_cast<floatType>(-1), static_cast<floatType>(1)) *
                                     static_cast<floatType>(std::numeric_limits<intType>::max())));
@@ -700,8 +700,8 @@ GLM_FUNC_QUALIFIER vec<L, intType, Q> packSnorm(const vec<L, floatType, Q>& v)
 template <typename floatType, length_t L, typename intType, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, floatType, Q> unpackSnorm(const vec<L, intType, Q>& v)
 {
-    GLM_STATIC_ASSERT(std::numeric_limits<intType>::is_integer, "uintType must be an integer type");
-    GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
+    static_assert(std::numeric_limits<intType>::is_integer, "uintType must be an integer type");
+    static_assert(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
 
     return clamp(vec<L, floatType, Q>(v) *
                      (static_cast<floatType>(1) / static_cast<floatType>(std::numeric_limits<intType>::max())),
