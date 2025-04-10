@@ -5,6 +5,26 @@ namespace glm
 {
 namespace detail
 {
+template <typename Func, typename T, qualifier Q>
+GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<1, T, Q> const& a) -> vec<1, decltype(func(a.x)), Q>
+{
+    return vec<1, decltype(func(a.x)), Q>(func(a.x));
+}
+
+template <typename Func, typename T, typename U, qualifier Q>
+GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<1, T, Q> const& a, U const& b)
+    -> vec<1, decltype(func(a.x, b)), Q>
+{
+    return vec<1, decltype(func(a.x, b)), Q>(func(a.x, b));
+}
+
+template <typename Func, typename T, typename U, qualifier Q>
+GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<1, T, Q> const& a, vec<1, U, Q> const& b)
+    -> vec<1, decltype(func(a.x, b.x)), Q>
+{
+    return vec<1, decltype(func(a.x, b.x)), Q>(func(a.x, b.x));
+}
+
 
 template <typename Func, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<2, T, Q> const& a) -> vec<2, decltype(func(a.x)), Q>
@@ -13,7 +33,8 @@ GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<2, T, Q> const& a) ->
 }
 
 template <typename Func, typename T, typename U, qualifier Q>
-GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<2, T, Q> const& a, U const& b) -> vec<2, decltype(func(a.x, b)), Q>
+GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<2, T, Q> const& a, U const& b)
+    -> vec<2, decltype(func(a.x, b)), Q>
 {
     return vec<2, decltype(func(a.x, b)), Q>(func(a.x, b), func(a.y, b));
 }
@@ -33,7 +54,8 @@ GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<3, T, Q> const& a) ->
 }
 
 template <typename Func, typename T, typename U, qualifier Q>
-GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<3, T, Q> const& a, U const& b) -> vec<3, decltype(func(a.x, b)), Q>
+GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<3, T, Q> const& a, U const& b)
+    -> vec<3, decltype(func(a.x, b)), Q>
 {
     return vec<3, decltype(func(a.x, b)), Q>(func(a.x, b), func(a.y, b), func(a.z, b));
 }
@@ -53,7 +75,8 @@ GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<4, T, Q> const& a) ->
 }
 
 template <typename Func, typename T, typename U, qualifier Q>
-GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<4, T, Q> const& a, U const& b) -> vec<4, decltype(func(a.x, b)), Q>
+GLM_FUNC_QUALIFIER constexpr auto vectorize(Func func, vec<4, T, Q> const& a, U const& b)
+    -> vec<4, decltype(func(a.x, b)), Q>
 {
     return vec<4, decltype(func(a.x, b)), Q>(func(a.x, b), func(a.y, b), func(a.z, b), func(a.w, b));
 }

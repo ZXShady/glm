@@ -135,6 +135,6 @@ UseCRLF: false
 
 # Qualifiers (const, volatile, static, etc)
 QualifierAlignment: Custom
-QualifierOrder: ['static', 'inline', 'constexpr', 'const', 'volatile', 'type']
+QualifierOrder: ['static', 'inline', 'constexpr', 'type', 'const', 'volatile']
 
 ---
