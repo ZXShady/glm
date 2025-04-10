@@ -75,10 +75,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool all(vec<L, bool, Q> const& v)
 template <length_t L, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v)
 {
-    vec<L, bool, Q> Result(true);
-    for (length_t i = 0; i < L; ++i)
-        Result[i] = !v[i];
-    return Result;
+    return !v;
 }
 } //namespace glm
 

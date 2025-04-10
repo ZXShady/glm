@@ -826,6 +826,12 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool operator!=(vec<4, T, Q> const& v1, vec<4, 
 }
 
 template <qualifier Q>
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, bool, Q> operator!(vec<4, bool, Q> const& v)
+{
+    return vec<4, bool, Q>(!v.x, !v.y, !v.z, !v.w);
+}
+
+template <qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, bool, Q> operator&&(vec<4, bool, Q> const& v1, vec<4, bool, Q> const& v2)
 {
     return vec<4, bool, Q>(v1.x && v2.x, v1.y && v2.y, v1.z && v2.z, v1.w && v2.w);

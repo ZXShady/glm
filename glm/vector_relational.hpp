@@ -107,13 +107,13 @@ GLM_FUNC_DECL GLM_CONSTEXPR bool all(vec<L, bool, Q> const& v);
 
 /// Returns the component-wise logical complement of x.
 /// /!\ Because of language incompatibilities between C++ and GLSL, GLM defines the function not but not_ instead.
-///
+/// Deprecated, use vec::operator! instead
 /// @tparam L An integer between 1 and 4 included that qualify the dimension of the vector.
-///
+/// 
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/not.xml">GLSL not man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
 template <length_t L, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v);
+GLM_DEPRECATED GLM_FUNC_DECL GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v);
 
 /// @}
 } //namespace glm
