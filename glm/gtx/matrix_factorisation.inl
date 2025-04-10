@@ -3,7 +3,7 @@
 namespace glm
 {
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<C, R, T, Q> flipud(const mat<C, R, T, Q>& in)
+GLM_FUNC_QUALIFIER mat<C, R, T, Q> flipud(mat<C, R, T, Q> const& in)
 {
     mat<R, C, T, Q> tin = transpose(in);
     tin                 = fliplr(tin);
@@ -13,7 +13,7 @@ GLM_FUNC_QUALIFIER mat<C, R, T, Q> flipud(const mat<C, R, T, Q>& in)
 }
 
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<C, R, T, Q> fliplr(const mat<C, R, T, Q>& in)
+GLM_FUNC_QUALIFIER mat<C, R, T, Q> fliplr(mat<C, R, T, Q> const& in)
 {
     mat<C, R, T, Q> out;
     for (length_t i = 0; i < C; i++)
@@ -25,7 +25,7 @@ GLM_FUNC_QUALIFIER mat<C, R, T, Q> fliplr(const mat<C, R, T, Q>& in)
 }
 
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER void qr_decompose(const mat<C, R, T, Q>&         in,
+GLM_FUNC_QUALIFIER void qr_decompose(mat<C, R, T, Q> const&         in,
                                      mat<(C < R ? C : R), R, T, Q>& q,
                                      mat<C, (C < R ? C : R), T, Q>& r)
 {
@@ -62,7 +62,7 @@ GLM_FUNC_QUALIFIER void qr_decompose(const mat<C, R, T, Q>&         in,
 }
 
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER void rq_decompose(const mat<C, R, T, Q>&         in,
+GLM_FUNC_QUALIFIER void rq_decompose(mat<C, R, T, Q> const&         in,
                                      mat<(C < R ? C : R), R, T, Q>& r,
                                      mat<C, (C < R ? C : R), T, Q>& q)
 {

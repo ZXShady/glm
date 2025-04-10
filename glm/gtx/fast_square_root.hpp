@@ -41,7 +41,7 @@ GLM_FUNC_DECL genType fastSqrt(genType x);
 ///
 /// @see gtx_fast_square_root extension.
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> fastSqrt(const vec<L, T, Q>& x);
+GLM_FUNC_DECL vec<L, T, Q> fastSqrt(vec<L, T, Q> const& x);
 
 /// Faster than the common inversesqrt function but less accurate.
 ///
@@ -53,7 +53,7 @@ GLM_FUNC_DECL genType fastInverseSqrt(genType x);
 ///
 /// @see gtx_fast_square_root extension.
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> fastInverseSqrt(const vec<L, T, Q>& x);
+GLM_FUNC_DECL vec<L, T, Q> fastInverseSqrt(vec<L, T, Q> const& x);
 
 /// Faster than the common length function but less accurate.
 ///
@@ -65,7 +65,7 @@ GLM_FUNC_DECL genType fastLength(genType x);
 ///
 /// @see gtx_fast_square_root extension.
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL T fastLength(const vec<L, T, Q>& x);
+GLM_FUNC_DECL T fastLength(vec<L, T, Q> const& x);
 
 /// Faster than the common distance function but less accurate.
 ///
@@ -77,7 +77,7 @@ GLM_FUNC_DECL genType fastDistance(genType x, genType y);
 ///
 /// @see gtx_fast_square_root extension.
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL T fastDistance(const vec<L, T, Q>& x, const vec<L, T, Q>& y);
+GLM_FUNC_DECL T fastDistance(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
 
 /// Faster than the common normalize function but less accurate.
 ///
@@ -89,7 +89,7 @@ GLM_FUNC_DECL genType fastNormalize(genType x);
 ///
 /// @see gtx_fast_square_root extension.
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> fastNormalize(const vec<L, T, Q>& x);
+GLM_FUNC_DECL vec<L, T, Q> fastNormalize(vec<L, T, Q> const& x);
 
 /// @}
 } // namespace glm

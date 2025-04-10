@@ -233,7 +233,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveRH_ZO(T fovy, T aspect, T z
 {
     assert(abs(aspect - std::numeric_limits<T>::epsilon()) > static_cast<T>(0));
 
-    const T tanHalfFovy = tan(fovy / static_cast<T>(2));
+    T const tanHalfFovy = tan(fovy / static_cast<T>(2));
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
@@ -249,7 +249,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveRH_NO(T fovy, T aspect, T z
 {
     assert(abs(aspect - std::numeric_limits<T>::epsilon()) > static_cast<T>(0));
 
-    const T tanHalfFovy = tan(fovy / static_cast<T>(2));
+    T const tanHalfFovy = tan(fovy / static_cast<T>(2));
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
@@ -265,7 +265,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveLH_ZO(T fovy, T aspect, T z
 {
     assert(abs(aspect - std::numeric_limits<T>::epsilon()) > static_cast<T>(0));
 
-    const T tanHalfFovy = tan(fovy / static_cast<T>(2));
+    T const tanHalfFovy = tan(fovy / static_cast<T>(2));
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
@@ -281,7 +281,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveLH_NO(T fovy, T aspect, T z
 {
     assert(abs(aspect - std::numeric_limits<T>::epsilon()) > static_cast<T>(0));
 
-    const T tanHalfFovy = tan(fovy / static_cast<T>(2));
+    T const tanHalfFovy = tan(fovy / static_cast<T>(2));
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
@@ -353,9 +353,9 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovRH_ZO(T fov, T width, T 
     assert(height > static_cast<T>(0));
     assert(fov > static_cast<T>(0));
 
-    const T rad = fov;
-    const T h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
-    const T w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
+    T const rad = fov;
+    T const h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
+    T const w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = w;
@@ -373,9 +373,9 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovRH_NO(T fov, T width, T 
     assert(height > static_cast<T>(0));
     assert(fov > static_cast<T>(0));
 
-    const T rad = fov;
-    const T h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
-    const T w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
+    T const rad = fov;
+    T const h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
+    T const w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = w;
@@ -393,9 +393,9 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovLH_ZO(T fov, T width, T 
     assert(height > static_cast<T>(0));
     assert(fov > static_cast<T>(0));
 
-    const T rad = fov;
-    const T h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
-    const T w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
+    T const rad = fov;
+    T const h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
+    T const w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = w;
@@ -413,9 +413,9 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovLH_NO(T fov, T width, T 
     assert(height > static_cast<T>(0));
     assert(fov > static_cast<T>(0));
 
-    const T rad = fov;
-    const T h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
-    const T w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
+    T const rad = fov;
+    T const h   = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
+    T const w   = h * height / width; ///todo max(width , Height) / min(width , Height)?
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = w;
@@ -483,11 +483,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFov(T fov, T width, T heigh
 template <typename T>
 GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveRH_NO(T fovy, T aspect, T zNear)
 {
-    const T range  = tan(fovy / static_cast<T>(2)) * zNear;
-    const T left   = -range * aspect;
-    const T right  = range * aspect;
-    const T bottom = -range;
-    const T top    = range;
+    T const range  = tan(fovy / static_cast<T>(2)) * zNear;
+    T const left   = -range * aspect;
+    T const right  = range * aspect;
+    T const bottom = -range;
+    T const top    = range;
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);
@@ -501,11 +501,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveRH_NO(T fovy, T asp
 template <typename T>
 GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveRH_ZO(T fovy, T aspect, T zNear)
 {
-    const T range  = tan(fovy / static_cast<T>(2)) * zNear;
-    const T left   = -range * aspect;
-    const T right  = range * aspect;
-    const T bottom = -range;
-    const T top    = range;
+    T const range  = tan(fovy / static_cast<T>(2)) * zNear;
+    T const left   = -range * aspect;
+    T const right  = range * aspect;
+    T const bottom = -range;
+    T const top    = range;
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);
@@ -519,11 +519,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveRH_ZO(T fovy, T asp
 template <typename T>
 GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveLH_NO(T fovy, T aspect, T zNear)
 {
-    const T range  = tan(fovy / static_cast<T>(2)) * zNear;
-    const T left   = -range * aspect;
-    const T right  = range * aspect;
-    const T bottom = -range;
-    const T top    = range;
+    T const range  = tan(fovy / static_cast<T>(2)) * zNear;
+    T const left   = -range * aspect;
+    T const right  = range * aspect;
+    T const bottom = -range;
+    T const top    = range;
 
     mat<4, 4, T, defaultp> Result(T(0));
     Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);
@@ -537,11 +537,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveLH_NO(T fovy, T asp
 template <typename T>
 GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspectiveLH_ZO(T fovy, T aspect, T zNear)
 {
-    const T range  = tan(fovy / static_cast<T>(2)) * zNear;
-    const T left   = -range * aspect;
-    const T right  = range * aspect;
-    const T bottom = -range;
-    const T top    = range;
+    T const range  = tan(fovy / static_cast<T>(2)) * zNear;
+    T const left   = -range * aspect;
+    T const right  = range * aspect;
+    T const bottom = -range;
+    T const top    = range;
 
     mat<4, 4, T, defaultp> Result(T(0));
     Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);
@@ -590,11 +590,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspective(T fovy, T aspect, 
 template <typename T>
 GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> tweakedInfinitePerspective(T fovy, T aspect, T zNear, T ep)
 {
-    const T range  = tan(fovy / static_cast<T>(2)) * zNear;
-    const T left   = -range * aspect;
-    const T right  = range * aspect;
-    const T bottom = -range;
-    const T top    = range;
+    T const range  = tan(fovy / static_cast<T>(2)) * zNear;
+    T const left   = -range * aspect;
+    T const right  = range * aspect;
+    T const bottom = -range;
+    T const top    = range;
 
     mat<4, 4, T, defaultp> Result(static_cast<T>(0));
     Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);

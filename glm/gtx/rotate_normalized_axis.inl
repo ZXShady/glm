@@ -3,15 +3,15 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotateNormalizedAxis(const mat<4, 4, T, Q>& m, const T& angle, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotateNormalizedAxis(mat<4, 4, T, Q> const& m, T const& angle, vec<3, T, Q> const& v)
 {
-    const T a = angle;
-    const T c = cos(a);
-    const T s = sin(a);
+    T const a = angle;
+    T const c = cos(a);
+    T const s = sin(a);
 
-    const vec<3, T, Q> axis(v);
+    vec<3, T, Q> const axis(v);
 
-    const vec<3, T, Q> temp((static_cast<T>(1) - c) * axis);
+    vec<3, T, Q> const temp((static_cast<T>(1) - c) * axis);
 
     mat<4, 4, T, Q> Rotate;
     Rotate[0][0] = c + temp[0] * axis[0];
@@ -35,12 +35,12 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotateNormalizedAxis(const mat<4, 4, T, Q>& m
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> rotateNormalizedAxis(const qua<T, Q>& q, const T& angle, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER qua<T, Q> rotateNormalizedAxis(qua<T, Q> const& q, T const& angle, vec<3, T, Q> const& v)
 {
-    const vec<3, T, Q> Tmp(v);
+    vec<3, T, Q> const Tmp(v);
 
-    const T AngleRad(angle);
-    const T Sin = sin(AngleRad * T(0.5));
+    T const AngleRad(angle);
+    T const Sin = sin(AngleRad * T(0.5));
 
     return q * qua<T, Q>::wxyz(cos(AngleRad * static_cast<T>(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
     //return gtc::quaternion::cross(q, tquat<T, Q>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));

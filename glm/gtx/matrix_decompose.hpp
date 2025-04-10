@@ -36,7 +36,7 @@ namespace glm
 /// @see gtx_matrix_decompose
 template <typename T, qualifier Q>
 GLM_FUNC_DISCARD_DECL bool decompose(
-    const mat<4, 4, T, Q>& modelMatrix,
+    mat<4, 4, T, Q> const& modelMatrix,
     vec<3, T, Q>&          scale,
     qua<T, Q>&             orientation,
     vec<3, T, Q>&          translation,
@@ -46,11 +46,11 @@ GLM_FUNC_DISCARD_DECL bool decompose(
 // Recomposes a model matrix from a previously-decomposed matrix
 template <typename T, qualifier Q>
 GLM_FUNC_DISCARD_DECL mat<4, 4, T, Q> recompose(
-    const vec<3, T, Q>& scale,
-    const qua<T, Q>&    orientation,
-    const vec<3, T, Q>& translation,
-    const vec<3, T, Q>& skew,
-    const vec<4, T, Q>& perspective);
+    vec<3, T, Q> const& scale,
+    qua<T, Q> const&    orientation,
+    vec<3, T, Q> const& translation,
+    vec<3, T, Q> const& skew,
+    vec<4, T, Q> const& perspective);
 
 /// @}
 } //namespace glm

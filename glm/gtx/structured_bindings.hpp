@@ -71,25 +71,25 @@ namespace glm
 template <length_t I, length_t L, typename T, qualifier Q>
 GLM_FUNC_DECL GLM_CONSTEXPR T& get(vec<L, T, Q>& v);
 template <length_t I, length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR const T& get(const vec<L, T, Q>& v);
+GLM_FUNC_DECL GLM_CONSTEXPR const T& get(vec<L, T, Q> const& v);
 
 template <length_t I, length_t C, length_t R, typename T, qualifier Q>
 GLM_FUNC_DECL GLM_CONSTEXPR vec<R, T, Q>& get(mat<C, R, T, Q>& m);
 template <length_t I, length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR const vec<R, T, Q>& get(const mat<C, R, T, Q>& m);
+GLM_FUNC_DECL GLM_CONSTEXPR const vec<R, T, Q>& get(mat<C, R, T, Q> const& m);
 
 template <length_t I, typename T, qualifier Q>
 GLM_FUNC_DECL GLM_CONSTEXPR T& get(qua<T, Q>& q);
 template <length_t I, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR const T& get(const qua<T, Q>& q);
+GLM_FUNC_DECL GLM_CONSTEXPR const T& get(qua<T, Q> const& q);
 
 #if GLM_HAS_RVALUE_REFERENCES
 template <length_t I, length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR T get(const vec<L, T, Q>&& v);
+GLM_FUNC_DECL GLM_CONSTEXPR T get(vec<L, T, Q> const&& v);
 template <length_t I, length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<R, T, Q> get(const mat<C, R, T, Q>&& m);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<R, T, Q> get(mat<C, R, T, Q> const&& m);
 template <length_t I, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR T get(const qua<T, Q>&& q);
+GLM_FUNC_DECL GLM_CONSTEXPR T get(qua<T, Q> const&& q);
 #endif
 /// @}
 } //namespace glm

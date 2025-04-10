@@ -3,9 +3,9 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> affineInverse(const mat<3, 3, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> affineInverse(mat<3, 3, T, Q> const& m)
 {
-    const mat<2, 2, T, Q> Inv(inverse(mat<2, 2, T, Q>(m)));
+    mat<2, 2, T, Q> const Inv(inverse(mat<2, 2, T, Q>(m)));
 
     return mat<3, 3, T, Q>(vec<3, T, Q>(Inv[0], static_cast<T>(0)),
                            vec<3, T, Q>(Inv[1], static_cast<T>(0)),
@@ -13,9 +13,9 @@ GLM_FUNC_QUALIFIER mat<3, 3, T, Q> affineInverse(const mat<3, 3, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> affineInverse(const mat<4, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> affineInverse(mat<4, 4, T, Q> const& m)
 {
-    const mat<3, 3, T, Q> Inv(inverse(mat<3, 3, T, Q>(m)));
+    mat<3, 3, T, Q> const Inv(inverse(mat<3, 3, T, Q>(m)));
 
     return mat<4, 4, T, Q>(vec<4, T, Q>(Inv[0], static_cast<T>(0)),
                            vec<4, T, Q>(Inv[1], static_cast<T>(0)),
@@ -24,7 +24,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> affineInverse(const mat<4, 4, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<2, 2, T, Q> inverseTranspose(const mat<2, 2, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<2, 2, T, Q> inverseTranspose(mat<2, 2, T, Q> const& m)
 {
     T Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
 
@@ -34,7 +34,7 @@ GLM_FUNC_QUALIFIER mat<2, 2, T, Q> inverseTranspose(const mat<2, 2, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> inverseTranspose(const mat<3, 3, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> inverseTranspose(mat<3, 3, T, Q> const& m)
 {
     T Determinant = +m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) -
                     m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
@@ -55,7 +55,7 @@ GLM_FUNC_QUALIFIER mat<3, 3, T, Q> inverseTranspose(const mat<3, 3, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> inverseTranspose(const mat<4, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> inverseTranspose(mat<4, 4, T, Q> const& m)
 {
     T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
     T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];

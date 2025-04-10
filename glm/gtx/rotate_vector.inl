@@ -3,7 +3,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> slerp(const vec<3, T, Q>& x, const vec<3, T, Q>& y, const T& a)
+GLM_FUNC_QUALIFIER vec<3, T, Q> slerp(vec<3, T, Q> const& x, vec<3, T, Q> const& y, T const& a)
 {
     // get cosine of angle between vectors (-1 -> 1)
     T CosAlpha = dot(x, y);
@@ -20,11 +20,11 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> slerp(const vec<3, T, Q>& x, const vec<3, T, Q>&
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<2, T, Q> rotate(const vec<2, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<2, T, Q> rotate(vec<2, T, Q> const& v, T const& angle)
 {
     vec<2, T, Q> Result;
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.x = v.x * Cos - v.y * Sin;
     Result.y = v.x * Sin + v.y * Cos;
@@ -32,7 +32,7 @@ GLM_FUNC_QUALIFIER vec<2, T, Q> rotate(const vec<2, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rotate(const vec<3, T, Q>& v, const T& angle, const vec<3, T, Q>& normal)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rotate(vec<3, T, Q> const& v, T const& angle, vec<3, T, Q> const& normal)
 {
     return mat<3, 3, T, Q>(glm::rotate(angle, normal)) * v;
 }
@@ -49,17 +49,17 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> rotate(const vec<3, T, Q>& v, const T& angle, co
 	}
 	*/
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> rotate(const vec<4, T, Q>& v, const T& angle, const vec<3, T, Q>& normal)
+GLM_FUNC_QUALIFIER vec<4, T, Q> rotate(vec<4, T, Q> const& v, T const& angle, vec<3, T, Q> const& normal)
 {
     return rotate(angle, normal) * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rotateX(const vec<3, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rotateX(vec<3, T, Q> const& v, T const& angle)
 {
     vec<3, T, Q> Result(v);
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.y = v.y * Cos - v.z * Sin;
     Result.z = v.y * Sin + v.z * Cos;
@@ -67,11 +67,11 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> rotateX(const vec<3, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rotateY(const vec<3, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rotateY(vec<3, T, Q> const& v, T const& angle)
 {
     vec<3, T, Q> Result = v;
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.x = v.x * Cos + v.z * Sin;
     Result.z = -v.x * Sin + v.z * Cos;
@@ -79,11 +79,11 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> rotateY(const vec<3, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rotateZ(const vec<3, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rotateZ(vec<3, T, Q> const& v, T const& angle)
 {
     vec<3, T, Q> Result = v;
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.x = v.x * Cos - v.y * Sin;
     Result.y = v.x * Sin + v.y * Cos;
@@ -91,11 +91,11 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> rotateZ(const vec<3, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> rotateX(const vec<4, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<4, T, Q> rotateX(vec<4, T, Q> const& v, T const& angle)
 {
     vec<4, T, Q> Result = v;
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.y = v.y * Cos - v.z * Sin;
     Result.z = v.y * Sin + v.z * Cos;
@@ -103,11 +103,11 @@ GLM_FUNC_QUALIFIER vec<4, T, Q> rotateX(const vec<4, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> rotateY(const vec<4, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<4, T, Q> rotateY(vec<4, T, Q> const& v, T const& angle)
 {
     vec<4, T, Q> Result = v;
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.x = v.x * Cos + v.z * Sin;
     Result.z = -v.x * Sin + v.z * Cos;
@@ -115,11 +115,11 @@ GLM_FUNC_QUALIFIER vec<4, T, Q> rotateY(const vec<4, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> rotateZ(const vec<4, T, Q>& v, const T& angle)
+GLM_FUNC_QUALIFIER vec<4, T, Q> rotateZ(vec<4, T, Q> const& v, T const& angle)
 {
     vec<4, T, Q> Result = v;
-    const T      Cos(cos(angle));
-    const T      Sin(sin(angle));
+    T const      Cos(cos(angle));
+    T const      Sin(sin(angle));
 
     Result.x = v.x * Cos - v.y * Sin;
     Result.y = v.x * Sin + v.y * Cos;
@@ -127,7 +127,7 @@ GLM_FUNC_QUALIFIER vec<4, T, Q> rotateZ(const vec<4, T, Q>& v, const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> orientation(const vec<3, T, Q>& Normal, const vec<3, T, Q>& Up)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> orientation(vec<3, T, Q> const& Normal, vec<3, T, Q> const& Up)
 {
     if (all(equal(Normal, Up, epsilon<T>())))
         return mat<4, 4, T, Q>(static_cast<T>(1));

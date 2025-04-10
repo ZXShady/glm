@@ -71,7 +71,7 @@ GLM_FUNC_QUALIFIER int mod(int x, int y)
 
 // factorial (!12 max, integer only)
 template <typename genType>
-GLM_FUNC_QUALIFIER genType factorial(const genType& x)
+GLM_FUNC_QUALIFIER genType factorial(genType const& x)
 {
     genType Temp = x;
     genType Result;
@@ -81,19 +81,19 @@ GLM_FUNC_QUALIFIER genType factorial(const genType& x)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<2, T, Q> factorial(const vec<2, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<2, T, Q> factorial(vec<2, T, Q> const& x)
 {
     return vec<2, T, Q>(factorial(x.x), factorial(x.y));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> factorial(const vec<3, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<3, T, Q> factorial(vec<3, T, Q> const& x)
 {
     return vec<3, T, Q>(factorial(x.x), factorial(x.y), factorial(x.z));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> factorial(const vec<4, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<4, T, Q> factorial(vec<4, T, Q> const& x)
 {
     return vec<4, T, Q>(factorial(x.x), factorial(x.y), factorial(x.z), factorial(x.w));
 }

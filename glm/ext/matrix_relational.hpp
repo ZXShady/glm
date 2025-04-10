@@ -34,7 +34,7 @@ namespace glm
 /// @tparam T Floating-point or integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
 
 /// Perform a component-wise not-equal-to comparison of two matrices.
 /// Return a boolean vector which components value is True if this expression is satisfied per column of the matrices.
@@ -44,7 +44,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, cons
 /// @tparam T Floating-point or integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
 
 /// Returns the component-wise comparison of |x - y| < epsilon.
 /// True if this expression is satisfied.
@@ -54,7 +54,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x, c
 /// @tparam T Floating-point or integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y, T epsilon);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, T epsilon);
 
 /// Returns the component-wise comparison of |x - y| < epsilon.
 /// True if this expression is satisfied.
@@ -64,7 +64,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, cons
 /// @tparam T Floating-point or integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y, const vec<C, T, Q>& epsilon);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, vec<C, T, Q> const& epsilon);
 
 /// Returns the component-wise comparison of |x - y| < epsilon.
 /// True if this expression is not satisfied.
@@ -74,7 +74,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, cons
 /// @tparam T Floating-point or integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y, T epsilon);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, T epsilon);
 
 /// Returns the component-wise comparison of |x - y| >= epsilon.
 /// True if this expression is not satisfied.
@@ -84,9 +84,9 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x, c
 /// @tparam T Floating-point or integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x,
-                                                     const mat<C, R, T, Q>& y,
-                                                     const vec<C, T, Q>&    epsilon);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x,
+                                                     mat<C, R, T, Q> const& y,
+                                                     vec<C, T, Q> const&    epsilon);
 
 /// Returns the component-wise comparison between two vectors in term of ULPs.
 /// True if this expression is satisfied.
@@ -96,7 +96,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x,
 /// @tparam T Floating-point
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y, int ULPs);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, int ULPs);
 
 /// Returns the component-wise comparison between two vectors in term of ULPs.
 /// True if this expression is satisfied.
@@ -106,7 +106,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, cons
 /// @tparam T Floating-point
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y, const vec<C, int, Q>& ULPs);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, vec<C, int, Q> const& ULPs);
 
 /// Returns the component-wise comparison between two vectors in term of ULPs.
 /// True if this expression is not satisfied.
@@ -116,7 +116,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> equal(const mat<C, R, T, Q>& x, cons
 /// @tparam T Floating-point
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y, int ULPs);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, int ULPs);
 
 /// Returns the component-wise comparison between two vectors in term of ULPs.
 /// True if this expression is not satisfied.
@@ -126,9 +126,9 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x, c
 /// @tparam T Floating-point
 /// @tparam Q Value from qualifier enum
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(const mat<C, R, T, Q>& x,
-                                                     const mat<C, R, T, Q>& y,
-                                                     const vec<C, int, Q>&  ULPs);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x,
+                                                     mat<C, R, T, Q> const& y,
+                                                     vec<C, int, Q> const&  ULPs);
 
 /// @}
 } //namespace glm

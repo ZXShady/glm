@@ -77,8 +77,8 @@ namespace detail
 {
 GLM_FUNC_QUALIFIER float nextafterf(float x, float y)
 {
-    volatile float t;
-    int            hx, hy, ix, iy;
+    float volatile t;
+    int hx, hy, ix, iy;
 
     GLM_GET_FLOAT_WORD(hx, x);
     GLM_GET_FLOAT_WORD(hy, y);
@@ -131,9 +131,9 @@ GLM_FUNC_QUALIFIER float nextafterf(float x, float y)
 
 GLM_FUNC_QUALIFIER double nextafter(double x, double y)
 {
-    volatile double t;
-    int             hx, hy, ix, iy;
-    unsigned int    lx, ly;
+    double volatile t;
+    int          hx, hy, ix, iy;
+    unsigned int lx, ly;
 
     GLM_EXTRACT_WORDS(hx, lx, x);
     GLM_EXTRACT_WORDS(hy, ly, y);
@@ -242,7 +242,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T nextFloat(T x, int ULPs)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'next_float' only accept floating-point input");
+                  "'next_float' only accept floating-point input");
     assert(ULPs >= 0);
 
     T temp = x;
@@ -281,7 +281,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T prevFloat(T x, int ULPs)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'prev_float' only accept floating-point input");
+                  "'prev_float' only accept floating-point input");
     assert(ULPs >= 0);
 
     T temp = x;
@@ -292,16 +292,16 @@ GLM_FUNC_QUALIFIER T prevFloat(T x, int ULPs)
 
 GLM_FUNC_QUALIFIER int floatDistance(float x, float y)
 {
-    const detail::float_t<float> a(x);
-    const detail::float_t<float> b(y);
+    detail::float_t<float> const a(x);
+    detail::float_t<float> const b(y);
 
     return abs(a.i - b.i);
 }
 
 GLM_FUNC_QUALIFIER int64 floatDistance(double x, double y)
 {
-    const detail::float_t<double> a(x);
-    const detail::float_t<double> b(y);
+    detail::float_t<double> const a(x);
+    detail::float_t<double> const b(y);
 
     return abs(a.i - b.i);
 }

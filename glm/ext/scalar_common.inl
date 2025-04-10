@@ -31,7 +31,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T fmin(T a, T b)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fmin' only accept floating-point input");
+                  "'fmin' only accept floating-point input");
 
     if (isnan(a))
         return b;
@@ -43,7 +43,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T fmin(T a, T b, T c)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fmin' only accept floating-point input");
+                  "'fmin' only accept floating-point input");
 
     if (isnan(a))
         return fmin(b, c);
@@ -58,7 +58,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T fmin(T a, T b, T c, T d)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fmin' only accept floating-point input");
+                  "'fmin' only accept floating-point input");
 
     if (isnan(a))
         return fmin(b, c, d);
@@ -79,7 +79,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T fmax(T a, T b)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fmax' only accept floating-point input");
+                  "'fmax' only accept floating-point input");
 
     if (isnan(a))
         return b;
@@ -91,7 +91,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T fmax(T a, T b, T c)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fmax' only accept floating-point input");
+                  "'fmax' only accept floating-point input");
 
     if (isnan(a))
         return fmax(b, c);
@@ -106,7 +106,7 @@ template <typename T>
 GLM_FUNC_QUALIFIER T fmax(T a, T b, T c, T d)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fmax' only accept floating-point input");
+                  "'fmax' only accept floating-point input");
 
     if (isnan(a))
         return fmax(b, c, d);
@@ -124,54 +124,54 @@ template <typename genType>
 GLM_FUNC_QUALIFIER genType fclamp(genType x, genType minVal, genType maxVal)
 {
     static_assert(std::numeric_limits<genType>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'fclamp' only accept floating-point or integer inputs");
+                  "'fclamp' only accept floating-point or integer inputs");
     return fmin(fmax(x, minVal), maxVal);
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType clamp(const genType& Texcoord)
+GLM_FUNC_QUALIFIER genType clamp(genType const& Texcoord)
 {
     return glm::clamp(Texcoord, static_cast<genType>(0), static_cast<genType>(1));
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType repeat(const genType& Texcoord)
+GLM_FUNC_QUALIFIER genType repeat(genType const& Texcoord)
 {
     return glm::fract(Texcoord);
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType mirrorClamp(const genType& Texcoord)
+GLM_FUNC_QUALIFIER genType mirrorClamp(genType const& Texcoord)
 {
     return glm::fract(glm::abs(Texcoord));
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType mirrorRepeat(const genType& Texcoord)
+GLM_FUNC_QUALIFIER genType mirrorRepeat(genType const& Texcoord)
 {
-    const genType Abs    = glm::abs(Texcoord);
-    const genType Clamp  = glm::mod(glm::floor(Abs), static_cast<genType>(2));
-    const genType Floor  = glm::floor(Abs);
-    const genType Rest   = Abs - Floor;
-    const genType Mirror = Clamp + Rest;
+    genType const Abs    = glm::abs(Texcoord);
+    genType const Clamp  = glm::mod(glm::floor(Abs), static_cast<genType>(2));
+    genType const Floor  = glm::floor(Abs);
+    genType const Rest   = Abs - Floor;
+    genType const Mirror = Clamp + Rest;
     return mix(Rest, static_cast<genType>(1) - Rest, Mirror >= static_cast<genType>(1));
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER int iround(const genType& x)
+GLM_FUNC_QUALIFIER int iround(genType const& x)
 {
     static_assert(std::numeric_limits<genType>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'iround' only accept floating-point inputs");
+                  "'iround' only accept floating-point inputs");
     assert(static_cast<genType>(0.0) <= x);
 
     return static_cast<int>(x + static_cast<genType>(0.5));
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER uint uround(const genType& x)
+GLM_FUNC_QUALIFIER uint uround(genType const& x)
 {
     static_assert(std::numeric_limits<genType>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'uround' only accept floating-point inputs");
+                  "'uround' only accept floating-point inputs");
     assert(static_cast<genType>(0.0) <= x);
 
     return static_cast<uint>(x + static_cast<genType>(0.5));

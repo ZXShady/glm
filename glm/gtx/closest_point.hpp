@@ -30,11 +30,11 @@ namespace glm
 /// Find the point on a straight line which is the closet of a point.
 /// @see gtx_closest_point
 template <typename T, qualifier Q>
-GLM_FUNC_DECL vec<3, T, Q> closestPointOnLine(const vec<3, T, Q>& point, const vec<3, T, Q>& a, const vec<3, T, Q>& b);
+GLM_FUNC_DECL vec<3, T, Q> closestPointOnLine(vec<3, T, Q> const& point, vec<3, T, Q> const& a, vec<3, T, Q> const& b);
 
 /// 2d lines work as well
 template <typename T, qualifier Q>
-GLM_FUNC_DECL vec<2, T, Q> closestPointOnLine(const vec<2, T, Q>& point, const vec<2, T, Q>& a, const vec<2, T, Q>& b);
+GLM_FUNC_DECL vec<2, T, Q> closestPointOnLine(vec<2, T, Q> const& point, vec<2, T, Q> const& a, vec<2, T, Q> const& b);
 
 /// @}
 } // namespace glm

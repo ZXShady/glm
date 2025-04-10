@@ -1,7 +1,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> rotate(const qua<T, Q>& q, const T& angle, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER qua<T, Q> rotate(qua<T, Q> const& q, T const& angle, vec<3, T, Q> const& v)
 {
     vec<3, T, Q> Tmp = v;
 
@@ -15,8 +15,8 @@ GLM_FUNC_QUALIFIER qua<T, Q> rotate(const qua<T, Q>& q, const T& angle, const ve
         Tmp.z *= oneOverLen;
     }
 
-    const T AngleRad(angle);
-    const T Sin = sin(AngleRad * static_cast<T>(0.5));
+    T const AngleRad(angle);
+    T const Sin = sin(AngleRad * static_cast<T>(0.5));
 
     return q * qua<T, Q>::wxyz(cos(AngleRad * static_cast<T>(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
 }

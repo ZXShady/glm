@@ -46,7 +46,7 @@ GLM_FUNC_DECL genIUType ceilPowerOfTwo(genIUType v);
 ///
 /// @see gtc_round
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> ceilPowerOfTwo(const vec<L, T, Q>& v);
+GLM_FUNC_DECL vec<L, T, Q> ceilPowerOfTwo(vec<L, T, Q> const& v);
 
 /// Return the power of two number which value is just lower the input value,
 /// round down to a power of two.
@@ -64,7 +64,7 @@ GLM_FUNC_DECL genIUType floorPowerOfTwo(genIUType v);
 ///
 /// @see gtc_round
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> floorPowerOfTwo(const vec<L, T, Q>& v);
+GLM_FUNC_DECL vec<L, T, Q> floorPowerOfTwo(vec<L, T, Q> const& v);
 
 /// Return the power of two number which value is the closet to the input value.
 ///
@@ -80,7 +80,7 @@ GLM_FUNC_DECL genIUType roundPowerOfTwo(genIUType v);
 ///
 /// @see gtc_round
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> roundPowerOfTwo(const vec<L, T, Q>& v);
+GLM_FUNC_DECL vec<L, T, Q> roundPowerOfTwo(vec<L, T, Q> const& v);
 
 /// Higher multiple number of Source.
 ///
@@ -104,7 +104,7 @@ GLM_FUNC_DECL genType ceilMultiple(genType v, genType Multiple);
 ///
 /// @see gtc_round
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> ceilMultiple(const vec<L, T, Q>& v, const vec<L, T, Q>& Multiple);
+GLM_FUNC_DECL vec<L, T, Q> ceilMultiple(vec<L, T, Q> const& v, vec<L, T, Q> const& Multiple);
 
 /// Lower multiple number of Source.
 ///
@@ -128,7 +128,7 @@ GLM_FUNC_DECL genType floorMultiple(genType v, genType Multiple);
 ///
 /// @see gtc_round
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> floorMultiple(const vec<L, T, Q>& v, const vec<L, T, Q>& Multiple);
+GLM_FUNC_DECL vec<L, T, Q> floorMultiple(vec<L, T, Q> const& v, vec<L, T, Q> const& Multiple);
 
 /// Lower multiple number of Source.
 ///
@@ -152,7 +152,7 @@ GLM_FUNC_DECL genType roundMultiple(genType v, genType Multiple);
 ///
 /// @see gtc_round
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> roundMultiple(const vec<L, T, Q>& v, const vec<L, T, Q>& Multiple);
+GLM_FUNC_DECL vec<L, T, Q> roundMultiple(vec<L, T, Q> const& v, vec<L, T, Q> const& Multiple);
 
 /// @}
 } //namespace glm

@@ -3,16 +3,16 @@
 namespace glm
 {
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, bool, Q> isPowerOfTwo(const vec<L, T, Q>& Value)
+GLM_FUNC_QUALIFIER vec<L, bool, Q> isPowerOfTwo(vec<L, T, Q> const& Value)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'isPowerOfTwo' only accept integer inputs");
 
-    const vec<L, T, Q> Result(abs(Value));
+    vec<L, T, Q> const Result(abs(Value));
     return equal(Result & (Result - vec<L, T, Q>(1)), vec<L, T, Q>(0));
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> nextPowerOfTwo(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> nextPowerOfTwo(vec<L, T, Q> const& v)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'nextPowerOfTwo' only accept integer inputs");
 
@@ -20,7 +20,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> nextPowerOfTwo(const vec<L, T, Q>& v)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> prevPowerOfTwo(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> prevPowerOfTwo(vec<L, T, Q> const& v)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'prevPowerOfTwo' only accept integer inputs");
 
@@ -28,7 +28,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> prevPowerOfTwo(const vec<L, T, Q>& v)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, bool, Q> isMultiple(const vec<L, T, Q>& Value, T Multiple)
+GLM_FUNC_QUALIFIER vec<L, bool, Q> isMultiple(vec<L, T, Q> const& Value, T Multiple)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'isMultiple' only accept integer inputs");
 
@@ -36,7 +36,7 @@ GLM_FUNC_QUALIFIER vec<L, bool, Q> isMultiple(const vec<L, T, Q>& Value, T Multi
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, bool, Q> isMultiple(const vec<L, T, Q>& Value, const vec<L, T, Q>& Multiple)
+GLM_FUNC_QUALIFIER vec<L, bool, Q> isMultiple(vec<L, T, Q> const& Value, vec<L, T, Q> const& Multiple)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'isMultiple' only accept integer inputs");
 
@@ -44,7 +44,7 @@ GLM_FUNC_QUALIFIER vec<L, bool, Q> isMultiple(const vec<L, T, Q>& Value, const v
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> nextMultiple(const vec<L, T, Q>& Source, T Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> nextMultiple(vec<L, T, Q> const& Source, T Multiple)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'nextMultiple' only accept integer inputs");
 
@@ -52,7 +52,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> nextMultiple(const vec<L, T, Q>& Source, T Multi
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> nextMultiple(const vec<L, T, Q>& Source, const vec<L, T, Q>& Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> nextMultiple(vec<L, T, Q> const& Source, vec<L, T, Q> const& Multiple)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'nextMultiple' only accept integer inputs");
 
@@ -60,7 +60,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> nextMultiple(const vec<L, T, Q>& Source, const v
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> prevMultiple(const vec<L, T, Q>& Source, T Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> prevMultiple(vec<L, T, Q> const& Source, T Multiple)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'prevMultiple' only accept integer inputs");
 
@@ -68,7 +68,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> prevMultiple(const vec<L, T, Q>& Source, T Multi
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> prevMultiple(const vec<L, T, Q>& Source, const vec<L, T, Q>& Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> prevMultiple(vec<L, T, Q> const& Source, vec<L, T, Q> const& Multiple)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'prevMultiple' only accept integer inputs");
 
@@ -76,7 +76,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> prevMultiple(const vec<L, T, Q>& Source, const v
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, int, Q> findNSB(const vec<L, T, Q>& Source, vec<L, int, Q> SignificantBitCount)
+GLM_FUNC_QUALIFIER vec<L, int, Q> findNSB(vec<L, T, Q> const& Source, vec<L, int, Q> SignificantBitCount)
 {
     static_assert(std::numeric_limits<T>::is_integer, "'findNSB' only accept integer inputs");
 

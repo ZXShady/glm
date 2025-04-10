@@ -15,7 +15,7 @@ struct compute_matrixCompMult<4, 4, float, Q, true>
 {
     static_assert(detail::is_aligned<Q>::value, "Specialization requires aligned");
 
-    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(const mat<4, 4, float, Q>& x, const mat<4, 4, float, Q>& y)
+    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& x, mat<4, 4, float, Q> const& y)
     {
         mat<4, 4, float, Q> Result;
         glm_mat4_matrixCompMult(&x[0].data, &y[0].data, &Result[0].data);
@@ -27,7 +27,7 @@ struct compute_matrixCompMult<4, 4, float, Q, true>
 template <qualifier Q>
 struct compute_transpose<4, 4, float, Q, true>
 {
-    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(const mat<4, 4, float, Q>& m)
+    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
     {
         mat<4, 4, float, Q> Result;
         glm_mat4_transpose(&m[0].data, &Result[0].data);
@@ -38,7 +38,7 @@ struct compute_transpose<4, 4, float, Q, true>
 template <qualifier Q>
 struct compute_transpose<3, 3, float, Q, true>
 {
-    GLM_FUNC_QUALIFIER static mat<3, 3, float, Q> call(const mat<3, 3, float, Q>& m)
+    GLM_FUNC_QUALIFIER static mat<3, 3, float, Q> call(mat<3, 3, float, Q> const& m)
     {
         mat<3, 3, float, Q> Result;
         glm_mat3_transpose(&m[0].data, &Result[0].data);
@@ -49,7 +49,7 @@ struct compute_transpose<3, 3, float, Q, true>
 template <qualifier Q>
 struct compute_determinant<4, 4, float, Q, true>
 {
-    GLM_FUNC_QUALIFIER static float call(const mat<4, 4, float, Q>& m)
+    GLM_FUNC_QUALIFIER static float call(mat<4, 4, float, Q> const& m)
     {
         return _mm_cvtss_f32(glm_mat4_determinant(&m[0].data));
     }
@@ -58,7 +58,7 @@ struct compute_determinant<4, 4, float, Q, true>
 template <qualifier Q>
 struct compute_inverse<4, 4, float, Q, true>
 {
-    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(const mat<4, 4, float, Q>& m)
+    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
     {
         mat<4, 4, float, Q> Result;
         glm_mat4_inverse(&m[0].data, &Result[0].data);
@@ -70,8 +70,8 @@ struct compute_inverse<4, 4, float, Q, true>
 #if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 template <>
 GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_lowp> outerProduct<4, 4, float, aligned_lowp>(
-    const vec<4, float, aligned_lowp>& c,
-    const vec<4, float, aligned_lowp>& r)
+    vec<4, float, aligned_lowp> const& c,
+    vec<4, float, aligned_lowp> const& r)
 {
     __m128 NativeResult[4];
     glm_mat4_outerProduct(c.data, r.data, NativeResult);
@@ -82,8 +82,8 @@ GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_lowp> outerProduct<4, 4, float, alig
 
 template <>
 GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_mediump> outerProduct<4, 4, float, aligned_mediump>(
-    const vec<4, float, aligned_mediump>& c,
-    const vec<4, float, aligned_mediump>& r)
+    vec<4, float, aligned_mediump> const& c,
+    vec<4, float, aligned_mediump> const& r)
 {
     __m128 NativeResult[4];
     glm_mat4_outerProduct(c.data, r.data, NativeResult);
@@ -94,8 +94,8 @@ GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_mediump> outerProduct<4, 4, float, a
 
 template <>
 GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_highp> outerProduct<4, 4, float, aligned_highp>(
-    const vec<4, float, aligned_highp>& c,
-    const vec<4, float, aligned_highp>& r)
+    vec<4, float, aligned_highp> const& c,
+    vec<4, float, aligned_highp> const& r)
 {
     __m128 NativeResult[4];
     glm_mat4_outerProduct(c.data, r.data, NativeResult);
@@ -113,12 +113,12 @@ namespace glm
 #if GLM_LANG & GLM_LANG_CXX11_FLAG
 template <qualifier Q>
 GLM_FUNC_QUALIFIER typename std::enable_if<detail::is_aligned<Q>::value, mat<4, 4, float, Q>>::type operator*(
-    const mat<4, 4, float, Q>& m1,
-    const mat<4, 4, float, Q>& m2)
+    mat<4, 4, float, Q> const& m1,
+    mat<4, 4, float, Q> const& m2)
 {
     auto MulRow = [&](int l)
     {
-        const float32x4_t SrcA = m2[l].data;
+        float32x4_t const SrcA = m2[l].data;
 
         float32x4_t r = neon::mul_lane(m1[0].data, SrcA, 0);
         r             = neon::madd_lane(r, m1[1].data, SrcA, 1);
@@ -143,12 +143,12 @@ namespace detail
 template <qualifier Q>
 struct compute_inverse<4, 4, float, Q, true>
 {
-    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(const mat<4, 4, float, Q>& m)
+    GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
     {
-        const float32x4_t& m0 = m[0].data;
-        const float32x4_t& m1 = m[1].data;
-        const float32x4_t& m2 = m[2].data;
-        const float32x4_t& m3 = m[3].data;
+        float32x4_t const& m0 = m[0].data;
+        float32x4_t const& m1 = m[1].data;
+        float32x4_t const& m2 = m[2].data;
+        float32x4_t const& m3 = m[3].data;
 
         // m[2][2] * m[3][3] - m[3][2] * m[2][3];
         // m[2][2] * m[3][3] - m[3][2] * m[2][3];

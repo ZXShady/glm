@@ -6,7 +6,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rgbColor(const vec<3, T, Q>& hsvColor)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rgbColor(vec<3, T, Q> const& hsvColor)
 {
     vec<3, T, Q> hsv = hsvColor;
     vec<3, T, Q> rgbColor;
@@ -63,7 +63,7 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> rgbColor(const vec<3, T, Q>& hsvColor)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> hsvColor(const vec<3, T, Q>& rgbColor)
+GLM_FUNC_QUALIFIER vec<3, T, Q> hsvColor(vec<3, T, Q> const& rgbColor)
 {
     vec<3, T, Q> hsv   = rgbColor;
     T            Min   = min(min(rgbColor.r, rgbColor.g), rgbColor.b);
@@ -103,11 +103,11 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> hsvColor(const vec<3, T, Q>& rgbColor)
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> saturation(const T s)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> saturation(T const s)
 {
     vec<3, T, defaultp> rgbw = vec<3, T, defaultp>(T(0.2126), T(0.7152), T(0.0722));
 
-    const vec<3, T, defaultp> col((T(1) - s) * rgbw);
+    vec<3, T, defaultp> const col((T(1) - s) * rgbw);
 
     mat<4, 4, T, defaultp> result(T(1));
     result[0][0] = col.x + s;
@@ -124,21 +124,21 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> saturation(const T s)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> saturation(const T s, const vec<3, T, Q>& color)
+GLM_FUNC_QUALIFIER vec<3, T, Q> saturation(T const s, vec<3, T, Q> const& color)
 {
     return vec<3, T, Q>(saturation(s) * vec<4, T, Q>(color, T(0)));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> saturation(const T s, const vec<4, T, Q>& color)
+GLM_FUNC_QUALIFIER vec<4, T, Q> saturation(T const s, vec<4, T, Q> const& color)
 {
     return saturation(s) * color;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER T luminosity(const vec<3, T, Q>& color)
+GLM_FUNC_QUALIFIER T luminosity(vec<3, T, Q> const& color)
 {
-    const vec<3, T, Q> tmp = vec<3, T, Q>(0.33, 0.59, 0.11);
+    vec<3, T, Q> const tmp = vec<3, T, Q>(0.33, 0.59, 0.11);
     return dot(color, tmp);
 }
 } //namespace glm

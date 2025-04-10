@@ -4,7 +4,7 @@ namespace detail
 {
 GLM_FUNC_QUALIFIER float overflow()
 {
-    volatile float f = 1e10;
+    float volatile f = 1e10;
 
     for (int i = 0; i < 10; ++i)
         f = f * f; // this will overflow before the for loop terminates
@@ -103,7 +103,7 @@ GLM_FUNC_QUALIFIER float toFloat32(hdata value)
     return Result.f;
 }
 
-GLM_FUNC_QUALIFIER hdata toFloat16(const float& f)
+GLM_FUNC_QUALIFIER hdata toFloat16(float const& f)
 {
     uif32 Entry;
     Entry.f = f;

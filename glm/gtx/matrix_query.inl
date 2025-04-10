@@ -3,7 +3,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isNull(const mat<2, 2, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isNull(mat<2, 2, T, Q> const& m, T const& epsilon)
 {
     bool result = true;
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -12,7 +12,7 @@ GLM_FUNC_QUALIFIER bool isNull(const mat<2, 2, T, Q>& m, const T& epsilon)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isNull(const mat<3, 3, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isNull(mat<3, 3, T, Q> const& m, T const& epsilon)
 {
     bool result = true;
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -21,7 +21,7 @@ GLM_FUNC_QUALIFIER bool isNull(const mat<3, 3, T, Q>& m, const T& epsilon)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isNull(const mat<4, 4, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isNull(mat<4, 4, T, Q> const& m, T const& epsilon)
 {
     bool result = true;
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -30,7 +30,7 @@ GLM_FUNC_QUALIFIER bool isNull(const mat<4, 4, T, Q>& m, const T& epsilon)
 }
 
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isIdentity(const mat<C, R, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isIdentity(mat<C, R, T, Q> const& m, T const& epsilon)
 {
     bool result = true;
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -46,7 +46,7 @@ GLM_FUNC_QUALIFIER bool isIdentity(const mat<C, R, T, Q>& m, const T& epsilon)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isNormalized(const mat<2, 2, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isNormalized(mat<2, 2, T, Q> const& m, T const& epsilon)
 {
     bool result(true);
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -62,7 +62,7 @@ GLM_FUNC_QUALIFIER bool isNormalized(const mat<2, 2, T, Q>& m, const T& epsilon)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isNormalized(const mat<3, 3, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isNormalized(mat<3, 3, T, Q> const& m, T const& epsilon)
 {
     bool result(true);
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -78,7 +78,7 @@ GLM_FUNC_QUALIFIER bool isNormalized(const mat<3, 3, T, Q>& m, const T& epsilon)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isNormalized(const mat<4, 4, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isNormalized(mat<4, 4, T, Q> const& m, T const& epsilon)
 {
     bool result(true);
     for (length_t i = 0; result && i < m.length(); ++i)
@@ -94,7 +94,7 @@ GLM_FUNC_QUALIFIER bool isNormalized(const mat<4, 4, T, Q>& m, const T& epsilon)
 }
 
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool isOrthogonal(const mat<C, R, T, Q>& m, const T& epsilon)
+GLM_FUNC_QUALIFIER bool isOrthogonal(mat<C, R, T, Q> const& m, T const& epsilon)
 {
     bool result = true;
     for (length_t i(0); result && i < m.length(); ++i)

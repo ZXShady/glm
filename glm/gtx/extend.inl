@@ -3,13 +3,13 @@
 namespace glm
 {
 template <typename genType>
-GLM_FUNC_QUALIFIER genType extend(const genType& Origin, const genType& Source, const genType& Distance)
+GLM_FUNC_QUALIFIER genType extend(genType const& Origin, genType const& Source, genType const& Distance)
 {
     return Origin + (Source - Origin) * Distance;
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> extend(const vec<L, T, Q>& Origin, const vec<L, T, Q>& Source, const T& Distance)
+GLM_FUNC_QUALIFIER vec<L, T, Q> extend(vec<L, T, Q> const& Origin, vec<L, T, Q> const& Source, T const& Distance)
 {
     return Origin + (Source - Origin) * Distance;
 }

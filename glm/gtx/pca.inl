@@ -10,28 +10,28 @@ namespace glm
 
 
 template <length_t D, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(const vec<D, T, Q>* v, size_t n)
+GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(vec<D, T, Q> const* v, size_t n)
 {
-    return computeCovarianceMatrix<D, T, Q, const vec<D, T, Q>*>(v, v + n);
+    return computeCovarianceMatrix<D, T, Q, vec<D, T, Q> const*>(v, v + n);
 }
 
 
 template <length_t D, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(const vec<D, T, Q>* v, size_t n, const vec<D, T, Q>& c)
+GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(vec<D, T, Q> const* v, size_t n, vec<D, T, Q> const& c)
 {
-    return computeCovarianceMatrix<D, T, Q, const vec<D, T, Q>*>(v, v + n, c);
+    return computeCovarianceMatrix<D, T, Q, vec<D, T, Q> const*>(v, v + n, c);
 }
 
 
 template <length_t D, typename T, qualifier Q, typename I>
-GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(const I& b, const I& e)
+GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(I const& b, I const& e)
 {
     glm::mat<D, D, T, Q> m(0);
 
     size_t cnt = 0;
     for (I i = b; i != e; i++)
     {
-        const vec<D, T, Q>& v = *i;
+        vec<D, T, Q> const& v = *i;
         for (length_t x = 0; x < D; ++x)
             for (length_t y = 0; y < D; ++y)
                 m[x][y] += static_cast<T>(v[x] * v[y]);
@@ -45,7 +45,7 @@ GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(const I& b, const I& 
 
 
 template <length_t D, typename T, qualifier Q, typename I>
-GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(const I& b, const I& e, const vec<D, T, Q>& c)
+GLM_FUNC_QUALIFIER mat<D, D, T, Q> computeCovarianceMatrix(I const& b, I const& e, vec<D, T, Q> const& c)
 {
     glm::mat<D, D, T, Q> m(0);
     glm::vec<D, T, Q>    v;
@@ -69,15 +69,15 @@ namespace _internal_
 {
 
 template <typename T>
-GLM_FUNC_QUALIFIER static T transferSign(const T& v, const T& s)
+GLM_FUNC_QUALIFIER static T transferSign(T const& v, T const& s)
 {
     return ((s) >= 0 ? glm::abs(v) : -glm::abs(v));
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER static T pythag(const T& a, const T& b)
+GLM_FUNC_QUALIFIER static T pythag(T const& a, T const& b)
 {
-    static const T epsilon = static_cast<T>(0.0000001);
+    static T const epsilon = static_cast<T>(0.0000001);
     T              absa    = glm::abs(a);
     T              absb    = glm::abs(b);
     if (absa > absb)
@@ -96,7 +96,7 @@ GLM_FUNC_QUALIFIER static T pythag(const T& a, const T& b)
 } // namespace _internal_
 
 template <length_t D, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER unsigned int findEigenvaluesSymReal(const mat<D, D, T, Q>& covarMat,
+GLM_FUNC_QUALIFIER unsigned int findEigenvaluesSymReal(mat<D, D, T, Q> const& covarMat,
                                                        vec<D, T, Q>&          outEigenvalues,
                                                        mat<D, D, T, Q>&       outEigenvectors)
 {
@@ -114,7 +114,7 @@ GLM_FUNC_QUALIFIER unsigned int findEigenvaluesSymReal(const mat<D, D, T, Q>& co
     // 1. Householder reduction.
     length_t       l, k, j, i;
     T              scale, hh, h, g, f;
-    static const T epsilon = static_cast<T>(0.0000001);
+    static T const epsilon = static_cast<T>(0.0000001);
 
     for (i = D; i >= 2; i--)
     {
@@ -207,7 +207,7 @@ GLM_FUNC_QUALIFIER unsigned int findEigenvaluesSymReal(const mat<D, D, T, Q>& co
     // 2. Calculation of eigenvalues and eigenvectors (QL algorithm)
     length_t       m, iter;
     T              s, r, p, dd, c, b;
-    const length_t MAX_ITER = 30;
+    length_t const MAX_ITER = 30;
 
     for (i = 2; i <= D; i++)
     {

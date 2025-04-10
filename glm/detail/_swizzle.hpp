@@ -15,7 +15,7 @@ protected:
     }
     GLM_FUNC_QUALIFIER const T& elem(int i) const
     {
-        return (reinterpret_cast<const T*>(_buffer))[i];
+        return (reinterpret_cast<T const*>(_buffer))[i];
     }
 
     // Use an opaque buffer to *ensure* the compiler doesn't call a constructor.
@@ -116,53 +116,53 @@ struct _swizzle_base2 : public _swizzle_base1<N, T, Q, E0, E1, E2, E3, detail::i
     };
 
 public:
-    GLM_FUNC_QUALIFIER _swizzle_base2& operator=(const T& t)
+    GLM_FUNC_QUALIFIER _swizzle_base2& operator=(T const& t)
     {
         for (int i = 0; i < N; ++i)
             (*this)[i] = t;
         return *this;
     }
 
-    GLM_FUNC_QUALIFIER _swizzle_base2& operator=(const vec<N, T, Q>& that)
+    GLM_FUNC_QUALIFIER _swizzle_base2& operator=(vec<N, T, Q> const& that)
     {
         _apply_op(that, op_equal());
         return *this;
     }
 
-    GLM_FUNC_QUALIFIER void operator-=(const vec<N, T, Q>& that)
+    GLM_FUNC_QUALIFIER void operator-=(vec<N, T, Q> const& that)
     {
         _apply_op(that, op_minus());
     }
 
-    GLM_FUNC_QUALIFIER void operator+=(const vec<N, T, Q>& that)
+    GLM_FUNC_QUALIFIER void operator+=(vec<N, T, Q> const& that)
     {
         _apply_op(that, op_plus());
     }
 
-    GLM_FUNC_QUALIFIER void operator*=(const vec<N, T, Q>& that)
+    GLM_FUNC_QUALIFIER void operator*=(vec<N, T, Q> const& that)
     {
         _apply_op(that, op_mul());
     }
 
-    GLM_FUNC_QUALIFIER void operator/=(const vec<N, T, Q>& that)
+    GLM_FUNC_QUALIFIER void operator/=(vec<N, T, Q> const& that)
     {
         _apply_op(that, op_div());
     }
 
     GLM_FUNC_QUALIFIER T& operator[](int i)
     {
-        const int offset_dst[4] = {E0, E1, E2, E3};
+        int const offset_dst[4] = {E0, E1, E2, E3};
         return this->elem(offset_dst[i]);
     }
     GLM_FUNC_QUALIFIER T operator[](int i) const
     {
-        const int offset_dst[4] = {E0, E1, E2, E3};
+        int const offset_dst[4] = {E0, E1, E2, E3};
         return this->elem(offset_dst[i]);
     }
 
 protected:
     template <typename U>
-    GLM_FUNC_QUALIFIER void _apply_op(const vec<N, T, Q>& that, const U& op)
+    GLM_FUNC_QUALIFIER void _apply_op(vec<N, T, Q> const& that, U const& op)
     {
         // Make a copy of the data in this == &that.
         // The copier should optimize out the copy in cases where the function is
@@ -184,14 +184,14 @@ public _swizzle_base1<N, T, Q, E0, E1, E2, E3, detail::is_aligned<Q>::value>
     {
     };
 
-    GLM_FUNC_QUALIFIER _swizzle_base2& operator=(const Stub&)
+    GLM_FUNC_QUALIFIER _swizzle_base2& operator=(Stub const&)
     {
         return *this;
     }
 
     GLM_FUNC_QUALIFIER T operator[](int i) const
     {
-        const int offset_dst[4] = {E0, E1, E2, E3};
+        int const offset_dst[4] = {E0, E1, E2, E3};
         return this->elem(offset_dst[i]);
     }
 };

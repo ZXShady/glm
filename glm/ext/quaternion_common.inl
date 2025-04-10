@@ -1,12 +1,12 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> mix(const qua<T, Q>& x, const qua<T, Q>& y, T a)
+GLM_FUNC_QUALIFIER qua<T, Q> mix(qua<T, Q> const& x, qua<T, Q> const& y, T a)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'mix' only accept floating-point inputs");
+                  "'mix' only accept floating-point inputs");
 
-    const T cosTheta = dot(x, y);
+    T const cosTheta = dot(x, y);
 
     // Perform a linear interpolation when cosTheta is close to 1 to avoid side effect of sin(angle) becoming a zero denominator
     if (cosTheta > static_cast<T>(1) - epsilon<T>())
@@ -23,10 +23,10 @@ GLM_FUNC_QUALIFIER qua<T, Q> mix(const qua<T, Q>& x, const qua<T, Q>& y, T a)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> lerp(const qua<T, Q>& x, const qua<T, Q>& y, T a)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'lerp' only accept floating-point inputs");
+                  "'lerp' only accept floating-point inputs");
 
     // Lerp is only defined in [0, 1]
     assert(a >= static_cast<T>(0));
@@ -36,10 +36,10 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> lerp(const qua<T, Q>& x, const qua<T,
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> slerp(const qua<T, Q>& x, const qua<T, Q>& y, T a)
+GLM_FUNC_QUALIFIER qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'slerp' only accept floating-point inputs");
+                  "'slerp' only accept floating-point inputs");
 
     qua<T, Q> z = y;
 
@@ -68,10 +68,10 @@ GLM_FUNC_QUALIFIER qua<T, Q> slerp(const qua<T, Q>& x, const qua<T, Q>& y, T a)
 }
 
 template <typename T, typename S, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> slerp(const qua<T, Q>& x, const qua<T, Q>& y, T a, S k)
+GLM_FUNC_QUALIFIER qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a, S k)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'slerp' only accept floating-point inputs");
+                  "'slerp' only accept floating-point inputs");
     static_assert(std::numeric_limits<S>::is_integer, "'slerp' only accept integer for spin count");
 
     qua<T, Q> z = y;
@@ -102,31 +102,31 @@ GLM_FUNC_QUALIFIER qua<T, Q> slerp(const qua<T, Q>& x, const qua<T, Q>& y, T a, 
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> conjugate(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> conjugate(qua<T, Q> const& q)
 {
     return qua<T, Q>::wxyz(q.w, -q.x, -q.y, -q.z);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> inverse(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> inverse(qua<T, Q> const& q)
 {
     return conjugate(q) / dot(q, q);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, bool, Q> isnan(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER vec<4, bool, Q> isnan(qua<T, Q> const& q)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'isnan' only accept floating-point inputs");
+                  "'isnan' only accept floating-point inputs");
 
     return vec<4, bool, Q>(isnan(q.x), isnan(q.y), isnan(q.z), isnan(q.w));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, bool, Q> isinf(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER vec<4, bool, Q> isinf(qua<T, Q> const& q)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'isinf' only accept floating-point inputs");
+                  "'isinf' only accept floating-point inputs");
 
     return vec<4, bool, Q>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
 }

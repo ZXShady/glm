@@ -45,7 +45,7 @@ namespace glm
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(const mat<C, R, T, Q>& x, const mat<C, R, T, Q>& y);
+GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
 
 /// Treats the first parameter c as a column vector
 /// and the second parameter r as a row vector
@@ -59,7 +59,7 @@ GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(const mat<C, R, T, Q>& x, const mat
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct(const vec<C, T, Q>& c, const vec<R, T, Q>& r);
+GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct(vec<C, T, Q> const& c, vec<R, T, Q> const& r);
 
 /// Returns the transposed matrix of x
 ///
@@ -71,7 +71,7 @@ GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL typename mat<C, R, T, Q>::transpose_type transpose(const mat<C, R, T, Q>& x);
+GLM_FUNC_DECL typename mat<C, R, T, Q>::transpose_type transpose(mat<C, R, T, Q> const& x);
 
 /// Return the determinant of a squared matrix.
 ///
@@ -83,7 +83,7 @@ GLM_FUNC_DECL typename mat<C, R, T, Q>::transpose_type transpose(const mat<C, R,
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL T determinant(const mat<C, R, T, Q>& m);
+GLM_FUNC_DECL T determinant(mat<C, R, T, Q> const& m);
 
 /// @}
 } //namespace glm

@@ -47,7 +47,7 @@ namespace glm
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL vec<3, T, Q> eulerAngles(const qua<T, Q>& x);
+GLM_FUNC_DECL vec<3, T, Q> eulerAngles(qua<T, Q> const& x);
 
 /// Returns roll value of euler angles expressed in radians.
 ///
@@ -55,7 +55,7 @@ GLM_FUNC_DECL vec<3, T, Q> eulerAngles(const qua<T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL T roll(const qua<T, Q>& x);
+GLM_FUNC_DECL T roll(qua<T, Q> const& x);
 
 /// Returns pitch value of euler angles expressed in radians.
 ///
@@ -63,7 +63,7 @@ GLM_FUNC_DECL T roll(const qua<T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL T pitch(const qua<T, Q>& x);
+GLM_FUNC_DECL T pitch(qua<T, Q> const& x);
 
 /// Returns yaw value of euler angles expressed in radians.
 ///
@@ -71,7 +71,7 @@ GLM_FUNC_DECL T pitch(const qua<T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL T yaw(const qua<T, Q>& x);
+GLM_FUNC_DECL T yaw(qua<T, Q> const& x);
 
 /// Converts a quaternion to a 3 * 3 matrix.
 ///
@@ -79,7 +79,7 @@ GLM_FUNC_DECL T yaw(const qua<T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<3, 3, T, Q> mat3_cast(const qua<T, Q>& x);
+GLM_FUNC_DECL mat<3, 3, T, Q> mat3_cast(qua<T, Q> const& x);
 
 /// Converts a quaternion to a 4 * 4 matrix.
 ///
@@ -87,7 +87,7 @@ GLM_FUNC_DECL mat<3, 3, T, Q> mat3_cast(const qua<T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> mat4_cast(const qua<T, Q>& x);
+GLM_FUNC_DECL mat<4, 4, T, Q> mat4_cast(qua<T, Q> const& x);
 
 /// Converts a pure rotation 3 * 3 matrix to a quaternion.
 ///
@@ -95,7 +95,7 @@ GLM_FUNC_DECL mat<4, 4, T, Q> mat4_cast(const qua<T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL qua<T, Q> quat_cast(const mat<3, 3, T, Q>& x);
+GLM_FUNC_DECL qua<T, Q> quat_cast(mat<3, 3, T, Q> const& x);
 
 /// Converts a pure rotation 4 * 4 matrix to a quaternion.
 ///
@@ -103,7 +103,7 @@ GLM_FUNC_DECL qua<T, Q> quat_cast(const mat<3, 3, T, Q>& x);
 ///
 /// @see gtc_quaternion
 template <typename T, qualifier Q>
-GLM_FUNC_DECL qua<T, Q> quat_cast(const mat<4, 4, T, Q>& x);
+GLM_FUNC_DECL qua<T, Q> quat_cast(mat<4, 4, T, Q> const& x);
 
 /// Returns the component-wise comparison result of x < y.
 ///
@@ -112,7 +112,7 @@ GLM_FUNC_DECL qua<T, Q> quat_cast(const mat<4, 4, T, Q>& x);
 ///
 /// @see ext_quaternion_relational
 template <typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> lessThan(const qua<T, Q>& x, const qua<T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> lessThan(qua<T, Q> const& x, qua<T, Q> const& y);
 
 /// Returns the component-wise comparison of result x <= y.
 ///
@@ -121,7 +121,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> lessThan(const qua<T, Q>& x, const q
 ///
 /// @see ext_quaternion_relational
 template <typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> lessThanEqual(const qua<T, Q>& x, const qua<T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> lessThanEqual(qua<T, Q> const& x, qua<T, Q> const& y);
 
 /// Returns the component-wise comparison of result x > y.
 ///
@@ -130,7 +130,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> lessThanEqual(const qua<T, Q>& x, co
 ///
 /// @see ext_quaternion_relational
 template <typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> greaterThan(const qua<T, Q>& x, const qua<T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> greaterThan(qua<T, Q> const& x, qua<T, Q> const& y);
 
 /// Returns the component-wise comparison of result x >= y.
 ///
@@ -139,28 +139,28 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> greaterThan(const qua<T, Q>& x, cons
 ///
 /// @see ext_quaternion_relational
 template <typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> greaterThanEqual(const qua<T, Q>& x, const qua<T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<4, bool, Q> greaterThanEqual(qua<T, Q> const& x, qua<T, Q> const& y);
 
 /// Build a look at quaternion based on the default handedness.
 ///
 /// @param direction Desired forward direction. Needs to be normalized.
 /// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
 template <typename T, qualifier Q>
-GLM_FUNC_DECL qua<T, Q> quatLookAt(const vec<3, T, Q>& direction, const vec<3, T, Q>& up);
+GLM_FUNC_DECL qua<T, Q> quatLookAt(vec<3, T, Q> const& direction, vec<3, T, Q> const& up);
 
 /// Build a right-handed look at quaternion.
 ///
 /// @param direction Desired forward direction onto which the -z-axis gets mapped. Needs to be normalized.
 /// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
 template <typename T, qualifier Q>
-GLM_FUNC_DECL qua<T, Q> quatLookAtRH(const vec<3, T, Q>& direction, const vec<3, T, Q>& up);
+GLM_FUNC_DECL qua<T, Q> quatLookAtRH(vec<3, T, Q> const& direction, vec<3, T, Q> const& up);
 
 /// Build a left-handed look at quaternion.
 ///
 /// @param direction Desired forward direction onto which the +z-axis gets mapped. Needs to be normalized.
 /// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
 template <typename T, qualifier Q>
-GLM_FUNC_DECL qua<T, Q> quatLookAtLH(const vec<3, T, Q>& direction, const vec<3, T, Q>& up);
+GLM_FUNC_DECL qua<T, Q> quatLookAtLH(vec<3, T, Q> const& direction, vec<3, T, Q> const& up);
 /// @}
 } //namespace glm
 

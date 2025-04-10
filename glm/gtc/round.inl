@@ -73,7 +73,7 @@ GLM_FUNC_QUALIFIER genType ceilPowerOfTwo(genType value)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> ceilPowerOfTwo(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> ceilPowerOfTwo(vec<L, T, Q> const& v)
 {
     return detail::compute_ceilPowerOfTwo<L, T, Q, std::numeric_limits<T>::is_signed>::call(v);
 }
@@ -88,7 +88,7 @@ GLM_FUNC_QUALIFIER genType floorPowerOfTwo(genType value)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> floorPowerOfTwo(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> floorPowerOfTwo(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(floorPowerOfTwo, v);
 }
@@ -102,13 +102,13 @@ GLM_FUNC_QUALIFIER genIUType roundPowerOfTwo(genIUType value)
     if (isPowerOfTwo(value))
         return value;
 
-    const genIUType prev = static_cast<genIUType>(1) << findMSB(value);
-    const genIUType next = prev << static_cast<genIUType>(1);
+    genIUType const prev = static_cast<genIUType>(1) << findMSB(value);
+    genIUType const next = prev << static_cast<genIUType>(1);
     return (next - value) < (value - prev) ? next : prev;
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> roundPowerOfTwo(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> roundPowerOfTwo(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(roundPowerOfTwo, v);
 }
@@ -124,7 +124,7 @@ GLM_FUNC_QUALIFIER genType ceilMultiple(genType Source, genType Multiple)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> ceilMultiple(const vec<L, T, Q>& Source, const vec<L, T, Q>& Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> ceilMultiple(vec<L, T, Q> const& Source, vec<L, T, Q> const& Multiple)
 {
     return detail::functor2<vec, L, T, Q>::call(ceilMultiple, Source, Multiple);
 }
@@ -140,7 +140,7 @@ GLM_FUNC_QUALIFIER genType floorMultiple(genType Source, genType Multiple)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> floorMultiple(const vec<L, T, Q>& Source, const vec<L, T, Q>& Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> floorMultiple(vec<L, T, Q> const& Source, vec<L, T, Q> const& Multiple)
 {
     return detail::functor2<vec, L, T, Q>::call(floorMultiple, Source, Multiple);
 }
@@ -156,7 +156,7 @@ GLM_FUNC_QUALIFIER genType roundMultiple(genType Source, genType Multiple)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> roundMultiple(const vec<L, T, Q>& Source, const vec<L, T, Q>& Multiple)
+GLM_FUNC_QUALIFIER vec<L, T, Q> roundMultiple(vec<L, T, Q> const& Source, vec<L, T, Q> const& Multiple)
 {
     return detail::functor2<vec, L, T, Q>::call(roundMultiple, Source, Multiple);
 }

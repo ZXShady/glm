@@ -27,7 +27,7 @@ namespace glm
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL T length(const vec<L, T, Q>& x);
+GLM_FUNC_DECL T length(vec<L, T, Q> const& x);
 
 /// Returns the distance between p0 and p1, i.e., length(p0 - p1).
 ///
@@ -37,7 +37,7 @@ GLM_FUNC_DECL T length(const vec<L, T, Q>& x);
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/distance.xml">GLSL distance man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL T distance(const vec<L, T, Q>& p0, const vec<L, T, Q>& p1);
+GLM_FUNC_DECL T distance(vec<L, T, Q> const& p0, vec<L, T, Q> const& p1);
 
 /// Returns the dot product of x and y, i.e., result = x * y.
 ///
@@ -47,7 +47,7 @@ GLM_FUNC_DECL T distance(const vec<L, T, Q>& p0, const vec<L, T, Q>& p1);
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR T dot(const vec<L, T, Q>& x, const vec<L, T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR T dot(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
 
 /// Returns the cross product of x and y.
 ///
@@ -56,7 +56,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR T dot(const vec<L, T, Q>& x, const vec<L, T, Q>& y);
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <typename T, qualifier Q>
-GLM_FUNC_DECL GLM_CONSTEXPR vec<3, T, Q> cross(const vec<3, T, Q>& x, const vec<3, T, Q>& y);
+GLM_FUNC_DECL GLM_CONSTEXPR vec<3, T, Q> cross(vec<3, T, Q> const& x, vec<3, T, Q> const& y);
 
 /// Returns a vector in the same direction as x but with length of 1.
 /// According to issue 10 GLSL 1.10 specification, if length(x) == 0 then result is undefined and generate an error.
@@ -67,7 +67,7 @@ GLM_FUNC_DECL GLM_CONSTEXPR vec<3, T, Q> cross(const vec<3, T, Q>& x, const vec<
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> normalize(const vec<L, T, Q>& x);
+GLM_FUNC_DECL vec<L, T, Q> normalize(vec<L, T, Q> const& x);
 
 /// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
 ///
@@ -77,7 +77,7 @@ GLM_FUNC_DECL vec<L, T, Q> normalize(const vec<L, T, Q>& x);
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> faceforward(const vec<L, T, Q>& N, const vec<L, T, Q>& I, const vec<L, T, Q>& Nref);
+GLM_FUNC_DECL vec<L, T, Q> faceforward(vec<L, T, Q> const& N, vec<L, T, Q> const& I, vec<L, T, Q> const& Nref);
 
 /// For the incident vector I and surface orientation N,
 /// returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
@@ -88,7 +88,7 @@ GLM_FUNC_DECL vec<L, T, Q> faceforward(const vec<L, T, Q>& N, const vec<L, T, Q>
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/reflect.xml">GLSL reflect man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> reflect(const vec<L, T, Q>& I, const vec<L, T, Q>& N);
+GLM_FUNC_DECL vec<L, T, Q> reflect(vec<L, T, Q> const& I, vec<L, T, Q> const& N);
 
 /// For the incident vector I and surface normal N,
 /// and the ratio of indices of refraction eta,
@@ -100,7 +100,7 @@ GLM_FUNC_DECL vec<L, T, Q> reflect(const vec<L, T, Q>& I, const vec<L, T, Q>& N)
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> refract(const vec<L, T, Q>& I, const vec<L, T, Q>& N, T eta);
+GLM_FUNC_DECL vec<L, T, Q> refract(vec<L, T, Q> const& I, vec<L, T, Q> const& N, T eta);
 
 /// @}
 } //namespace glm

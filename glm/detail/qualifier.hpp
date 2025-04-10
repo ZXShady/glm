@@ -188,7 +188,7 @@ struct storage<4, double, true>
         {
             return data[i];
         }
-        GLM_CONSTEXPR void setv(int i, const glm_f64vec2& v)
+        GLM_CONSTEXPR void setv(int i, glm_f64vec2 const& v)
         {
             data[i] = v;
         }
@@ -280,7 +280,7 @@ struct genTypeTrait
 template <length_t C, length_t R, typename T>
 struct genTypeTrait<mat<C, R, T>>
 {
-    static const genTypeEnum GENTYPE = GENTYPE_MAT;
+    static genTypeEnum const GENTYPE = GENTYPE_MAT;
 };
 
 template <typename genType, genTypeEnum type>

@@ -32,27 +32,27 @@ namespace glm
 //! Transforms a matrix with a shearing on X axis.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<3, 3, T, Q> shearX2D(const mat<3, 3, T, Q>& m, T y);
+GLM_FUNC_DECL mat<3, 3, T, Q> shearX2D(mat<3, 3, T, Q> const& m, T y);
 
 //! Transforms a matrix with a shearing on Y axis.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<3, 3, T, Q> shearY2D(const mat<3, 3, T, Q>& m, T x);
+GLM_FUNC_DECL mat<3, 3, T, Q> shearY2D(mat<3, 3, T, Q> const& m, T x);
 
 //! Transforms a matrix with a shearing on X axis
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> shearX3D(const mat<4, 4, T, Q>& m, T y, T z);
+GLM_FUNC_DECL mat<4, 4, T, Q> shearX3D(mat<4, 4, T, Q> const& m, T y, T z);
 
 //! Transforms a matrix with a shearing on Y axis.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> shearY3D(const mat<4, 4, T, Q>& m, T x, T z);
+GLM_FUNC_DECL mat<4, 4, T, Q> shearY3D(mat<4, 4, T, Q> const& m, T x, T z);
 
 //! Transforms a matrix with a shearing on Z axis.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> shearZ3D(const mat<4, 4, T, Q>& m, T x, T y);
+GLM_FUNC_DECL mat<4, 4, T, Q> shearZ3D(mat<4, 4, T, Q> const& m, T x, T y);
 
 //template<typename T> GLM_FUNC_QUALIFIER mat<4, 4, T, Q> shear(const mat<4, 4, T, Q> & m, shearPlane, planePoint, angle)
 // Identity + tan(angle) * cross(Normal, OnPlaneVector)     0
@@ -65,12 +65,12 @@ GLM_FUNC_DECL mat<4, 4, T, Q> shearZ3D(const mat<4, 4, T, Q>& m, T x, T y);
 //! Build planar projection matrix along normal axis.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<3, 3, T, Q> proj2D(const mat<3, 3, T, Q>& m, const vec<3, T, Q>& normal);
+GLM_FUNC_DECL mat<3, 3, T, Q> proj2D(mat<3, 3, T, Q> const& m, vec<3, T, Q> const& normal);
 
 //! Build planar projection matrix along normal axis.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> proj3D(const mat<4, 4, T, Q>& m, const vec<3, T, Q>& normal);
+GLM_FUNC_DECL mat<4, 4, T, Q> proj3D(mat<4, 4, T, Q> const& m, vec<3, T, Q> const& normal);
 
 //! Build a scale bias matrix.
 //! From GLM_GTX_transform2 extension.
@@ -80,7 +80,7 @@ GLM_FUNC_DECL mat<4, 4, T, Q> scaleBias(T scale, T bias);
 //! Build a scale bias matrix.
 //! From GLM_GTX_transform2 extension.
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> scaleBias(const mat<4, 4, T, Q>& m, T scale, T bias);
+GLM_FUNC_DECL mat<4, 4, T, Q> scaleBias(mat<4, 4, T, Q> const& m, T scale, T bias);
 
 /// @}
 } // namespace glm

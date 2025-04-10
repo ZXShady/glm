@@ -12,44 +12,44 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> quat_identity()
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(const vec<3, T, Q>& v, const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(vec<3, T, Q> const& v, qua<T, Q> const& q)
 {
     return inverse(q) * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(const qua<T, Q>& q, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(qua<T, Q> const& q, vec<3, T, Q> const& v)
 {
     return q * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> squad(const qua<T, Q>& q1, const qua<T, Q>& q2, const qua<T, Q>& s1, const qua<T, Q>& s2, const T& h)
+GLM_FUNC_QUALIFIER qua<T, Q> squad(qua<T, Q> const& q1, qua<T, Q> const& q2, qua<T, Q> const& s1, qua<T, Q> const& s2, T const& h)
 {
     return mix(mix(q1, q2, h), mix(s1, s2, h), static_cast<T>(2) * (static_cast<T>(1) - h) * h);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> intermediate(const qua<T, Q>& prev, const qua<T, Q>& curr, const qua<T, Q>& next)
+GLM_FUNC_QUALIFIER qua<T, Q> intermediate(qua<T, Q> const& prev, qua<T, Q> const& curr, qua<T, Q> const& next)
 {
     qua<T, Q> invQuat = inverse(curr);
     return exp((log(next * invQuat) + log(prev * invQuat)) / static_cast<T>(-4)) * curr;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rotate(const qua<T, Q>& q, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rotate(qua<T, Q> const& q, vec<3, T, Q> const& v)
 {
     return q * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> rotate(const qua<T, Q>& q, const vec<4, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<4, T, Q> rotate(qua<T, Q> const& q, vec<4, T, Q> const& v)
 {
     return q * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER T extractRealComponent(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER T extractRealComponent(qua<T, Q> const& q)
 {
     T w = static_cast<T>(1) - q.x * q.x - q.y * q.y - q.z * q.z;
     if (w < T(0))
@@ -59,13 +59,13 @@ GLM_FUNC_QUALIFIER T extractRealComponent(const qua<T, Q>& q)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR T length2(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR T length2(qua<T, Q> const& q)
 {
     return q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> shortMix(const qua<T, Q>& x, const qua<T, Q>& y, const T& a)
+GLM_FUNC_QUALIFIER qua<T, Q> shortMix(qua<T, Q> const& x, qua<T, Q> const& y, T const& a)
 {
     if (a <= static_cast<T>(0))
         return x;
@@ -100,13 +100,13 @@ GLM_FUNC_QUALIFIER qua<T, Q> shortMix(const qua<T, Q>& x, const qua<T, Q>& y, co
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> fastMix(const qua<T, Q>& x, const qua<T, Q>& y, const T& a)
+GLM_FUNC_QUALIFIER qua<T, Q> fastMix(qua<T, Q> const& x, qua<T, Q> const& y, T const& a)
 {
     return glm::normalize(x * (static_cast<T>(1) - a) + (y * a));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> rotation(const vec<3, T, Q>& orig, const vec<3, T, Q>& dest)
+GLM_FUNC_QUALIFIER qua<T, Q> rotation(vec<3, T, Q> const& orig, vec<3, T, Q> const& dest)
 {
     T            cosTheta = dot(orig, dest);
     vec<3, T, Q> rotationAxis;

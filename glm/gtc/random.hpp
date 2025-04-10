@@ -44,7 +44,7 @@ GLM_FUNC_DECL genType linearRand(genType Min, genType Max);
 ///
 /// @see gtc_random
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_DECL vec<L, T, Q> linearRand(const vec<L, T, Q>& Min, const vec<L, T, Q>& Max);
+GLM_FUNC_DECL vec<L, T, Q> linearRand(vec<L, T, Q> const& Min, vec<L, T, Q> const& Max);
 
 /// Generate random numbers in the interval [Min, Max], according a gaussian distribution
 ///

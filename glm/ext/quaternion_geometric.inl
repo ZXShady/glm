@@ -1,21 +1,21 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR T dot(const qua<T, Q>& x, const qua<T, Q>& y)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR T dot(qua<T, Q> const& x, qua<T, Q> const& y)
 {
     static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                      "'dot' accepts only floating-point inputs");
+                  "'dot' accepts only floating-point inputs");
     return detail::compute_dot<qua<T, Q>, T, detail::is_aligned<Q>::value>::call(x, y);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER T length(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER T length(qua<T, Q> const& q)
 {
     return glm::sqrt(dot(q, q));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER qua<T, Q> normalize(const qua<T, Q>& q)
+GLM_FUNC_QUALIFIER qua<T, Q> normalize(qua<T, Q> const& q)
 {
     T len = length(q);
     if (len <= static_cast<T>(0)) // Problem
@@ -25,7 +25,7 @@ GLM_FUNC_QUALIFIER qua<T, Q> normalize(const qua<T, Q>& q)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> cross(const qua<T, Q>& q1, const qua<T, Q>& q2)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> cross(qua<T, Q> const& q1, qua<T, Q> const& q2)
 {
     return qua<T, Q>::wxyz(q1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z,
                            q1.w * q2.x + q1.x * q2.w + q1.y * q2.z - q1.z * q2.y,

@@ -33,12 +33,12 @@ namespace glm
 /// @see - gtx_gradient_paint
 template <typename T, qualifier Q>
 GLM_FUNC_DECL T
-    radialGradient(const vec<2, T, Q>& Center, const T& Radius, const vec<2, T, Q>& Focal, const vec<2, T, Q>& Position);
+    radialGradient(vec<2, T, Q> const& Center, T const& Radius, vec<2, T, Q> const& Focal, vec<2, T, Q> const& Position);
 
 /// Return a color from a linear gradient.
 /// @see - gtx_gradient_paint
 template <typename T, qualifier Q>
-GLM_FUNC_DECL T linearGradient(const vec<2, T, Q>& Point0, const vec<2, T, Q>& Point1, const vec<2, T, Q>& Position);
+GLM_FUNC_DECL T linearGradient(vec<2, T, Q> const& Point0, vec<2, T, Q> const& Point1, vec<2, T, Q> const& Position);
 
 /// @}
 } // namespace glm

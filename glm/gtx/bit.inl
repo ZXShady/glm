@@ -19,7 +19,7 @@ GLM_FUNC_QUALIFIER genIUType highestBitValue(genIUType Value)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> highestBitValue(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> highestBitValue(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(highestBitValue, v);
 }
@@ -34,7 +34,7 @@ GLM_FUNC_QUALIFIER genIUType lowestBitValue(genIUType Value)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> lowestBitValue(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> lowestBitValue(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(lowestBitValue, v);
 }
@@ -49,7 +49,7 @@ GLM_FUNC_QUALIFIER genType powerOfTwoAbove(genType value)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> powerOfTwoAbove(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> powerOfTwoAbove(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(powerOfTwoAbove, v);
 }
@@ -64,7 +64,7 @@ GLM_FUNC_QUALIFIER genType powerOfTwoBelow(genType value)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> powerOfTwoBelow(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> powerOfTwoBelow(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(powerOfTwoBelow, v);
 }
@@ -78,13 +78,13 @@ GLM_FUNC_QUALIFIER genType powerOfTwoNearest(genType value)
     if (isPowerOfTwo(value))
         return value;
 
-    const genType prev = highestBitValue(value);
-    const genType next = prev << 1;
+    genType const prev = highestBitValue(value);
+    genType const next = prev << 1;
     return (next - value) < (value - prev) ? next : prev;
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> powerOfTwoNearest(const vec<L, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<L, T, Q> powerOfTwoNearest(vec<L, T, Q> const& v)
 {
     return detail::functor1<vec, L, T, T, Q>::call(powerOfTwoNearest, v);
 }

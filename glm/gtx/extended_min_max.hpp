@@ -31,21 +31,21 @@ namespace glm
 /// Return the minimum component-wise values of 3 inputs
 /// @see gtx_extented_min_max
 template <typename T>
-GLM_FUNC_DECL T min(const T& x, const T& y, const T& z);
+GLM_FUNC_DECL T min(T const& x, T const& y, T const& z);
 
 /// @see gtx_extented_min_max
 template <typename T>
-GLM_FUNC_DECL T min(const T& x, const T& y, const T& z, const T& w);
+GLM_FUNC_DECL T min(T const& x, T const& y, T const& z, T const& w);
 
 /// Return the maximum component-wise values of 3 inputs
 /// @see gtx_extented_min_max
 template <typename T>
-GLM_FUNC_DECL T max(const T& x, const T& y, const T& z);
+GLM_FUNC_DECL T max(T const& x, T const& y, T const& z);
 
 /// Return the maximum component-wise values of 4 inputs
 /// @see gtx_extented_min_max
 template <typename T>
-GLM_FUNC_DECL T max(const T& x, const T& y, const T& z, const T& w);
+GLM_FUNC_DECL T max(T const& x, T const& y, T const& z, T const& w);
 
 /// @}
 } //namespace glm

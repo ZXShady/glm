@@ -43,7 +43,7 @@ namespace glm
 /// @see - rotate(mat<4, 4, T, Q> const& m, T angle, T x, T y, T z)
 /// @see - rotate(T angle, vec<3, T, Q> const& v)
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> rotateNormalizedAxis(const mat<4, 4, T, Q>& m, const T& angle, const vec<3, T, Q>& axis);
+GLM_FUNC_DECL mat<4, 4, T, Q> rotateNormalizedAxis(mat<4, 4, T, Q> const& m, T const& angle, vec<3, T, Q> const& axis);
 
 /// Rotates a quaternion from a vector of 3 components normalized axis and an angle.
 ///
@@ -53,7 +53,7 @@ GLM_FUNC_DECL mat<4, 4, T, Q> rotateNormalizedAxis(const mat<4, 4, T, Q>& m, con
 ///
 /// @see gtx_rotate_normalized_axis
 template <typename T, qualifier Q>
-GLM_FUNC_DECL qua<T, Q> rotateNormalizedAxis(const qua<T, Q>& q, const T& angle, const vec<3, T, Q>& axis);
+GLM_FUNC_DECL qua<T, Q> rotateNormalizedAxis(qua<T, Q> const& q, T const& angle, vec<3, T, Q> const& axis);
 
 /// @}
 } //namespace glm

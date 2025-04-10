@@ -37,10 +37,10 @@ namespace glm
 //! Ray direction and plane normal must be unit length.
 //! From GLM_GTX_intersect extension.
 template <typename genType>
-GLM_FUNC_DECL bool intersectRayPlane(const genType&                orig,
-                                     const genType&                dir,
-                                     const genType&                planeOrig,
-                                     const genType&                planeNormal,
+GLM_FUNC_DECL bool intersectRayPlane(genType const&                orig,
+                                     genType const&                dir,
+                                     genType const&                planeOrig,
+                                     genType const&                planeNormal,
                                      typename genType::value_type& intersectionDistance);
 
 //! Compute the intersection of a ray and a triangle.
@@ -48,11 +48,11 @@ GLM_FUNC_DECL bool intersectRayPlane(const genType&                orig,
 //! From GLM_GTX_intersect extension.
 template <typename T, qualifier Q>
 GLM_FUNC_DECL bool intersectRayTriangle(
-    const vec<3, T, Q>& orig,
-    const vec<3, T, Q>& dir,
-    const vec<3, T, Q>& v0,
-    const vec<3, T, Q>& v1,
-    const vec<3, T, Q>& v2,
+    vec<3, T, Q> const& orig,
+    vec<3, T, Q> const& dir,
+    vec<3, T, Q> const& v0,
+    vec<3, T, Q> const& v1,
+    vec<3, T, Q> const& v2,
     vec<2, T, Q>&       baryPosition,
     T&                  distance);
 
@@ -60,31 +60,31 @@ GLM_FUNC_DECL bool intersectRayTriangle(
 //! From GLM_GTX_intersect extension.
 template <typename genType>
 GLM_FUNC_DECL bool intersectLineTriangle(
-    const genType& orig,
-    const genType& dir,
-    const genType& vert0,
-    const genType& vert1,
-    const genType& vert2,
+    genType const& orig,
+    genType const& dir,
+    genType const& vert0,
+    genType const& vert1,
+    genType const& vert2,
     genType&       position);
 
 //! Compute the intersection distance of a ray and a sphere.
 //! The ray direction vector is unit length.
 //! From GLM_GTX_intersect extension.
 template <typename genType>
-GLM_FUNC_DECL bool intersectRaySphere(const genType&                     rayStarting,
-                                      const genType&                     rayNormalizedDirection,
-                                      const genType&                     sphereCenter,
-                                      const typename genType::value_type sphereRadiusSquared,
+GLM_FUNC_DECL bool intersectRaySphere(genType const&                     rayStarting,
+                                      genType const&                     rayNormalizedDirection,
+                                      genType const&                     sphereCenter,
+                                      typename genType::value_type const sphereRadiusSquared,
                                       typename genType::value_type&      intersectionDistance);
 
 //! Compute the intersection of a ray and a sphere.
 //! From GLM_GTX_intersect extension.
 template <typename genType>
 GLM_FUNC_DECL bool intersectRaySphere(
-    const genType&                     rayStarting,
-    const genType&                     rayNormalizedDirection,
-    const genType&                     sphereCenter,
-    const typename genType::value_type sphereRadius,
+    genType const&                     rayStarting,
+    genType const&                     rayNormalizedDirection,
+    genType const&                     sphereCenter,
+    typename genType::value_type const sphereRadius,
     genType&                           intersectionPosition,
     genType&                           intersectionNormal);
 
@@ -92,9 +92,9 @@ GLM_FUNC_DECL bool intersectRaySphere(
 //! From GLM_GTX_intersect extension
 template <typename genType>
 GLM_FUNC_DECL bool intersectLineSphere(
-    const genType&               point0,
-    const genType&               point1,
-    const genType&               sphereCenter,
+    genType const&               point0,
+    genType const&               point1,
+    genType const&               sphereCenter,
     typename genType::value_type sphereRadius,
     genType&                     intersectionPosition1,
     genType&                     intersectionNormal1,

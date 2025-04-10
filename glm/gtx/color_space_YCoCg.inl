@@ -3,7 +3,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCg(const vec<3, T, Q>& rgbColor)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCg(vec<3, T, Q> const& rgbColor)
 {
     vec<3, T, Q> result;
     result.x /*Y */ = rgbColor.r / T(4) + rgbColor.g / T(2) + rgbColor.b / T(4);
@@ -13,7 +13,7 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCg(const vec<3, T, Q>& rgbColor)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCg2rgb(const vec<3, T, Q>& YCoCgColor)
+GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCg2rgb(vec<3, T, Q> const& YCoCgColor)
 {
     vec<3, T, Q> result;
     result.r = YCoCgColor.x + YCoCgColor.y - YCoCgColor.z;
@@ -26,7 +26,7 @@ template <typename T, qualifier Q, bool isInteger>
 class compute_YCoCgR
 {
 public:
-    static GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCgR(const vec<3, T, Q>& rgbColor)
+    static GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCgR(vec<3, T, Q> const& rgbColor)
     {
         vec<3, T, Q> result;
         result.x /*Y */ = rgbColor.g * static_cast<T>(0.5) + (rgbColor.r + rgbColor.b) * static_cast<T>(0.25);
@@ -35,7 +35,7 @@ public:
         return result;
     }
 
-    static GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCgR2rgb(const vec<3, T, Q>& YCoCgRColor)
+    static GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCgR2rgb(vec<3, T, Q> const& YCoCgRColor)
     {
         vec<3, T, Q> result;
         T            tmp = YCoCgRColor.x - (YCoCgRColor.z * static_cast<T>(0.5));
@@ -50,7 +50,7 @@ template <typename T, qualifier Q>
 class compute_YCoCgR<T, Q, true>
 {
 public:
-    static GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCgR(const vec<3, T, Q>& rgbColor)
+    static GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCgR(vec<3, T, Q> const& rgbColor)
     {
         vec<3, T, Q> result;
         result.y /*Co*/ = rgbColor.r - rgbColor.b;
@@ -60,7 +60,7 @@ public:
         return result;
     }
 
-    static GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCgR2rgb(const vec<3, T, Q>& YCoCgRColor)
+    static GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCgR2rgb(vec<3, T, Q> const& YCoCgRColor)
     {
         vec<3, T, Q> result;
         T            tmp = YCoCgRColor.x - (YCoCgRColor.z >> 1);
@@ -72,13 +72,13 @@ public:
 };
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCgR(const vec<3, T, Q>& rgbColor)
+GLM_FUNC_QUALIFIER vec<3, T, Q> rgb2YCoCgR(vec<3, T, Q> const& rgbColor)
 {
     return compute_YCoCgR<T, Q, std::numeric_limits<T>::is_integer>::rgb2YCoCgR(rgbColor);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCgR2rgb(const vec<3, T, Q>& YCoCgRColor)
+GLM_FUNC_QUALIFIER vec<3, T, Q> YCoCgR2rgb(vec<3, T, Q> const& YCoCgRColor)
 {
     return compute_YCoCgR<T, Q, std::numeric_limits<T>::is_integer>::YCoCgR2rgb(YCoCgRColor);
 }

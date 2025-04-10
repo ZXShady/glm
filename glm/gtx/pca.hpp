@@ -58,24 +58,24 @@ namespace glm
 /// @param v Points to a memory holding `n` times vectors
 /// @param n Number of points in v
 template <length_t D, typename T, qualifier Q>
-GLM_INLINE mat<D, D, T, Q> computeCovarianceMatrix(const vec<D, T, Q>* v, size_t n);
+GLM_INLINE mat<D, D, T, Q> computeCovarianceMatrix(vec<D, T, Q> const* v, size_t n);
 
 /// Compute a covariance matrix form an array of absolute coordinates `v` and a precomputed center of gravity `c`
 /// @param v Points to a memory holding `n` times vectors
 /// @param n Number of points in v
 /// @param c Precomputed center of gravity
 template <length_t D, typename T, qualifier Q>
-GLM_INLINE mat<D, D, T, Q> computeCovarianceMatrix(const vec<D, T, Q>* v, size_t n, const vec<D, T, Q>& c);
+GLM_INLINE mat<D, D, T, Q> computeCovarianceMatrix(vec<D, T, Q> const* v, size_t n, vec<D, T, Q> const& c);
 
 /// Compute a covariance matrix form a pair of iterators `b` (begin) and `e` (end) of a container with relative coordinates (e.g., relative to the center of gravity of the object)
 /// Dereferencing an iterator of type I must yield a `vec&lt;D, T, Q%gt;`
 template <length_t D, typename T, qualifier Q, typename I>
-GLM_FUNC_DECL mat<D, D, T, Q> computeCovarianceMatrix(const I& b, const I& e);
+GLM_FUNC_DECL mat<D, D, T, Q> computeCovarianceMatrix(I const& b, I const& e);
 
 /// Compute a covariance matrix form a pair of iterators `b` (begin) and `e` (end) of a container with absolute coordinates and a precomputed center of gravity `c`
 /// Dereferencing an iterator of type I must yield a `vec&lt;D, T, Q%gt;`
 template <length_t D, typename T, qualifier Q, typename I>
-GLM_FUNC_DECL mat<D, D, T, Q> computeCovarianceMatrix(const I& b, const I& e, const vec<D, T, Q>& c);
+GLM_FUNC_DECL mat<D, D, T, Q> computeCovarianceMatrix(I const& b, I const& e, vec<D, T, Q> const& c);
 
 /// Assuming the provided covariance matrix `covarMat` is symmetric and real-valued, this function find the `D` Eigenvalues of the matrix, and also provides the corresponding Eigenvectors.
 /// Note: the data in `outEigenvalues` and `outEigenvectors` are in matching order, i.e. `outEigenvector[i]` is the Eigenvector of the Eigenvalue `outEigenvalue[i]`.
@@ -86,7 +86,7 @@ GLM_FUNC_DECL mat<D, D, T, Q> computeCovarianceMatrix(const I& b, const I& e, co
 /// @param[out] outEigenvectors Matrix to receive the found eigenvectors corresponding to the found eigenvalues, as column vectors
 /// @return The number of eigenvalues found, usually D if the precondition of the covariance matrix is met.
 template <length_t D, typename T, qualifier Q>
-GLM_FUNC_DECL unsigned int findEigenvaluesSymReal(const mat<D, D, T, Q>& covarMat,
+GLM_FUNC_DECL unsigned int findEigenvaluesSymReal(mat<D, D, T, Q> const& covarMat,
                                                   vec<D, T, Q>&          outEigenvalues,
                                                   mat<D, D, T, Q>&       outEigenvectors);
 

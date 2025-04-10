@@ -10,7 +10,7 @@ GLM_FUNC_QUALIFIER genType fastPow(genType x, genType y)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastPow(const vec<L, T, Q>& x, const vec<L, T, Q>& y)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastPow(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 {
     return exp(y * log(x));
 }
@@ -25,7 +25,7 @@ GLM_FUNC_QUALIFIER T fastPow(T x, int y)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastPow(const vec<L, T, Q>& x, const vec<L, int, Q>& y)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastPow(vec<L, T, Q> const& x, vec<L, int, Q> const& y)
 {
     vec<L, T, Q> Result;
     for (length_t i = 0, n = x.length(); i < n; ++i)
@@ -81,7 +81,7 @@ GLM_FUNC_QUALIFIER T fastExp(T x)
 	*/
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastExp(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastExp(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastExp, x);
 }
@@ -103,7 +103,7 @@ GLM_FUNC_QUALIFIER genType fastLog(genType x)
 	*/
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastLog(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastLog(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastLog, x);
 }
@@ -116,7 +116,7 @@ GLM_FUNC_QUALIFIER genType fastExp2(genType x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastExp2(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastExp2(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastExp2, x);
 }
@@ -129,7 +129,7 @@ GLM_FUNC_QUALIFIER genType fastLog2(genType x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastLog2(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastLog2(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastLog2, x);
 }

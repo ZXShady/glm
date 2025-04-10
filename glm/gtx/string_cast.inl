@@ -19,9 +19,9 @@ struct cast<float>
     typedef double value_type;
 };
 
-GLM_FUNC_QUALIFIER std::string format(const char* message, ...)
+GLM_FUNC_QUALIFIER std::string format(char const* message, ...)
 {
-    const std::size_t STRING_BUFFER(4096);
+    std::size_t const STRING_BUFFER(4096);
 
     assert(message != NULL);
     assert(strlen(message) < STRING_BUFFER);
@@ -45,13 +45,13 @@ GLM_FUNC_QUALIFIER std::string format(const char* message, ...)
     return buffer;
 }
 
-static const char* LabelTrue  = "true";
-static const char* LabelFalse = "false";
+static char const* LabelTrue  = "true";
+static char const* LabelFalse = "false";
 
 template <typename T, bool isFloat = false>
 struct literal
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "%d";
     }
@@ -60,7 +60,7 @@ struct literal
 template <typename T>
 struct literal<T, true>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "%f";
     }
@@ -70,7 +70,7 @@ struct literal<T, true>
 template <>
 struct literal<uint64_t, false>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "%lld";
     }
@@ -79,7 +79,7 @@ struct literal<uint64_t, false>
 template <>
 struct literal<int64_t, false>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "%lld";
     }
@@ -94,7 +94,7 @@ struct prefix
 template <>
 struct prefix<float>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "";
     }
@@ -103,7 +103,7 @@ struct prefix<float>
 template <>
 struct prefix<double>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "d";
     }
@@ -112,7 +112,7 @@ struct prefix<double>
 template <>
 struct prefix<bool>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "b";
     }
@@ -121,7 +121,7 @@ struct prefix<bool>
 template <>
 struct prefix<uint8_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "u8";
     }
@@ -130,7 +130,7 @@ struct prefix<uint8_t>
 template <>
 struct prefix<int8_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "i8";
     }
@@ -139,7 +139,7 @@ struct prefix<int8_t>
 template <>
 struct prefix<uint16_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "u16";
     }
@@ -148,7 +148,7 @@ struct prefix<uint16_t>
 template <>
 struct prefix<int16_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "i16";
     }
@@ -157,7 +157,7 @@ struct prefix<int16_t>
 template <>
 struct prefix<uint32_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "u";
     }
@@ -166,7 +166,7 @@ struct prefix<uint32_t>
 template <>
 struct prefix<int32_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "i";
     }
@@ -175,7 +175,7 @@ struct prefix<int32_t>
 template <>
 struct prefix<uint64_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "u64";
     }
@@ -184,7 +184,7 @@ struct prefix<uint64_t>
 template <>
 struct prefix<int64_t>
 {
-    GLM_FUNC_QUALIFIER const static char* value()
+    GLM_FUNC_QUALIFIER static const char* value()
     {
         return "i64";
     }
@@ -198,7 +198,7 @@ struct compute_to_string
 template <qualifier Q>
 struct compute_to_string<vec<1, bool, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<1, bool, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<1, bool, Q> const& x)
     {
         return detail::format("bvec1(%s)", x[0] ? detail::LabelTrue : detail::LabelFalse);
     }
@@ -207,7 +207,7 @@ struct compute_to_string<vec<1, bool, Q>>
 template <qualifier Q>
 struct compute_to_string<vec<2, bool, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<2, bool, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<2, bool, Q> const& x)
     {
         return detail::format("bvec2(%s, %s)",
                               x[0] ? detail::LabelTrue : detail::LabelFalse,
@@ -218,7 +218,7 @@ struct compute_to_string<vec<2, bool, Q>>
 template <qualifier Q>
 struct compute_to_string<vec<3, bool, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<3, bool, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<3, bool, Q> const& x)
     {
         return detail::format("bvec3(%s, %s, %s)",
                               x[0] ? detail::LabelTrue : detail::LabelFalse,
@@ -230,7 +230,7 @@ struct compute_to_string<vec<3, bool, Q>>
 template <qualifier Q>
 struct compute_to_string<vec<4, bool, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<4, bool, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<4, bool, Q> const& x)
     {
         return detail::format("bvec4(%s, %s, %s, %s)",
                               x[0] ? detail::LabelTrue : detail::LabelFalse,
@@ -243,10 +243,10 @@ struct compute_to_string<vec<4, bool, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<vec<1, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<1, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<1, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(detail::format("%svec1(%s)", PrefixStr, LiteralStr));
 
         return detail::format(FormatStr.c_str(), static_cast<typename cast<T>::value_type>(x[0]));
@@ -256,10 +256,10 @@ struct compute_to_string<vec<1, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<vec<2, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<2, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<2, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(detail::format("%svec2(%s, %s)", PrefixStr, LiteralStr, LiteralStr));
 
         return detail::format(FormatStr.c_str(),
@@ -271,10 +271,10 @@ struct compute_to_string<vec<2, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<vec<3, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<3, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<3, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(detail::format("%svec3(%s, %s, %s)", PrefixStr, LiteralStr, LiteralStr, LiteralStr));
 
         return detail::format(FormatStr.c_str(),
@@ -287,10 +287,10 @@ struct compute_to_string<vec<3, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<vec<4, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const vec<4, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(vec<4, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%svec4(%s, %s, %s, %s)", PrefixStr, LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
@@ -306,10 +306,10 @@ struct compute_to_string<vec<4, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<2, 2, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<2, 2, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<2, 2, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat2x2((%s, %s), (%s, %s))", PrefixStr, LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
@@ -324,10 +324,10 @@ struct compute_to_string<mat<2, 2, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<2, 3, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<2, 3, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<2, 3, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat2x3((%s, %s, %s), (%s, %s, %s))",
                            PrefixStr,
@@ -351,10 +351,10 @@ struct compute_to_string<mat<2, 3, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<2, 4, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<2, 4, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<2, 4, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat2x4((%s, %s, %s, %s), (%s, %s, %s, %s))",
                            PrefixStr,
@@ -382,10 +382,10 @@ struct compute_to_string<mat<2, 4, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<3, 2, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<3, 2, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<3, 2, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat3x2((%s, %s), (%s, %s), (%s, %s))",
                            PrefixStr,
@@ -409,10 +409,10 @@ struct compute_to_string<mat<3, 2, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<3, 3, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<3, 3, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<3, 3, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat3x3((%s, %s, %s), (%s, %s, %s), (%s, %s, %s))",
                            PrefixStr,
@@ -442,10 +442,10 @@ struct compute_to_string<mat<3, 3, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<3, 4, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<3, 4, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<3, 4, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat3x4((%s, %s, %s, %s), (%s, %s, %s, %s), (%s, %s, %s, %s))",
                            PrefixStr,
@@ -481,10 +481,10 @@ struct compute_to_string<mat<3, 4, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<4, 2, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<4, 2, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<4, 2, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat4x2((%s, %s), (%s, %s), (%s, %s), (%s, %s))",
                            PrefixStr,
@@ -512,10 +512,10 @@ struct compute_to_string<mat<4, 2, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<4, 3, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<4, 3, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<4, 3, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat4x3((%s, %s, %s), (%s, %s, %s), (%s, %s, %s), (%s, %s, %s))",
                            PrefixStr,
@@ -551,10 +551,10 @@ struct compute_to_string<mat<4, 3, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<mat<4, 4, T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const mat<4, 4, T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(mat<4, 4, T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%smat4x4((%s, %s, %s, %s), (%s, %s, %s, %s), (%s, %s, %s, %s), (%s, %s, %s, %s))",
                            PrefixStr,
@@ -599,10 +599,10 @@ struct compute_to_string<mat<4, 4, T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<qua<T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const qua<T, Q>& q)
+    GLM_FUNC_QUALIFIER static std::string call(qua<T, Q> const& q)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%squat(%s, {%s, %s, %s})", PrefixStr, LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
@@ -617,10 +617,10 @@ struct compute_to_string<qua<T, Q>>
 template <typename T, qualifier Q>
 struct compute_to_string<tdualquat<T, Q>>
 {
-    GLM_FUNC_QUALIFIER static std::string call(const tdualquat<T, Q>& x)
+    GLM_FUNC_QUALIFIER static std::string call(tdualquat<T, Q> const& x)
     {
-        const char* PrefixStr  = prefix<T>::value();
-        const char* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
+        char const* PrefixStr  = prefix<T>::value();
+        char const* LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
         std::string FormatStr(
             detail::format("%sdualquat((%s, {%s, %s, %s}), (%s, {%s, %s, %s}))",
                            PrefixStr,
@@ -648,7 +648,7 @@ struct compute_to_string<tdualquat<T, Q>>
 } //namespace detail
 
 template <class matType>
-GLM_FUNC_QUALIFIER std::string to_string(const matType& x)
+GLM_FUNC_QUALIFIER std::string to_string(matType const& x)
 {
     return detail::compute_to_string<matType>::call(x);
 }

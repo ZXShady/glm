@@ -7,7 +7,7 @@ namespace detail
 template <length_t L, typename T, qualifier Q, bool compute = false>
 struct compute_ceilShift
 {
-    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& v, T)
+    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& v, T)
     {
         return v;
     }
@@ -16,7 +16,7 @@ struct compute_ceilShift
 template <length_t L, typename T, qualifier Q>
 struct compute_ceilShift<L, T, Q, true>
 {
-    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& v, T Shift)
+    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& v, T Shift)
     {
         return v | (v >> Shift);
     }
@@ -25,12 +25,12 @@ struct compute_ceilShift<L, T, Q, true>
 template <length_t L, typename T, qualifier Q, bool isSigned = true>
 struct compute_ceilPowerOfTwo
 {
-    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& x)
+    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
     {
         static_assert(!std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                          "'ceilPowerOfTwo' only accept integer scalar or vector inputs");
+                      "'ceilPowerOfTwo' only accept integer scalar or vector inputs");
 
-        const vec<L, T, Q> Sign(sign(x));
+        vec<L, T, Q> const Sign(sign(x));
 
         vec<L, T, Q> v(abs(x));
 
@@ -48,10 +48,10 @@ struct compute_ceilPowerOfTwo
 template <length_t L, typename T, qualifier Q>
 struct compute_ceilPowerOfTwo<L, T, Q, false>
 {
-    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& x)
+    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
     {
         static_assert(!std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_FLOAT,
-                          "'ceilPowerOfTwo' only accept integer scalar or vector inputs");
+                      "'ceilPowerOfTwo' only accept integer scalar or vector inputs");
 
         vec<L, T, Q> v(x);
 
@@ -168,7 +168,7 @@ GLM_FUNC_QUALIFIER bool isPowerOfTwo(genIUType Value)
 {
     static_assert(std::numeric_limits<genIUType>::is_integer, "'isPowerOfTwo' only accept integer inputs");
 
-    const genIUType Result = glm::abs(Value);
+    genIUType const Result = glm::abs(Value);
     return !(Result & (Result - 1));
 }
 
@@ -226,7 +226,7 @@ GLM_FUNC_QUALIFIER int findNSB(genIUType x, int significantBitCount)
     if (bitCount(x) < significantBitCount)
         return -1;
 
-    const genIUType One    = static_cast<genIUType>(1);
+    genIUType const One    = static_cast<genIUType>(1);
     int             bitPos = 0;
 
     genIUType key       = x;

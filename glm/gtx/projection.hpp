@@ -34,7 +34,7 @@ namespace glm
 ///
 /// @see gtx_projection
 template <typename genType>
-GLM_FUNC_DECL genType proj(const genType& x, const genType& Normal);
+GLM_FUNC_DECL genType proj(genType const& x, genType const& Normal);
 
 /// @}
 } //namespace glm

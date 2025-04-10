@@ -27,7 +27,7 @@ union float_t<float>
     {
     }
 
-    GLM_CONSTEXPR float_t& operator=(const float_t& x)
+    GLM_CONSTEXPR float_t& operator=(float_t const& x)
     {
         f = x.f;
         return *this;
@@ -61,7 +61,7 @@ union float_t<double>
     {
     }
 
-    GLM_CONSTEXPR float_t& operator=(const float_t& x)
+    GLM_CONSTEXPR float_t& operator=(float_t const& x)
     {
         f = x.f;
         return *this;

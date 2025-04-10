@@ -36,7 +36,7 @@ namespace glm
 /// @tparam T Floating-point or signed integer scalar types
 /// @tparam Q Value from qualifier enum
 template <length_t L, typename T, qualifier Q>
-T levels(const vec<L, T, Q>& Extent);
+T levels(vec<L, T, Q> const& Extent);
 
 /// @}
 } // namespace glm

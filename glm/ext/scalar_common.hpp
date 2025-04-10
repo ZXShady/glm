@@ -125,7 +125,7 @@ GLM_FUNC_DECL genType fclamp(genType x, genType minVal, genType maxVal);
 ///
 /// @see ext_scalar_common extension.
 template <typename genType>
-GLM_FUNC_DECL genType clamp(const genType& Texcoord);
+GLM_FUNC_DECL genType clamp(genType const& Texcoord);
 
 /// Simulate GL_REPEAT OpenGL wrap mode
 ///
@@ -133,7 +133,7 @@ GLM_FUNC_DECL genType clamp(const genType& Texcoord);
 ///
 /// @see ext_scalar_common extension.
 template <typename genType>
-GLM_FUNC_DECL genType repeat(const genType& Texcoord);
+GLM_FUNC_DECL genType repeat(genType const& Texcoord);
 
 /// Simulate GL_MIRRORED_REPEAT OpenGL wrap mode
 ///
@@ -141,7 +141,7 @@ GLM_FUNC_DECL genType repeat(const genType& Texcoord);
 ///
 /// @see ext_scalar_common extension.
 template <typename genType>
-GLM_FUNC_DECL genType mirrorClamp(const genType& Texcoord);
+GLM_FUNC_DECL genType mirrorClamp(genType const& Texcoord);
 
 /// Simulate GL_MIRROR_REPEAT OpenGL wrap mode
 ///
@@ -149,7 +149,7 @@ GLM_FUNC_DECL genType mirrorClamp(const genType& Texcoord);
 ///
 /// @see ext_scalar_common extension.
 template <typename genType>
-GLM_FUNC_DECL genType mirrorRepeat(const genType& Texcoord);
+GLM_FUNC_DECL genType mirrorRepeat(genType const& Texcoord);
 
 /// Returns a value equal to the nearest integer to x.
 /// The fraction 0.5 will round in a direction chosen by the
@@ -161,7 +161,7 @@ GLM_FUNC_DECL genType mirrorRepeat(const genType& Texcoord);
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 /// @see ext_scalar_common extension.
 template <typename genType>
-GLM_FUNC_DECL int iround(const genType& x);
+GLM_FUNC_DECL int iround(genType const& x);
 
 /// Returns a value equal to the nearest integer to x.
 /// The fraction 0.5 will round in a direction chosen by the
@@ -173,7 +173,7 @@ GLM_FUNC_DECL int iround(const genType& x);
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 /// @see ext_scalar_common extension.
 template <typename genType>
-GLM_FUNC_DECL uint uround(const genType& x);
+GLM_FUNC_DECL uint uround(genType const& x);
 
 /// @}
 } //namespace glm

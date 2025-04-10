@@ -7,7 +7,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType identity()
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR mat<4, 4, T, Q> translate(const mat<4, 4, T, Q>& m, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR mat<4, 4, T, Q> translate(mat<4, 4, T, Q> const& m, vec<3, T, Q> const& v)
 {
     mat<4, 4, T, Q> Result(m);
     Result[3] = m[0] * v[0] + m[1] * v[1] + m[2] * v[2] + m[3];
@@ -15,11 +15,11 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR mat<4, 4, T, Q> translate(const mat<4, 4, T, Q>
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotate(const mat<4, 4, T, Q>& m, T angle, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotate(mat<4, 4, T, Q> const& m, T angle, vec<3, T, Q> const& v)
 {
-    const T a = angle;
-    const T c = cos(a);
-    const T s = sin(a);
+    T const a = angle;
+    T const c = cos(a);
+    T const s = sin(a);
 
     vec<3, T, Q> axis(normalize(v));
     vec<3, T, Q> temp((T(1) - c) * axis);
@@ -46,11 +46,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotate(const mat<4, 4, T, Q>& m, T angle, con
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotate_slow(const mat<4, 4, T, Q>& m, T angle, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotate_slow(mat<4, 4, T, Q> const& m, T angle, vec<3, T, Q> const& v)
 {
-    const T         a = angle;
-    const T         c = cos(a);
-    const T         s = sin(a);
+    T const         a = angle;
+    T const         c = cos(a);
+    T const         s = sin(a);
     mat<4, 4, T, Q> Result;
 
     vec<3, T, Q> axis = normalize(v);
@@ -75,7 +75,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rotate_slow(const mat<4, 4, T, Q>& m, T angle
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> scale(const mat<4, 4, T, Q>& m, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> scale(mat<4, 4, T, Q> const& m, vec<3, T, Q> const& v)
 {
     mat<4, 4, T, Q> Result;
     Result[0] = m[0] * v[0];
@@ -86,7 +86,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> scale(const mat<4, 4, T, Q>& m, const vec<3, 
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> scale_slow(const mat<4, 4, T, Q>& m, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> scale_slow(mat<4, 4, T, Q> const& m, vec<3, T, Q> const& v)
 {
     mat<4, 4, T, Q> Result(T(1));
     Result[0][0] = v.x;
@@ -96,18 +96,18 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> scale_slow(const mat<4, 4, T, Q>& m, const ve
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> shear(const mat<4, 4, T, Q>& m,
-                                         const vec<3, T, Q>&    p,
-                                         const vec<2, T, Q>&    l_x,
-                                         const vec<2, T, Q>&    l_y,
-                                         const vec<2, T, Q>&    l_z)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> shear(mat<4, 4, T, Q> const& m,
+                                         vec<3, T, Q> const&    p,
+                                         vec<2, T, Q> const&    l_x,
+                                         vec<2, T, Q> const&    l_y,
+                                         vec<2, T, Q> const&    l_z)
 {
-    const T lambda_xy = l_x[0];
-    const T lambda_xz = l_x[1];
-    const T lambda_yx = l_y[0];
-    const T lambda_yz = l_y[1];
-    const T lambda_zx = l_z[0];
-    const T lambda_zy = l_z[1];
+    T const lambda_xy = l_x[0];
+    T const lambda_xz = l_x[1];
+    T const lambda_yx = l_y[0];
+    T const lambda_yz = l_y[1];
+    T const lambda_zx = l_z[0];
+    T const lambda_zy = l_z[1];
 
     vec<3, T, Q> point_lambda = vec<3, T, Q>((lambda_xy + lambda_xz), (lambda_yx + lambda_yz), (lambda_zx + lambda_zy));
 
@@ -138,18 +138,18 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> shear(const mat<4, 4, T, Q>& m,
 
 template <typename T, qualifier Q>
 GLM_FUNC_QUALIFIER mat<4, 4, T, Q> shear_slow(
-    const mat<4, 4, T, Q>& m,
-    const vec<3, T, Q>&    p,
-    const vec<2, T, Q>&    l_x,
-    const vec<2, T, Q>&    l_y,
-    const vec<2, T, Q>&    l_z)
+    mat<4, 4, T, Q> const& m,
+    vec<3, T, Q> const&    p,
+    vec<2, T, Q> const&    l_x,
+    vec<2, T, Q> const&    l_y,
+    vec<2, T, Q> const&    l_z)
 {
-    const T lambda_xy = static_cast<T>(l_x[0]);
-    const T lambda_xz = static_cast<T>(l_x[1]);
-    const T lambda_yx = static_cast<T>(l_y[0]);
-    const T lambda_yz = static_cast<T>(l_y[1]);
-    const T lambda_zx = static_cast<T>(l_z[0]);
-    const T lambda_zy = static_cast<T>(l_z[1]);
+    T const lambda_xy = static_cast<T>(l_x[0]);
+    T const lambda_xz = static_cast<T>(l_x[1]);
+    T const lambda_yx = static_cast<T>(l_y[0]);
+    T const lambda_yz = static_cast<T>(l_y[1]);
+    T const lambda_zx = static_cast<T>(l_z[0]);
+    T const lambda_zy = static_cast<T>(l_z[1]);
 
     vec<3, T, Q> point_lambda = vec<3, T, Q>(static_cast<T>(lambda_xy + lambda_xz),
                                              static_cast<T>(lambda_yx + lambda_yz),
@@ -175,11 +175,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> shear_slow(
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAtRH(const vec<3, T, Q>& eye, const vec<3, T, Q>& center, const vec<3, T, Q>& up)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAtRH(vec<3, T, Q> const& eye, vec<3, T, Q> const& center, vec<3, T, Q> const& up)
 {
-    const vec<3, T, Q> f(normalize(center - eye));
-    const vec<3, T, Q> s(normalize(cross(f, up)));
-    const vec<3, T, Q> u(cross(s, f));
+    vec<3, T, Q> const f(normalize(center - eye));
+    vec<3, T, Q> const s(normalize(cross(f, up)));
+    vec<3, T, Q> const u(cross(s, f));
 
     mat<4, 4, T, Q> Result(1);
     Result[0][0] = s.x;
@@ -198,11 +198,11 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAtRH(const vec<3, T, Q>& eye, const vec<3
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAtLH(const vec<3, T, Q>& eye, const vec<3, T, Q>& center, const vec<3, T, Q>& up)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAtLH(vec<3, T, Q> const& eye, vec<3, T, Q> const& center, vec<3, T, Q> const& up)
 {
-    const vec<3, T, Q> f(normalize(center - eye));
-    const vec<3, T, Q> s(normalize(cross(up, f)));
-    const vec<3, T, Q> u(cross(f, s));
+    vec<3, T, Q> const f(normalize(center - eye));
+    vec<3, T, Q> const s(normalize(cross(up, f)));
+    vec<3, T, Q> const u(cross(f, s));
 
     mat<4, 4, T, Q> Result(1);
     Result[0][0] = s.x;
@@ -221,7 +221,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAtLH(const vec<3, T, Q>& eye, const vec<3
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAt(const vec<3, T, Q>& eye, const vec<3, T, Q>& center, const vec<3, T, Q>& up)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAt(vec<3, T, Q> const& eye, vec<3, T, Q> const& center, vec<3, T, Q> const& up)
 {
 #if (GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
     return lookAtLH(eye, center, up);

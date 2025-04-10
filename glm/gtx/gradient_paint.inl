@@ -4,7 +4,7 @@ namespace glm
 {
 template <typename T, qualifier Q>
 GLM_FUNC_QUALIFIER T
-    radialGradient(const vec<2, T, Q>& Center, const T& Radius, const vec<2, T, Q>& Focal, const vec<2, T, Q>& Position)
+    radialGradient(vec<2, T, Q> const& Center, T const& Radius, vec<2, T, Q> const& Focal, vec<2, T, Q> const& Position)
 {
     vec<2, T, Q> F       = Focal - Center;
     vec<2, T, Q> D       = Position - Focal;
@@ -18,7 +18,7 @@ GLM_FUNC_QUALIFIER T
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER T linearGradient(const vec<2, T, Q>& Point0, const vec<2, T, Q>& Point1, const vec<2, T, Q>& Position)
+GLM_FUNC_QUALIFIER T linearGradient(vec<2, T, Q> const& Point0, vec<2, T, Q> const& Point1, vec<2, T, Q> const& Position)
 {
     vec<2, T, Q> Dist = Point1 - Point0;
     return (Dist.x * (Position.x - Point0.x) + Dist.y * (Position.y - Point0.y)) / glm::dot(Dist, Dist);

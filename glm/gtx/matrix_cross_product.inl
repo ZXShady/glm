@@ -3,7 +3,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> matrixCross3(const vec<3, T, Q>& x)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> matrixCross3(vec<3, T, Q> const& x)
 {
     mat<3, 3, T, Q> Result(T(0));
     Result[0][1] = x.z;
@@ -16,7 +16,7 @@ GLM_FUNC_QUALIFIER mat<3, 3, T, Q> matrixCross3(const vec<3, T, Q>& x)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> matrixCross4(const vec<3, T, Q>& x)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> matrixCross4(vec<3, T, Q> const& x)
 {
     mat<4, 4, T, Q> Result(T(0));
     Result[0][1] = x.z;

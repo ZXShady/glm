@@ -3,7 +3,7 @@
 namespace glm
 {
 template <typename genType>
-GLM_FUNC_QUALIFIER genType row(const genType& m, length_t index, const typename genType::row_type& x)
+GLM_FUNC_QUALIFIER genType row(genType const& m, length_t index, typename genType::row_type const& x)
 {
     assert(index >= 0 && index < m[0].length());
 
@@ -14,7 +14,7 @@ GLM_FUNC_QUALIFIER genType row(const genType& m, length_t index, const typename 
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER typename genType::row_type row(const genType& m, length_t index)
+GLM_FUNC_QUALIFIER typename genType::row_type row(genType const& m, length_t index)
 {
     assert(index >= 0 && index < m[0].length());
 
@@ -25,7 +25,7 @@ GLM_FUNC_QUALIFIER typename genType::row_type row(const genType& m, length_t ind
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType column(const genType& m, length_t index, const typename genType::col_type& x)
+GLM_FUNC_QUALIFIER genType column(genType const& m, length_t index, typename genType::col_type const& x)
 {
     assert(index >= 0 && index < m.length());
 
@@ -35,7 +35,7 @@ GLM_FUNC_QUALIFIER genType column(const genType& m, length_t index, const typena
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER typename genType::col_type column(const genType& m, length_t index)
+GLM_FUNC_QUALIFIER typename genType::col_type column(genType const& m, length_t index)
 {
     assert(index >= 0 && index < m.length());
 

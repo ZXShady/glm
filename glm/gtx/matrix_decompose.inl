@@ -11,13 +11,13 @@ namespace detail
 /// Make a linear combination of two vectors and return the result.
 // result = (a * ascl) + (b * bscl)
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> combine(const vec<3, T, Q>& a, const vec<3, T, Q>& b, T ascl, T bscl)
+GLM_FUNC_QUALIFIER vec<3, T, Q> combine(vec<3, T, Q> const& a, vec<3, T, Q> const& b, T ascl, T bscl)
 {
     return (a * ascl) + (b * bscl);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> scale(const vec<3, T, Q>& v, T desiredLength)
+GLM_FUNC_QUALIFIER vec<3, T, Q> scale(vec<3, T, Q> const& v, T desiredLength)
 {
     return v * desiredLength / length(v);
 }
@@ -28,7 +28,7 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> scale(const vec<3, T, Q>& v, T desiredLength)
 // Decomposes the mode matrix to translations,rotation scale components
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool decompose(const mat<4, 4, T, Q>& ModelMatrix,
+GLM_FUNC_QUALIFIER bool decompose(mat<4, 4, T, Q> const& ModelMatrix,
                                   vec<3, T, Q>&          Scale,
                                   qua<T, Q>&             Orientation,
                                   vec<3, T, Q>&          Translation,
@@ -201,11 +201,11 @@ GLM_FUNC_QUALIFIER bool decompose(const mat<4, 4, T, Q>& ModelMatrix,
 // http://www.opensource.apple.com/source/WebCore/WebCore-514/platform/graphics/transforms/TransformationMatrix.cpp
 // https://stackoverflow.com/a/75573092/1047040
 template <typename T, qualifier Q>
-GLM_FUNC_DECL mat<4, 4, T, Q> recompose(const vec<3, T, Q>& scale,
-                                        const qua<T, Q>&    orientation,
-                                        const vec<3, T, Q>& translation,
-                                        const vec<3, T, Q>& skew,
-                                        const vec<4, T, Q>& perspective)
+GLM_FUNC_DECL mat<4, 4, T, Q> recompose(vec<3, T, Q> const& scale,
+                                        qua<T, Q> const&    orientation,
+                                        vec<3, T, Q> const& translation,
+                                        vec<3, T, Q> const& skew,
+                                        vec<4, T, Q> const& perspective)
 {
     glm::mat4 m = glm::mat4(1.f);
 

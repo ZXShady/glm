@@ -5,7 +5,7 @@ namespace glm
 namespace detail
 {
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> taylorCos(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> taylorCos(vec<L, T, Q> const& x)
 {
     return static_cast<T>(1) - (x * x) * (1.f / 2.f) + ((x * x) * (x * x)) * (1.f / 24.f) -
            (((x * x) * (x * x)) * (x * x)) * (1.f / 720.f) + (((x * x) * (x * x)) * ((x * x) * (x * x))) * (1.f / 40320.f);
@@ -14,12 +14,12 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> taylorCos(const vec<L, T, Q>& x)
 template <typename T>
 GLM_FUNC_QUALIFIER T cos_52s(T x)
 {
-    const T xx(x * x);
+    T const xx(x * x);
     return (T(0.9999932946) + xx * (T(-0.4999124376) + xx * (T(0.0414877472) + xx * T(-0.0012712095))));
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> cos_52s(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> cos_52s(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(cos_52s, x);
 }
@@ -33,7 +33,7 @@ GLM_FUNC_QUALIFIER T wrapAngle(T angle)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> wrapAngle(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> wrapAngle(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(wrapAngle, x);
 }
@@ -42,7 +42,7 @@ GLM_FUNC_QUALIFIER vec<L, T, Q> wrapAngle(const vec<L, T, Q>& x)
 template <typename T>
 GLM_FUNC_QUALIFIER T fastCos(T x)
 {
-    const T angle(wrapAngle<T>(x));
+    T const angle(wrapAngle<T>(x));
 
     if (angle < half_pi<T>())
         return detail::cos_52s(angle);
@@ -55,7 +55,7 @@ GLM_FUNC_QUALIFIER T fastCos(T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastCos(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastCos(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastCos, x);
 }
@@ -68,7 +68,7 @@ GLM_FUNC_QUALIFIER T fastSin(T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastSin(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastSin(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastSin, x);
 }
@@ -82,7 +82,7 @@ GLM_FUNC_QUALIFIER T fastTan(T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastTan(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastTan(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastTan, x);
 }
@@ -97,7 +97,7 @@ GLM_FUNC_QUALIFIER T fastAsin(T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastAsin(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastAsin(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastAsin, x);
 }
@@ -110,7 +110,7 @@ GLM_FUNC_QUALIFIER T fastAcos(T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastAcos(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastAcos(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastAcos, x);
 }
@@ -124,7 +124,7 @@ GLM_FUNC_QUALIFIER T fastAtan(T y, T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastAtan(const vec<L, T, Q>& y, const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastAtan(vec<L, T, Q> const& y, vec<L, T, Q> const& x)
 {
     return detail::functor2<vec, L, T, Q>::call(fastAtan, y, x);
 }
@@ -138,7 +138,7 @@ GLM_FUNC_QUALIFIER T fastAtan(T x)
 }
 
 template <length_t L, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<L, T, Q> fastAtan(const vec<L, T, Q>& x)
+GLM_FUNC_QUALIFIER vec<L, T, Q> fastAtan(vec<L, T, Q> const& x)
 {
     return detail::functor1<vec, L, T, T, Q>::call(fastAtan, x);
 }

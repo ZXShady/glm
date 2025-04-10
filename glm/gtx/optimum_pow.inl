@@ -3,19 +3,19 @@
 namespace glm
 {
 template <typename genType>
-GLM_FUNC_QUALIFIER genType pow2(const genType& x)
+GLM_FUNC_QUALIFIER genType pow2(genType const& x)
 {
     return x * x;
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType pow3(const genType& x)
+GLM_FUNC_QUALIFIER genType pow3(genType const& x)
 {
     return x * x * x;
 }
 
 template <typename genType>
-GLM_FUNC_QUALIFIER genType pow4(const genType& x)
+GLM_FUNC_QUALIFIER genType pow4(genType const& x)
 {
     return (x * x) * (x * x);
 }

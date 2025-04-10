@@ -5,7 +5,7 @@
 namespace glm
 {
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleX(const T& angleX)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleX(T const& angleX)
 {
     T cosX = glm::cos(angleX);
     T sinX = glm::sin(angleX);
@@ -14,7 +14,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleX(const T& angleX)
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleY(const T& angleY)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleY(T const& angleY)
 {
     T cosY = glm::cos(angleY);
     T sinY = glm::sin(angleY);
@@ -23,7 +23,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleY(const T& angleY)
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZ(const T& angleZ)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZ(T const& angleZ)
 {
     T cosZ = glm::cos(angleZ);
     T sinZ = glm::sin(angleZ);
@@ -32,7 +32,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZ(const T& angleZ)
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleX(const T& angleX, const T& angularVelocityX)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleX(T const& angleX, T const& angularVelocityX)
 {
     T cosX = glm::cos(angleX) * angularVelocityX;
     T sinX = glm::sin(angleX) * angularVelocityX;
@@ -41,7 +41,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleX(const T& angleX, co
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleY(const T& angleY, const T& angularVelocityY)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleY(T const& angleY, T const& angularVelocityY)
 {
     T cosY = glm::cos(angleY) * angularVelocityY;
     T sinY = glm::sin(angleY) * angularVelocityY;
@@ -50,7 +50,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleY(const T& angleY, co
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleZ(const T& angleZ, const T& angularVelocityZ)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleZ(T const& angleZ, T const& angularVelocityZ)
 {
     T cosZ = glm::cos(angleZ) * angularVelocityZ;
     T sinZ = glm::sin(angleZ) * angularVelocityZ;
@@ -59,7 +59,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleZ(const T& angleZ, co
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXY(const T& angleX, const T& angleY)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXY(T const& angleX, T const& angleY)
 {
     T cosX = glm::cos(angleX);
     T sinX = glm::sin(angleX);
@@ -85,7 +85,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXY(const T& angleX, const T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYX(const T& angleY, const T& angleX)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYX(T const& angleY, T const& angleX)
 {
     T cosX = glm::cos(angleX);
     T sinX = glm::sin(angleX);
@@ -111,31 +111,31 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYX(const T& angleY, const T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZ(const T& angleX, const T& angleZ)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZ(T const& angleX, T const& angleZ)
 {
     return eulerAngleX(angleX) * eulerAngleZ(angleZ);
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZX(const T& angleZ, const T& angleX)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZX(T const& angleZ, T const& angleX)
 {
     return eulerAngleZ(angleZ) * eulerAngleX(angleX);
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZ(const T& angleY, const T& angleZ)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZ(T const& angleY, T const& angleZ)
 {
     return eulerAngleY(angleY) * eulerAngleZ(angleZ);
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZY(const T& angleZ, const T& angleY)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZY(T const& angleZ, T const& angleY)
 {
     return eulerAngleZ(angleZ) * eulerAngleY(angleY);
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYZ(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYZ(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(-t1);
     T c2 = glm::cos(-t2);
@@ -165,7 +165,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYZ(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXZ(const T& yaw, const T& pitch, const T& roll)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXZ(T const& yaw, T const& pitch, T const& roll)
 {
     T tmp_ch = glm::cos(yaw);
     T tmp_sh = glm::sin(yaw);
@@ -195,7 +195,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXZ(const T& yaw, const T& p
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZX(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZX(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -225,7 +225,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZX(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYX(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYX(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -255,7 +255,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYX(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXY(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXY(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -285,7 +285,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXY(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZY(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZY(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -315,7 +315,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZY(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYZ(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYZ(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -345,7 +345,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYZ(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXZ(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXZ(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -375,7 +375,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXZ(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZY(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZY(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -405,7 +405,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZY(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZX(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZX(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -435,7 +435,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZX(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYX(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYX(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -465,7 +465,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYX(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXY(const T& t1, const T& t2, const T& t3)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXY(T const& t1, T const& t2, T const& t3)
 {
     T c1 = glm::cos(t1);
     T s1 = glm::sin(t1);
@@ -495,7 +495,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXY(const T& t1, const T& t2
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> yawPitchRoll(const T& yaw, const T& pitch, const T& roll)
+GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> yawPitchRoll(T const& yaw, T const& pitch, T const& roll)
 {
     T tmp_ch = glm::cos(yaw);
     T tmp_sh = glm::sin(yaw);
@@ -525,7 +525,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> yawPitchRoll(const T& yaw, const T& pi
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<2, 2, T, defaultp> orientate2(const T& angle)
+GLM_FUNC_QUALIFIER mat<2, 2, T, defaultp> orientate2(T const& angle)
 {
     T c = glm::cos(angle);
     T s = glm::sin(angle);
@@ -539,7 +539,7 @@ GLM_FUNC_QUALIFIER mat<2, 2, T, defaultp> orientate2(const T& angle)
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER mat<3, 3, T, defaultp> orientate3(const T& angle)
+GLM_FUNC_QUALIFIER mat<3, 3, T, defaultp> orientate3(T const& angle)
 {
     T c = glm::cos(angle);
     T s = glm::sin(angle);
@@ -558,19 +558,19 @@ GLM_FUNC_QUALIFIER mat<3, 3, T, defaultp> orientate3(const T& angle)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> orientate3(const vec<3, T, Q>& angles)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> orientate3(vec<3, T, Q> const& angles)
 {
     return mat<3, 3, T, Q>(yawPitchRoll(angles.z, angles.x, angles.y));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> orientate4(const vec<3, T, Q>& angles)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> orientate4(vec<3, T, Q> const& angles)
 {
     return yawPitchRoll(angles.z, angles.x, angles.y);
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleXYZ(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleXYZ(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[2][1], M[2][2]);
     T C2 = glm::sqrt(M[0][0] * M[0][0] + M[1][0] * M[1][0]);
@@ -584,7 +584,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleXYZ(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleYXZ(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleYXZ(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[2][0], M[2][2]);
     T C2 = glm::sqrt(M[0][1] * M[0][1] + M[1][1] * M[1][1]);
@@ -598,7 +598,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleYXZ(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleXZX(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleXZX(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[0][2], M[0][1]);
     T S2 = glm::sqrt(M[1][0] * M[1][0] + M[2][0] * M[2][0]);
@@ -612,7 +612,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleXZX(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleXYX(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleXYX(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[0][1], -M[0][2]);
     T S2 = glm::sqrt(M[1][0] * M[1][0] + M[2][0] * M[2][0]);
@@ -626,7 +626,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleXYX(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleYXY(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleYXY(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[1][0], M[1][2]);
     T S2 = glm::sqrt(M[0][1] * M[0][1] + M[2][1] * M[2][1]);
@@ -640,7 +640,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleYXY(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleYZY(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleYZY(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[1][2], -M[1][0]);
     T S2 = glm::sqrt(M[0][1] * M[0][1] + M[2][1] * M[2][1]);
@@ -654,7 +654,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleYZY(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleZYZ(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleZYZ(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[2][1], M[2][0]);
     T S2 = glm::sqrt(M[0][2] * M[0][2] + M[1][2] * M[1][2]);
@@ -668,7 +668,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleZYZ(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleZXZ(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleZXZ(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[2][0], -M[2][1]);
     T S2 = glm::sqrt(M[0][2] * M[0][2] + M[1][2] * M[1][2]);
@@ -682,7 +682,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleZXZ(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleXZY(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleXZY(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[1][2], M[1][1]);
     T C2 = glm::sqrt(M[0][0] * M[0][0] + M[2][0] * M[2][0]);
@@ -696,7 +696,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleXZY(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleYZX(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleYZX(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(-M[0][2], M[0][0]);
     T C2 = glm::sqrt(M[1][1] * M[1][1] + M[2][1] * M[2][1]);
@@ -710,7 +710,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleYZX(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleZYX(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleZYX(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(M[0][1], M[0][0]);
     T C2 = glm::sqrt(M[1][2] * M[1][2] + M[2][2] * M[2][2]);
@@ -724,7 +724,7 @@ GLM_FUNC_QUALIFIER void extractEulerAngleZYX(const mat<4, 4, T, defaultp>& M, T&
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER void extractEulerAngleZXY(const mat<4, 4, T, defaultp>& M, T& t1, T& t2, T& t3)
+GLM_FUNC_QUALIFIER void extractEulerAngleZXY(mat<4, 4, T, defaultp> const& M, T& t1, T& t2, T& t3)
 {
     T T1 = glm::atan2(-M[1][0], M[1][1]);
     T C2 = glm::sqrt(M[0][2] * M[0][2] + M[2][2] * M[2][2]);

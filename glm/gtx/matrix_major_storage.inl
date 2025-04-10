@@ -3,7 +3,7 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<2, 2, T, Q> rowMajor2(const vec<2, T, Q>& v1, const vec<2, T, Q>& v2)
+GLM_FUNC_QUALIFIER mat<2, 2, T, Q> rowMajor2(vec<2, T, Q> const& v1, vec<2, T, Q> const& v2)
 {
     mat<2, 2, T, Q> Result;
     Result[0][0] = v1.x;
@@ -14,7 +14,7 @@ GLM_FUNC_QUALIFIER mat<2, 2, T, Q> rowMajor2(const vec<2, T, Q>& v1, const vec<2
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<2, 2, T, Q> rowMajor2(const mat<2, 2, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<2, 2, T, Q> rowMajor2(mat<2, 2, T, Q> const& m)
 {
     mat<2, 2, T, Q> Result;
     Result[0][0] = m[0][0];
@@ -25,7 +25,7 @@ GLM_FUNC_QUALIFIER mat<2, 2, T, Q> rowMajor2(const mat<2, 2, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> rowMajor3(const vec<3, T, Q>& v1, const vec<3, T, Q>& v2, const vec<3, T, Q>& v3)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> rowMajor3(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2, vec<3, T, Q> const& v3)
 {
     mat<3, 3, T, Q> Result;
     Result[0][0] = v1.x;
@@ -41,7 +41,7 @@ GLM_FUNC_QUALIFIER mat<3, 3, T, Q> rowMajor3(const vec<3, T, Q>& v1, const vec<3
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> rowMajor3(const mat<3, 3, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> rowMajor3(mat<3, 3, T, Q> const& m)
 {
     mat<3, 3, T, Q> Result;
     Result[0][0] = m[0][0];
@@ -57,10 +57,10 @@ GLM_FUNC_QUALIFIER mat<3, 3, T, Q> rowMajor3(const mat<3, 3, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rowMajor4(const vec<4, T, Q>& v1,
-                                             const vec<4, T, Q>& v2,
-                                             const vec<4, T, Q>& v3,
-                                             const vec<4, T, Q>& v4)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rowMajor4(vec<4, T, Q> const& v1,
+                                             vec<4, T, Q> const& v2,
+                                             vec<4, T, Q> const& v3,
+                                             vec<4, T, Q> const& v4)
 {
     mat<4, 4, T, Q> Result;
     Result[0][0] = v1.x;
@@ -83,7 +83,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rowMajor4(const vec<4, T, Q>& v1,
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rowMajor4(const mat<4, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rowMajor4(mat<4, 4, T, Q> const& m)
 {
     mat<4, 4, T, Q> Result;
     Result[0][0] = m[0][0];
@@ -106,40 +106,40 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> rowMajor4(const mat<4, 4, T, Q>& m)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<2, 2, T, Q> colMajor2(const vec<2, T, Q>& v1, const vec<2, T, Q>& v2)
+GLM_FUNC_QUALIFIER mat<2, 2, T, Q> colMajor2(vec<2, T, Q> const& v1, vec<2, T, Q> const& v2)
 {
     return mat<2, 2, T, Q>(v1, v2);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<2, 2, T, Q> colMajor2(const mat<2, 2, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<2, 2, T, Q> colMajor2(mat<2, 2, T, Q> const& m)
 {
     return mat<2, 2, T, Q>(m);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> colMajor3(const vec<3, T, Q>& v1, const vec<3, T, Q>& v2, const vec<3, T, Q>& v3)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> colMajor3(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2, vec<3, T, Q> const& v3)
 {
     return mat<3, 3, T, Q>(v1, v2, v3);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 3, T, Q> colMajor3(const mat<3, 3, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<3, 3, T, Q> colMajor3(mat<3, 3, T, Q> const& m)
 {
     return mat<3, 3, T, Q>(m);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> colMajor4(const vec<4, T, Q>& v1,
-                                             const vec<4, T, Q>& v2,
-                                             const vec<4, T, Q>& v3,
-                                             const vec<4, T, Q>& v4)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> colMajor4(vec<4, T, Q> const& v1,
+                                             vec<4, T, Q> const& v2,
+                                             vec<4, T, Q> const& v3,
+                                             vec<4, T, Q> const& v4)
 {
     return mat<4, 4, T, Q>(v1, v2, v3, v4);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> colMajor4(const mat<4, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> colMajor4(mat<4, 4, T, Q> const& m)
 {
     return mat<4, 4, T, Q>(m);
 }

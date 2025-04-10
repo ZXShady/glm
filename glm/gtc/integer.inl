@@ -7,7 +7,7 @@ namespace detail
 template <length_t L, typename T, qualifier Q, bool Aligned>
 struct compute_log2<L, T, Q, false, Aligned>
 {
-    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(const vec<L, T, Q>& v)
+    GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& v)
     {
         //Equivalent to return findMSB(vec); but save one function call in ASM with VC
         //return findMSB(vec);
@@ -19,7 +19,7 @@ struct compute_log2<L, T, Q, false, Aligned>
 template <qualifier Q, bool Aligned>
 struct compute_log2<4, int, Q, false, Aligned>
 {
-    GLM_FUNC_QUALIFIER static vec<4, int, Q> call(const vec<4, int, Q>& v)
+    GLM_FUNC_QUALIFIER static vec<4, int, Q> call(vec<4, int, Q> const& v)
     {
         vec<4, int, Q> Result;
         _BitScanReverse(reinterpret_cast<unsigned long*>(&Result.x), v.x);

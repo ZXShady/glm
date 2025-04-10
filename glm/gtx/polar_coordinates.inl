@@ -3,11 +3,11 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> polar(const vec<3, T, Q>& euclidean)
+GLM_FUNC_QUALIFIER vec<3, T, Q> polar(vec<3, T, Q> const& euclidean)
 {
-    const T            Length(length(euclidean));
-    const vec<3, T, Q> tmp(euclidean / Length);
-    const T            xz_dist(sqrt(tmp.x * tmp.x + tmp.z * tmp.z));
+    T const            Length(length(euclidean));
+    vec<3, T, Q> const tmp(euclidean / Length);
+    T const            xz_dist(sqrt(tmp.x * tmp.x + tmp.z * tmp.z));
 
     return vec<3, T, Q>(asin(tmp.y),        // latitude
                         atan(tmp.x, tmp.z), // longitude
@@ -15,10 +15,10 @@ GLM_FUNC_QUALIFIER vec<3, T, Q> polar(const vec<3, T, Q>& euclidean)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> euclidean(const vec<2, T, Q>& polar)
+GLM_FUNC_QUALIFIER vec<3, T, Q> euclidean(vec<2, T, Q> const& polar)
 {
-    const T latitude(polar.x);
-    const T longitude(polar.y);
+    T const latitude(polar.x);
+    T const longitude(polar.y);
 
     return vec<3, T, Q>(cos(latitude) * sin(longitude), sin(latitude), cos(latitude) * cos(longitude));
 }

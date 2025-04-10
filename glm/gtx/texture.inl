@@ -3,7 +3,7 @@
 namespace glm
 {
 template <length_t L, typename T, qualifier Q>
-inline T levels(const vec<L, T, Q>& Extent)
+inline T levels(vec<L, T, Q> const& Extent)
 {
     return glm::log2(compMax(Extent)) + static_cast<T>(1);
 }

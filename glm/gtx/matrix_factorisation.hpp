@@ -37,13 +37,13 @@ namespace glm
 ///
 /// From GLM_GTX_matrix_factorisation extension.
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL mat<C, R, T, Q> flipud(const mat<C, R, T, Q>& in);
+GLM_FUNC_DECL mat<C, R, T, Q> flipud(mat<C, R, T, Q> const& in);
 
 /// Flips the matrix columns right and left.
 ///
 /// From GLM_GTX_matrix_factorisation extension.
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL mat<C, R, T, Q> fliplr(const mat<C, R, T, Q>& in);
+GLM_FUNC_DECL mat<C, R, T, Q> fliplr(mat<C, R, T, Q> const& in);
 
 /// Performs QR factorisation of a matrix.
 /// Returns 2 matrices, q and r, such that the columns of q are orthonormal and span the same subspace than those of the input matrix, r is an upper triangular matrix, and q*r=in.
@@ -51,7 +51,7 @@ GLM_FUNC_DECL mat<C, R, T, Q> fliplr(const mat<C, R, T, Q>& in);
 ///
 /// From GLM_GTX_matrix_factorisation extension.
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DISCARD_DECL void qr_decompose(const mat<C, R, T, Q>&         in,
+GLM_FUNC_DISCARD_DECL void qr_decompose(mat<C, R, T, Q> const&         in,
                                         mat<(C < R ? C : R), R, T, Q>& q,
                                         mat<C, (C < R ? C : R), T, Q>& r);
 
@@ -62,7 +62,7 @@ GLM_FUNC_DISCARD_DECL void qr_decompose(const mat<C, R, T, Q>&         in,
 ///
 /// From GLM_GTX_matrix_factorisation extension.
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DISCARD_DECL void rq_decompose(const mat<C, R, T, Q>&         in,
+GLM_FUNC_DISCARD_DECL void rq_decompose(mat<C, R, T, Q> const&         in,
                                         mat<(C < R ? C : R), R, T, Q>& r,
                                         mat<C, (C < R ? C : R), T, Q>& q);
 

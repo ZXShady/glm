@@ -6,7 +6,7 @@
 
 namespace glm
 {
-GLM_FUNC_QUALIFIER uint packUnorm2x16(const vec2& v)
+GLM_FUNC_QUALIFIER uint packUnorm2x16(vec2 const& v)
 {
     union
     {
@@ -35,7 +35,7 @@ GLM_FUNC_QUALIFIER vec2 unpackUnorm2x16(uint p)
     return vec2(u.out[0], u.out[1]) * 1.5259021896696421759365224689097e-5f;
 }
 
-GLM_FUNC_QUALIFIER uint packSnorm2x16(const vec2& v)
+GLM_FUNC_QUALIFIER uint packSnorm2x16(vec2 const& v)
 {
     union
     {
@@ -64,7 +64,7 @@ GLM_FUNC_QUALIFIER vec2 unpackSnorm2x16(uint p)
     return clamp(vec2(u.out[0], u.out[1]) * 3.0518509475997192297128208258309e-5f, -1.0f, 1.0f);
 }
 
-GLM_FUNC_QUALIFIER uint packUnorm4x8(const vec4& v)
+GLM_FUNC_QUALIFIER uint packUnorm4x8(vec4 const& v)
 {
     union
     {
@@ -95,7 +95,7 @@ GLM_FUNC_QUALIFIER vec4 unpackUnorm4x8(uint p)
     return vec4(u.out[0], u.out[1], u.out[2], u.out[3]) * 0.0039215686274509803921568627451f;
 }
 
-GLM_FUNC_QUALIFIER uint packSnorm4x8(const vec4& v)
+GLM_FUNC_QUALIFIER uint packSnorm4x8(vec4 const& v)
 {
     union
     {
@@ -126,7 +126,7 @@ GLM_FUNC_QUALIFIER glm::vec4 unpackSnorm4x8(uint p)
     return clamp(vec4(u.out[0], u.out[1], u.out[2], u.out[3]) * 0.0078740157480315f, -1.0f, 1.0f);
 }
 
-GLM_FUNC_QUALIFIER double packDouble2x32(const uvec2& v)
+GLM_FUNC_QUALIFIER double packDouble2x32(uvec2 const& v)
 {
     union
     {
@@ -153,7 +153,7 @@ GLM_FUNC_QUALIFIER uvec2 unpackDouble2x32(double v)
     return uvec2(u.out[0], u.out[1]);
 }
 
-GLM_FUNC_QUALIFIER uint packHalf2x16(const vec2& v)
+GLM_FUNC_QUALIFIER uint packHalf2x16(vec2 const& v)
 {
     union
     {

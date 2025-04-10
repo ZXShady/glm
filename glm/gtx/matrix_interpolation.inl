@@ -7,16 +7,16 @@
 namespace glm
 {
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER void axisAngle(const mat<4, 4, T, Q>& m, vec<3, T, Q>& axis, T& angle)
+GLM_FUNC_QUALIFIER void axisAngle(mat<4, 4, T, Q> const& m, vec<3, T, Q>& axis, T& angle)
 {
-    const T epsilon = std::numeric_limits<T>::epsilon() * static_cast<T>(1e2);
+    T const epsilon = std::numeric_limits<T>::epsilon() * static_cast<T>(1e2);
 
-    const bool nearSymmetrical = abs(m[1][0] - m[0][1]) < epsilon && abs(m[2][0] - m[0][2]) < epsilon &&
+    bool const nearSymmetrical = abs(m[1][0] - m[0][1]) < epsilon && abs(m[2][0] - m[0][2]) < epsilon &&
                                  abs(m[2][1] - m[1][2]) < epsilon;
 
     if (nearSymmetrical)
     {
-        const bool nearIdentity = abs(m[1][0] + m[0][1]) < epsilon && abs(m[2][0] + m[0][2]) < epsilon &&
+        bool const nearIdentity = abs(m[1][0] + m[0][1]) < epsilon && abs(m[2][0] + m[0][2]) < epsilon &&
                                   abs(m[2][1] + m[1][2]) < epsilon && abs(m[0][0] + m[1][1] + m[2][2] - T(3.0)) < epsilon;
         if (nearIdentity)
         {
@@ -79,7 +79,7 @@ GLM_FUNC_QUALIFIER void axisAngle(const mat<4, 4, T, Q>& m, vec<3, T, Q>& axis, 
         return;
     }
 
-    const T angleCos = (m[0][0] + m[1][1] + m[2][2] - static_cast<T>(1)) * static_cast<T>(0.5);
+    T const angleCos = (m[0][0] + m[1][1] + m[2][2] - static_cast<T>(1)) * static_cast<T>(0.5);
     if (angleCos >= static_cast<T>(1.0))
     {
         angle = static_cast<T>(0.0);
@@ -97,7 +97,7 @@ GLM_FUNC_QUALIFIER void axisAngle(const mat<4, 4, T, Q>& m, vec<3, T, Q>& axis, 
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> axisAngleMatrix(const vec<3, T, Q>& axis, const T angle)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> axisAngleMatrix(vec<3, T, Q> const& axis, T const angle)
 {
     T            c = cos(angle);
     T            s = sin(angle);
@@ -123,7 +123,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> axisAngleMatrix(const vec<3, T, Q>& axis, con
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> extractMatrixRotation(const mat<4, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> extractMatrixRotation(mat<4, 4, T, Q> const& m)
 {
     return mat<4, 4, T, Q>(m[0][0],
                            m[0][1],
@@ -144,7 +144,7 @@ GLM_FUNC_QUALIFIER mat<4, 4, T, Q> extractMatrixRotation(const mat<4, 4, T, Q>& 
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<4, 4, T, Q> interpolate(const mat<4, 4, T, Q>& m1, const mat<4, 4, T, Q>& m2, const T delta)
+GLM_FUNC_QUALIFIER mat<4, 4, T, Q> interpolate(mat<4, 4, T, Q> const& m1, mat<4, 4, T, Q> const& m2, T const delta)
 {
     mat<4, 4, T, Q> m1rot       = extractMatrixRotation(m1);
     mat<4, 4, T, Q> dltRotation = m2 * transpose(m1rot);

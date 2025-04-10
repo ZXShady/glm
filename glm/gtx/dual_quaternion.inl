@@ -36,7 +36,7 @@ dual(qua<T, Q>::wxyz(0, 0, 0, 0))
 }
 
 template <typename T, qualifier Q>
-GLM_DEFAULTED_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const tdualquat<T, Q>& d) :
+GLM_DEFAULTED_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<T, Q> const& d) :
 real(d.real),
 dual(d.dual)
 {
@@ -45,21 +45,21 @@ dual(d.dual)
 
 template <typename T, qualifier Q>
 template <qualifier P>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const tdualquat<T, P>& d) : real(d.real), dual(d.dual)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<T, P> const& d) : real(d.real), dual(d.dual)
 {
 }
 
 // -- Explicit basic constructors --
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const qua<T, Q>& r) :
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(qua<T, Q> const& r) :
 real(r),
 dual(qua<T, Q>::wxyz(0, 0, 0, 0))
 {
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const qua<T, Q>& q, const vec<3, T, Q>& p) :
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(qua<T, Q> const& q, vec<3, T, Q> const& p) :
 real(q),
 dual(qua<T, Q>::wxyz(T(-0.5) * (p.x * q.x + p.y * q.y + p.z * q.z),
                      T(+0.5) * (p.x * q.w + p.y * q.z - p.z * q.y),
@@ -69,7 +69,7 @@ dual(qua<T, Q>::wxyz(T(-0.5) * (p.x * q.x + p.y * q.y + p.z * q.z),
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const qua<T, Q>& r, const qua<T, Q>& d) : real(r), dual(d)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(qua<T, Q> const& r, qua<T, Q> const& d) : real(r), dual(d)
 {
 }
 
@@ -77,18 +77,18 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const qua<T, Q>& r, 
 
 template <typename T, qualifier Q>
 template <typename U, qualifier P>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const tdualquat<U, P>& q) : real(q.real), dual(q.dual)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<U, P> const& q) : real(q.real), dual(q.dual)
 {
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const mat<2, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(mat<2, 4, T, Q> const& m)
 {
     *this = dualquat_cast(m);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const mat<3, 4, T, Q>& m)
+GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(mat<3, 4, T, Q> const& m)
 {
     *this = dualquat_cast(m);
 }
@@ -97,7 +97,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(const mat<3, 4, T, Q
 
 #if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 template <typename T, qualifier Q>
-GLM_DEFAULTED_FUNC_QUALIFIER tdualquat<T, Q>& tdualquat<T, Q>::operator=(const tdualquat<T, Q>& q)
+GLM_DEFAULTED_FUNC_QUALIFIER tdualquat<T, Q>& tdualquat<T, Q>::operator=(tdualquat<T, Q> const& q)
 {
     this->real = q.real;
     this->dual = q.dual;
@@ -107,7 +107,7 @@ GLM_DEFAULTED_FUNC_QUALIFIER tdualquat<T, Q>& tdualquat<T, Q>::operator=(const t
 
 template <typename T, qualifier Q>
 template <typename U>
-GLM_FUNC_QUALIFIER tdualquat<T, Q>& tdualquat<T, Q>::operator=(const tdualquat<U, Q>& q)
+GLM_FUNC_QUALIFIER tdualquat<T, Q>& tdualquat<T, Q>::operator=(tdualquat<U, Q> const& q)
 {
     this->real = q.real;
     this->dual = q.dual;
@@ -135,13 +135,13 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q>& tdualquat<T, Q>::operator/=(U s)
 // -- Unary bit operators --
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator+(const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator+(tdualquat<T, Q> const& q)
 {
     return q;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator-(const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator-(tdualquat<T, Q> const& q)
 {
     return tdualquat<T, Q>(-q.real, -q.dual);
 }
@@ -149,57 +149,57 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q> operator-(const tdualquat<T, Q>& q)
 // -- Binary operators --
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator+(const tdualquat<T, Q>& q, const tdualquat<T, Q>& p)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator+(tdualquat<T, Q> const& q, tdualquat<T, Q> const& p)
 {
     return tdualquat<T, Q>(q.real + p.real, q.dual + p.dual);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator*(const tdualquat<T, Q>& p, const tdualquat<T, Q>& o)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator*(tdualquat<T, Q> const& p, tdualquat<T, Q> const& o)
 {
     return tdualquat<T, Q>(p.real * o.real, p.real * o.dual + p.dual * o.real);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> operator*(const tdualquat<T, Q>& q, const vec<3, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<3, T, Q> operator*(tdualquat<T, Q> const& q, vec<3, T, Q> const& v)
 {
-    const vec<3, T, Q> real_v3(q.real.x, q.real.y, q.real.z);
-    const vec<3, T, Q> dual_v3(q.dual.x, q.dual.y, q.dual.z);
+    vec<3, T, Q> const real_v3(q.real.x, q.real.y, q.real.z);
+    vec<3, T, Q> const dual_v3(q.dual.x, q.dual.y, q.dual.z);
     return (cross(real_v3, cross(real_v3, v) + v * q.real.w + dual_v3) + dual_v3 * q.real.w - real_v3 * q.dual.w) * T(2) + v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<3, T, Q> operator*(const vec<3, T, Q>& v, const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER vec<3, T, Q> operator*(vec<3, T, Q> const& v, tdualquat<T, Q> const& q)
 {
     return glm::inverse(q) * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> operator*(const tdualquat<T, Q>& q, const vec<4, T, Q>& v)
+GLM_FUNC_QUALIFIER vec<4, T, Q> operator*(tdualquat<T, Q> const& q, vec<4, T, Q> const& v)
 {
     return vec<4, T, Q>(q * vec<3, T, Q>(v), v.w);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER vec<4, T, Q> operator*(const vec<4, T, Q>& v, const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER vec<4, T, Q> operator*(vec<4, T, Q> const& v, tdualquat<T, Q> const& q)
 {
     return glm::inverse(q) * v;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator*(const tdualquat<T, Q>& q, const T& s)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator*(tdualquat<T, Q> const& q, T const& s)
 {
     return tdualquat<T, Q>(q.real * s, q.dual * s);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator*(const T& s, const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator*(T const& s, tdualquat<T, Q> const& q)
 {
     return q * s;
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> operator/(const tdualquat<T, Q>& q, const T& s)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> operator/(tdualquat<T, Q> const& q, T const& s)
 {
     return tdualquat<T, Q>(q.real / s, q.dual / s);
 }
@@ -207,13 +207,13 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q> operator/(const tdualquat<T, Q>& q, const T& 
 // -- Boolean operators --
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool operator==(const tdualquat<T, Q>& q1, const tdualquat<T, Q>& q2)
+GLM_FUNC_QUALIFIER bool operator==(tdualquat<T, Q> const& q1, tdualquat<T, Q> const& q2)
 {
     return (q1.real == q2.real) && (q1.dual == q2.dual);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER bool operator!=(const tdualquat<T, Q>& q1, const tdualquat<T, Q>& q2)
+GLM_FUNC_QUALIFIER bool operator!=(tdualquat<T, Q> const& q1, tdualquat<T, Q> const& q2)
 {
     return (q1.real != q2.real) || (q1.dual != q2.dual);
 }
@@ -228,63 +228,63 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q> dual_quat_identity()
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> normalize(const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> normalize(tdualquat<T, Q> const& q)
 {
     return q / length(q.real);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> lerp(const tdualquat<T, Q>& x, const tdualquat<T, Q>& y, const T& a)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> lerp(tdualquat<T, Q> const& x, tdualquat<T, Q> const& y, T const& a)
 {
     // Dual Quaternion Linear blend aka DLB:
     // Lerp is only defined in [0, 1]
     assert(a >= static_cast<T>(0));
     assert(a <= static_cast<T>(1));
-    const T k = dot(x.real, y.real) < static_cast<T>(0) ? -a : a;
-    const T one(1);
+    T const k = dot(x.real, y.real) < static_cast<T>(0) ? -a : a;
+    T const one(1);
     return tdualquat<T, Q>(x * (one - a) + y * k);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> inverse(const tdualquat<T, Q>& q)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> inverse(tdualquat<T, Q> const& q)
 {
-    const glm::qua<T, Q> real = conjugate(q.real);
-    const glm::qua<T, Q> dual = conjugate(q.dual);
+    glm::qua<T, Q> const real = conjugate(q.real);
+    glm::qua<T, Q> const dual = conjugate(q.dual);
     return tdualquat<T, Q>(real, dual + (real * (-2.0f * dot(real, dual))));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<2, 4, T, Q> mat2x4_cast(const tdualquat<T, Q>& x)
+GLM_FUNC_QUALIFIER mat<2, 4, T, Q> mat2x4_cast(tdualquat<T, Q> const& x)
 {
     return mat<2, 4, T, Q>(x[0].x, x[0].y, x[0].z, x[0].w, x[1].x, x[1].y, x[1].z, x[1].w);
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER mat<3, 4, T, Q> mat3x4_cast(const tdualquat<T, Q>& x)
+GLM_FUNC_QUALIFIER mat<3, 4, T, Q> mat3x4_cast(tdualquat<T, Q> const& x)
 {
     qua<T, Q> r = x.real / length2(x.real);
 
-    const qua<T, Q> rr(r.w * x.real.w, r.x * x.real.x, r.y * x.real.y, r.z * x.real.z);
+    qua<T, Q> const rr(r.w * x.real.w, r.x * x.real.x, r.y * x.real.y, r.z * x.real.z);
     r *= static_cast<T>(2);
 
-    const T xy = r.x * x.real.y;
-    const T xz = r.x * x.real.z;
-    const T yz = r.y * x.real.z;
-    const T wx = r.w * x.real.x;
-    const T wy = r.w * x.real.y;
-    const T wz = r.w * x.real.z;
+    T const xy = r.x * x.real.y;
+    T const xz = r.x * x.real.z;
+    T const yz = r.y * x.real.z;
+    T const wx = r.w * x.real.x;
+    T const wy = r.w * x.real.y;
+    T const wz = r.w * x.real.z;
 
-    const vec<4, T, Q> a(rr.w + rr.x - rr.y - rr.z,
+    vec<4, T, Q> const a(rr.w + rr.x - rr.y - rr.z,
                          xy - wz,
                          xz + wy,
                          -(x.dual.w * r.x - x.dual.x * r.w + x.dual.y * r.z - x.dual.z * r.y));
 
-    const vec<4, T, Q> b(xy + wz,
+    vec<4, T, Q> const b(xy + wz,
                          rr.w + rr.y - rr.x - rr.z,
                          yz - wx,
                          -(x.dual.w * r.y - x.dual.x * r.z - x.dual.y * r.w + x.dual.z * r.x));
 
-    const vec<4, T, Q> c(xz - wy,
+    vec<4, T, Q> const c(xz - wy,
                          yz + wx,
                          rr.w + rr.z - rr.x - rr.y,
                          -(x.dual.w * r.z + x.dual.x * r.y - x.dual.y * r.x - x.dual.z * r.w));
@@ -293,21 +293,21 @@ GLM_FUNC_QUALIFIER mat<3, 4, T, Q> mat3x4_cast(const tdualquat<T, Q>& x)
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(const mat<2, 4, T, Q>& x)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(mat<2, 4, T, Q> const& x)
 {
     return tdualquat<T, Q>(qua<T, Q>::wxyz(x[0].w, x[0].x, x[0].y, x[0].z), qua<T, Q>::wxyz(x[1].w, x[1].x, x[1].y, x[1].z));
 }
 
 template <typename T, qualifier Q>
-GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(const mat<3, 4, T, Q>& x)
+GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(mat<3, 4, T, Q> const& x)
 {
     qua<T, Q> real;
 
-    const T trace = x[0].x + x[1].y + x[2].z;
+    T const trace = x[0].x + x[1].y + x[2].z;
     if (trace > static_cast<T>(0))
     {
-        const T r    = sqrt(T(1) + trace);
-        const T invr = static_cast<T>(0.5) / r;
+        T const r    = sqrt(T(1) + trace);
+        T const invr = static_cast<T>(0.5) / r;
         real.w       = static_cast<T>(0.5) * r;
         real.x       = (x[2].y - x[1].z) * invr;
         real.y       = (x[0].z - x[2].x) * invr;
@@ -315,8 +315,8 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(const mat<3, 4, T, Q>& x)
     }
     else if (x[0].x > x[1].y && x[0].x > x[2].z)
     {
-        const T r    = sqrt(T(1) + x[0].x - x[1].y - x[2].z);
-        const T invr = static_cast<T>(0.5) / r;
+        T const r    = sqrt(T(1) + x[0].x - x[1].y - x[2].z);
+        T const invr = static_cast<T>(0.5) / r;
         real.x       = static_cast<T>(0.5) * r;
         real.y       = (x[1].x + x[0].y) * invr;
         real.z       = (x[0].z + x[2].x) * invr;
@@ -324,8 +324,8 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(const mat<3, 4, T, Q>& x)
     }
     else if (x[1].y > x[2].z)
     {
-        const T r    = sqrt(T(1) + x[1].y - x[0].x - x[2].z);
-        const T invr = static_cast<T>(0.5) / r;
+        T const r    = sqrt(T(1) + x[1].y - x[0].x - x[2].z);
+        T const invr = static_cast<T>(0.5) / r;
         real.x       = (x[1].x + x[0].y) * invr;
         real.y       = static_cast<T>(0.5) * r;
         real.z       = (x[2].y + x[1].z) * invr;
@@ -333,8 +333,8 @@ GLM_FUNC_QUALIFIER tdualquat<T, Q> dualquat_cast(const mat<3, 4, T, Q>& x)
     }
     else
     {
-        const T r    = sqrt(T(1) + x[2].z - x[0].x - x[1].y);
-        const T invr = static_cast<T>(0.5) / r;
+        T const r    = sqrt(T(1) + x[2].z - x[0].x - x[1].y);
+        T const invr = static_cast<T>(0.5) / r;
         real.x       = (x[0].z + x[2].x) * invr;
         real.y       = (x[2].y + x[1].z) * invr;
         real.z       = static_cast<T>(0.5) * r;
