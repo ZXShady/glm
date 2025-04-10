@@ -408,21 +408,6 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
-// nullptr
-
-#if GLM_LANG & GLM_LANG_CXX0X_FLAG
-#	define GLM_CONFIG_NULLPTR GLM_ENABLE
-#else
-#	define GLM_CONFIG_NULLPTR GLM_DISABLE
-#endif
-
-#if GLM_CONFIG_NULLPTR == GLM_ENABLE
-#	define GLM_NULLPTR nullptr
-#else
-#	define GLM_NULLPTR 0
-#endif
-
-///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
 // User defines: GLM_CUDA_FORCE_DEVICE_FUNC, GLM_CUDA_FORCE_HOST_FUNC
