@@ -30,68 +30,6 @@
 
 namespace glm
 {
-namespace detail
-{
-template <length_t C, length_t R, typename T, qualifier Q>
-struct outerProduct_trait
-{
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<2, 2, T, Q>
-{
-    typedef mat<2, 2, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<2, 3, T, Q>
-{
-    typedef mat<3, 2, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<2, 4, T, Q>
-{
-    typedef mat<4, 2, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<3, 2, T, Q>
-{
-    typedef mat<2, 3, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<3, 3, T, Q>
-{
-    typedef mat<3, 3, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<3, 4, T, Q>
-{
-    typedef mat<4, 3, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<4, 2, T, Q>
-{
-    typedef mat<2, 4, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<4, 3, T, Q>
-{
-    typedef mat<3, 4, T, Q> type;
-};
-
-template <typename T, qualifier Q>
-struct outerProduct_trait<4, 4, T, Q>
-{
-    typedef mat<4, 4, T, Q> type;
-};
-} //namespace detail
-
 /// @addtogroup core_func_matrix
 /// @{
 
@@ -120,7 +58,7 @@ GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(const mat<C, R, T, Q>& x, const mat
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct(const vec<C, T, Q>& c, const vec<R, T, Q>& r);
+GLM_FUNC_DECL mat<R, C, T, Q> outerProduct(const vec<C, T, Q>& c, const vec<R, T, Q>& r);
 
 /// Returns the transposed matrix of x
 ///
