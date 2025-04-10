@@ -353,7 +353,7 @@ value{col_type(m[0], 0), col_type(m[1], 0), col_type(m[2], 0), col_type(m[3], 1)
 
 template <typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename mat<4, 4, T, Q>::col_type& mat<4, 4, T, Q>::operator[](
-    typename mat<4, 4, T, Q>::length_type i) GLM_NOEXCEPT
+    typename mat<4, 4, T, Q>::length_type i) noexcept
 {
     GLM_ASSERT_LENGTH(i, this->length());
     return this->value[i];
@@ -361,7 +361,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename mat<4, 4, T, Q>::col_type& mat<4, 4, T
 
 template <typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR const typename mat<4, 4, T, Q>::col_type& mat<4, 4, T, Q>::operator[](
-    typename mat<4, 4, T, Q>::length_type i) const GLM_NOEXCEPT
+    typename mat<4, 4, T, Q>::length_type i) const noexcept
 {
     GLM_ASSERT_LENGTH(i, this->length());
     return this->value[i];
