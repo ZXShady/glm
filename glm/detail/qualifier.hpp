@@ -75,14 +75,12 @@ namespace detail
 template <glm::qualifier P>
 struct is_aligned
 {
-    enum
-    {
 #if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
-        value = P == glm::aligned_mediump || P == glm::aligned_lowp || P == glm::aligned_highp;
+    static constexpr bool value = P == glm::aligned_mediump || P == glm::aligned_lowp || P == glm::aligned_highp;
 #else
-        value = false
+    static constexpr bool value = false
 #endif
-    };
+};
 };
 template <length_t L, typename T, bool is_aligned>
 struct storage
@@ -280,7 +278,7 @@ struct genTypeTrait
 template <length_t C, length_t R, typename T>
 struct genTypeTrait<mat<C, R, T>>
 {
-    static genTypeEnum const GENTYPE = GENTYPE_MAT;
+    static constexpr genTypeEnum GENTYPE = GENTYPE_MAT;
 };
 
 template <typename genType, genTypeEnum type>

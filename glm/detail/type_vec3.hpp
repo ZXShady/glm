@@ -23,10 +23,7 @@ struct vec<3, T, Q>
     typedef vec<3, T, Q>    type;
     typedef vec<3, bool, Q> bool_type;
 
-    enum is_aligned
-    {
-        value = detail::is_aligned<Q>::value
-    };
+    static constexpr bool is_aligned = detail::is_aligned<Q>::value;
 
     // -- Data --
 

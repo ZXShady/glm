@@ -35,28 +35,19 @@ typedef unsigned int   uint32;
 template <>
 struct is_int<uint8>
 {
-    enum test
-    {
-        value = ~0
-    };
+    static constexpr bool value = true;
 };
 
 template <>
 struct is_int<uint16>
 {
-    enum test
-    {
-        value = ~0
-    };
+    static constexpr bool value = true;
 };
 
 template <>
 struct is_int<uint64>
 {
-    enum test
-    {
-        value = ~0
-    };
+    static constexpr bool value = true;
 };
 } //namespace detail
 

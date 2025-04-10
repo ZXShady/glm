@@ -635,19 +635,19 @@ namespace detail
 	template<typename T>
 	struct is_int
 	{
-		enum test {value = 0};
+		constexpr static bool value = false;
 	};
 
 	template<>
 	struct is_int<unsigned int>
 	{
-		enum test {value = ~0};
+		constexpr static bool value = true;
 	};
 
 	template<>
 	struct is_int<signed int>
-	{
-		enum test {value = ~0};
+	{		
+		constexpr static bool value = true;
 	};
 }//namespace detail
 

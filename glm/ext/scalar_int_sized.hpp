@@ -35,28 +35,19 @@ typedef signed int   int32;
 template <>
 struct is_int<int8>
 {
-    enum test
-    {
-        value = ~0
-    };
+    static constexpr bool value = true;
 };
 
 template <>
 struct is_int<int16>
 {
-    enum test
-    {
-        value = ~0
-    };
+    static constexpr bool value = true;
 };
 
 template <>
 struct is_int<int64>
 {
-    enum test
-    {
-        value = ~0
-    };
+    static constexpr bool value = true;
 };
 } //namespace detail
 

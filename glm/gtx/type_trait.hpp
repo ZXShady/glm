@@ -32,65 +32,50 @@ namespace glm
 template <typename T>
 struct type
 {
-    enum
-    {
-        is_vec     = false,
-        is_mat     = false,
-        is_quat    = false,
-        components = 0,
-        cols       = 0,
-        rows       = 0
-    };
+    static constexpr bool     is_vec     = false;
+    static constexpr bool     is_mat     = false;
+    static constexpr bool     is_quat    = false;
+    static constexpr length_t components = 0;
+    static constexpr length_t cols       = 0;
+    static constexpr length_t rows       = 0;
 };
 
 template <length_t L, typename T, qualifier Q>
 struct type<vec<L, T, Q>>
 {
-    enum
-    {
-        is_vec     = true,
-        is_mat     = false,
-        is_quat    = false,
-        components = L
-    };
+    static constexpr bool     is_vec     = true;
+    static constexpr bool     is_mat     = false;
+    static constexpr bool     is_quat    = false;
+    static constexpr length_t components = L;
 };
 
 template <length_t C, length_t R, typename T, qualifier Q>
 struct type<mat<C, R, T, Q>>
 {
-    enum
-    {
-        is_vec     = false,
-        is_mat     = true,
-        is_quat    = false,
-        components = C,
-        cols       = C,
-        rows       = R
-    };
+    static constexpr bool     is_vec     = false;
+    static constexpr bool     is_mat     = true;
+    static constexpr bool     is_quat    = false;
+    static constexpr length_t components = C;
+    static constexpr length_t cols       = C;
+    static constexpr length_t rows       = R;
 };
 
 template <typename T, qualifier Q>
 struct type<qua<T, Q>>
 {
-    enum
-    {
-        is_vec     = false,
-        is_mat     = false,
-        is_quat    = true,
-        components = 4
-    };
+    static constexpr bool     is_vec     = false;
+    static constexpr bool     is_mat     = false;
+    static constexpr bool     is_quat    = true;
+    static constexpr length_t components = 4;
 };
 
 template <typename T, qualifier Q>
 struct type<tdualquat<T, Q>>
 {
-    enum
-    {
-        is_vec     = false,
-        is_mat     = false,
-        is_quat    = true,
-        components = 8
-    };
+    static constexpr bool     is_vec     = false;
+    static constexpr bool     is_mat     = false;
+    static constexpr bool     is_quat    = true;
+    static constexpr length_t components = 8;
 };
 
 /// @}
