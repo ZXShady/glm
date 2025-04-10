@@ -81,7 +81,6 @@ struct is_aligned
     static constexpr bool value = false
 #endif
 };
-};
 template <length_t L, typename T, bool is_aligned>
 struct storage
 {
