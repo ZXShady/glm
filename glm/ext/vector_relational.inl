@@ -70,6 +70,6 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x,
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, int, Q> const& MaxULPs)
 {
-    return not_(equal(x, y, MaxULPs));
+    return !(equal(x, y, MaxULPs));
 }
 } //namespace glm

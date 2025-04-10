@@ -14,7 +14,7 @@ struct compute_matrixCompMult_type<C, R, T, Q, false, Aligned>
 template <length_t DA, length_t DB, typename T, qualifier Q>
 struct compute_outerProduct_type<DA, DB, T, Q, false>
 {
-    GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<DA, DB, T, Q>::type call(vec<DA, T, Q> const& c,
+    GLM_FUNC_QUALIFIER static mat<DB,DA, T, Q> call(vec<DA, T, Q> const& c,
                                                                                            vec<DB, T, Q> const& r)
     {
         return detail::compute_outerProduct<DA, DB, T, Q>::call(c, r);

@@ -59,7 +59,7 @@ GLM_FUNC_DECL mat<C, R, T, Q> matrixCompMult(mat<C, R, T, Q> const& x, mat<C, R,
 /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 template <length_t C, length_t R, typename T, qualifier Q>
-GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct(vec<C, T, Q> const& c, vec<R, T, Q> const& r);
+GLM_FUNC_DECL mat<R, C, T, Q> outerProduct(vec<C, T, Q> const& c, vec<R, T, Q> const& r);
 
 /// Returns the transposed matrix of x
 ///

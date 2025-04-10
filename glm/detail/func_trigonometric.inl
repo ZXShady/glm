@@ -17,7 +17,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType radians(genType degrees)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> radians(vec<L, T, Q> const& v)
 {
-    return vectorize(radians<T>, v);
+    return detail::vectorize(radians<T>, v);
 }
 
 // degrees
@@ -33,7 +33,7 @@ GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType degrees(genType radians)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> degrees(vec<L, T, Q> const& v)
 {
-    return vectorize(degrees<T>, v);
+    return detail::vectorize(degrees<T>, v);
 }
 
 // sin
@@ -42,7 +42,7 @@ using ::std::sin;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> sin(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return sin(x); }, v);
+    return detail::vectorize([](T const x) { return sin(x); }, v);
 }
 
 // cos
@@ -51,7 +51,7 @@ using std::cos;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> cos(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return cos(x); }, v);
+    return detail::vectorize([](T const x) { return cos(x); }, v);
 }
 
 // tan
@@ -60,7 +60,7 @@ using std::tan;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> tan(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return tan(x); }, v);
+    return detail::vectorize([](T const x) { return tan(x); }, v);
 }
 
 // asin
@@ -69,7 +69,7 @@ using std::asin;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> asin(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return asin(x); }, v);
+    return detail::vectorize([](T const x) { return asin(x); }, v);
 }
 
 // acos
@@ -78,7 +78,7 @@ using std::acos;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> acos(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return acos(x); }, v);
+    return detail::vectorize([](T const x) { return acos(x); }, v);
 }
 
 // atan
@@ -94,7 +94,7 @@ GLM_FUNC_QUALIFIER genType atan(genType y, genType x)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> atan(vec<L, T, Q> const& y, vec<L, T, Q> const& x)
 {
-    return vectorize([](T const a, T const b) { return atan(a, b); }, y, x);
+    return detail::vectorize([](T const a, T const b) { return atan(a, b); }, y, x);
 }
 
 using std::atan;
@@ -102,7 +102,7 @@ using std::atan;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> atan(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return atan(x); }, v);
+    return detail::vectorize([](T const x) { return atan(x); }, v);
 }
 
 // sinh
@@ -111,7 +111,7 @@ using std::sinh;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> sinh(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return sinh(x); }, v);
+    return detail::vectorize([](T const x) { return sinh(x); }, v);
 }
 
 // cosh
@@ -120,7 +120,7 @@ using std::cosh;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> cosh(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return cosh(x); }, v);
+    return detail::vectorize([](T const x) { return cosh(x); }, v);
 }
 
 // tanh
@@ -129,7 +129,7 @@ using std::tanh;
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> tanh(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return tanh(x); }, v);
+    return detail::vectorize([](T const x) { return tanh(x); }, v);
 }
 
 // asinh
@@ -152,7 +152,7 @@ GLM_FUNC_QUALIFIER genType asinh(genType x)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> asinh(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return asinh(x); }, v);
+    return detail::vectorize([](T const x) { return asinh(x); }, v);
 }
 
 // acosh
@@ -174,7 +174,7 @@ GLM_FUNC_QUALIFIER genType acosh(genType x)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> acosh(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return acosh(x); }, v);
+    return detail::vectorize([](T const x) { return acosh(x); }, v);
 }
 
 // atanh
@@ -196,7 +196,7 @@ GLM_FUNC_QUALIFIER genType atanh(genType x)
 template <length_t L, typename T, qualifier Q>
 GLM_FUNC_QUALIFIER vec<L, T, Q> atanh(vec<L, T, Q> const& v)
 {
-    return vectorize([](T const x) { return atanh(x); }, v);
+    return detail::vectorize([](T const x) { return atanh(x); }, v);
 }
 } //namespace glm
 

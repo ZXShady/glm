@@ -78,7 +78,7 @@ struct is_aligned
 #if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
     static constexpr bool value = P == glm::aligned_mediump || P == glm::aligned_lowp || P == glm::aligned_highp;
 #else
-    static constexpr bool value = false
+    static constexpr bool value = false;
 #endif
 };
 template <length_t L, typename T, bool is_aligned>

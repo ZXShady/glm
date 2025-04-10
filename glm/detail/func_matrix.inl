@@ -32,10 +32,9 @@ struct compute_matrixCompMult_type
 template <length_t DA, length_t DB, typename T, qualifier Q>
 struct compute_outerProduct
 {
-    GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<DA, DB, T, Q>::type call(vec<DA, T, Q> const& c,
-                                                                                           vec<DB, T, Q> const& r)
+    GLM_FUNC_QUALIFIER static mat<DB, DA, T, Q> call(vec<DA, T, Q> const& c, vec<DB, T, Q> const& r)
     {
-        typename detail::outerProduct_trait<DA, DB, T, Q>::type m(0);
+        mat<DB, DA, T, Q> m(0);
         for (length_t i = 0; i < m.length(); ++i)
             m[i] = c * r[i];
         return m;
@@ -45,8 +44,7 @@ struct compute_outerProduct
 template <length_t DA, length_t DB, typename T, qualifier Q, bool IsFloat>
 struct compute_outerProduct_type
 {
-    GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<DA, DB, T, Q>::type call(vec<DA, T, Q> const& c,
-                                                                                           vec<DB, T, Q> const& r)
+    GLM_FUNC_QUALIFIER static mat<DB, DA, T, Q> call(vec<DA, T, Q> const& c, vec<DB, T, Q> const& r)
     {
         static_assert(std::numeric_limits<T>::is_iec559 || GLM_CONFIG_UNRESTRICTED_GENTYPE,
                       "'outerProduct' only accept floating-point inputs, include <glm/ext/matrix_integer.hpp> to "
@@ -464,8 +462,7 @@ GLM_FUNC_QUALIFIER mat<C, R, T, Q> matrixCompMult(mat<C, R, T, Q> const& x, mat<
 }
 
 template <length_t DA, length_t DB, typename T, qualifier Q>
-GLM_FUNC_QUALIFIER typename detail::outerProduct_trait<DA, DB, T, Q>::type outerProduct(vec<DA, T, Q> const& c,
-                                                                                        vec<DB, T, Q> const& r)
+GLM_FUNC_QUALIFIER mat<DB, DA, T, Q> outerProduct(vec<DA, T, Q> const& c, vec<DB, T, Q> const& r)
 {
     return detail::compute_outerProduct_type<DA, DB, T, Q, std::numeric_limits<T>::is_iec559>::call(c, r);
 }
